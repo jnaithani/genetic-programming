@@ -5,6 +5,6 @@
  */
 public class Settings {
 	
-	private double MUTATOR_PROB = 0.5;
+	public static double MUTATOR_PROB = 0.5;
 
 }
