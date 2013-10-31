@@ -24,11 +24,10 @@ public class GPUtilities {
 			int temp = Utilities.getRandomNumber(minimum, maximum);
 
 			if ((temp < minimum) || (temp > maximum)) {
-				fail("Out of range random number generated.  Must have been between: "
+				fail("Failed to meet in between"
 						+ minimum
 						+ " and: "
-						+ maximum
-						+ ". Number returned: "
+						+ maximum + ". Number returned: "
 						+ temp);
 			}
 		}
