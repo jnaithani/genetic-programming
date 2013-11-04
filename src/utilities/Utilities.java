@@ -31,6 +31,35 @@ public class Utilities {
     }
 
     /**
+     * @param operator
+     * @param a
+     * @param b
+     * @return
+     */
+    public static double performOperation(char operator, double a, double b) {
+        double yValue = 0.0;
+
+        switch (operator) {
+            case '+':
+                yValue = a + b;
+                break;
+            case '-':
+                yValue = a - b;
+                break;
+            case '/':
+                yValue = a / b;
+                break;
+            case '*':
+                yValue = a * b;
+            default:
+                break;
+        }
+
+
+        return yValue;
+    }
+
+    /**
      * Reads a file using the filename and will return
      *
      * @param fileName
