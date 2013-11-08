@@ -11,21 +11,13 @@ import static org.junit.Assert.fail;
 
 public class GPUtilities {
 
-    @Test
-    public void test() {
-        assertEquals("works", "works");
-
-    }
 
     @Test
     public void testFileReader() throws Exception {
-//        System.out.println("Working Directory = " +
-//                System.getProperty("user.dir"));
         String fileName = "src/training.txt";
         HashMap<String,String> lines = Utilities.readFileGetLine(fileName);
 
         assertEquals(3, lines.size());
-
 
     }
 

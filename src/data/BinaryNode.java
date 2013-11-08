@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class BinaryNode {
 
     private String item;        // The data in this node. Items : [0-9, 'x' or +-*/
-    private BinaryNode left;   // Pointer to the left subtree.
-    private BinaryNode right;  // Pointer to the right subtree.
+    BinaryNode left;   // Pointer to the left subtree.
+    BinaryNode right;  // Pointer to the right subtree.
     private BinaryNode parent;  // Pointer to the parent node.
     private static ArrayList items = new ArrayList();
 
@@ -30,7 +30,7 @@ public class BinaryNode {
     public BinaryNode(String item) {
         this.item = item;
     }
-
+    
     public void setNodes(BinaryNode left, BinaryNode right) {
         this.left = left;
         this.right = right;
