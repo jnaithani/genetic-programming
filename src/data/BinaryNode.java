@@ -13,7 +13,7 @@ public class BinaryNode {
     BinaryNode left;   // Pointer to the left subtree.
     BinaryNode right;  // Pointer to the right subtree.
     private BinaryNode parent;  // Pointer to the parent node.
-    private static ArrayList items = new ArrayList();
+    private static ArrayList<String> items = new ArrayList<String>();
 
     /**
      *
@@ -43,7 +43,7 @@ public class BinaryNode {
      * by the items in the right subtree and then the item
      * in the root node.
      */
-    public static ArrayList postOrderItems(BinaryNode root) {
+    public static ArrayList<String> postOrderItems(BinaryNode root) {
 
 
         if (root != null) {  // (Otherwise, there's nothing to print.)
