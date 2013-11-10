@@ -15,6 +15,8 @@ public class Settings extends Properties {
     public static String PROP_POPULATION_SIZE = "populationsize";
     public static String PROP_CROSSOVER_PROB = "crossoverprobability";
     public static String PROP_MAX_NODES = "maxnodes";
+    public static String PROP_MAX_DEPTH = "maxdepth";
+    public static String PROP_DEBUG = "debug";
     
     public static double DEFAULT_MUTATOR_PROB = 0.5;
     public static int DEFAULT_POPULATION_SIZE = 1000;
@@ -25,6 +27,7 @@ public class Settings extends Properties {
     private final static String SETTINGS_FILE_NAME = "settings.properties";
     
     private static Properties settings = null;
+    private static boolean debug = false;
     
     public static final Properties getSettings() throws Exception {
         if (settings == null) {
@@ -37,6 +40,22 @@ public class Settings extends Properties {
     public static final Properties loadSettings(String fileName) throws Exception {
             settings = new Settings(fileName);            
         return settings;
+    }
+    
+    public static boolean debug() {
+        try {
+            if (settings == null) {
+                Settings.loadSettings(getDefaultSettingsFilename());
+            }
+
+            if (settings.getProperty(PROP_DEBUG) != null)
+                return Boolean.valueOf(settings.getProperty(PROP_DEBUG));
+            else
+                return false;
+        } catch (Exception e) {
+            return false;
+        }
+        
     }
     
     private static String getDefaultSettingsFilename() throws Exception {
