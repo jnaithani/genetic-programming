@@ -34,7 +34,11 @@ public class TreeTest {
             System.out.println("Tree depth: " + tree.depth());
             System.out.println("Tree size: " + tree.size());
             
-            tree.postOrderPrint();            
+            tree.postOrderPrint();  
+            System.out.println("");
+            
+            double xval = 1;
+            System.out.println("Evaluate: " + tree.evaluate(xval));
         } catch (Exception e) {
             e.printStackTrace();
             fail("Could not generate tree");

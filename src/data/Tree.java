@@ -43,6 +43,10 @@ public class Tree {
         }
     }
     
+    public double evaluate(double xval) {
+        return root.evaluate(xval);
+    }
+    
     public static Node generateTree(int maxDepth) {
         double p = Math.random();
         

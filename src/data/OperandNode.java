@@ -7,12 +7,13 @@ import utilities.Settings;
 public class OperandNode extends Node {
     
     private String operand;
+    private final int MAX = 12;
 
     public OperandNode() {
         Random rand = new Random();
-        int randInt = rand.nextInt(11   );
+        int randInt = rand.nextInt(MAX);
         
-        if (randInt == 10) {
+        if (randInt >= 10) {
             operand = "x";
         } else {
             operand = Integer.toString(randInt);
@@ -37,5 +38,13 @@ public class OperandNode extends Node {
     
     public String toString() {
         return operand;
+    }
+    
+    public double evaluate(double xval) {
+        if (operand.equals("x")) {
+            return xval;
+        } else {
+            return Double.parseDouble(operand);
+        }
     }
 }

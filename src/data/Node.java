@@ -51,4 +51,6 @@ public abstract class Node {
     }
     
     public abstract String getDataItem();
+    
+    public abstract double evaluate(double xval);
 }

@@ -42,4 +42,25 @@ public class OperatorNode extends Node {
     public String toString() {
         return operator;
     }
+    
+    public double evaluate(double xval) {
+        double left = getLeftChild().evaluate(xval);
+        double right = getRightChild().evaluate(xval);
+        
+        return calculate(left, right, operator);
+    }
+    
+    private double calculate(double left, double right, String operator) {
+        if (operator.equals(OP_ADD)) {
+            return left + right;
+        } else if (operator.equals(OP_SUB)) {
+            return left - right;
+        } else if (operator.equals(OP_MUL)) {
+            return left * right;
+        } else if (operator.equals(OP_DIV)) {
+            return left / right;
+        }
+        
+        return 0;
+    }
 }
