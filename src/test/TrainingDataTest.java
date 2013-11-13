@@ -14,9 +14,10 @@ public class TrainingDataTest {
     public void testLoadTrainingData() {
         System.out.println("***testLoadTrainingData***");
         
-        int maxXValue = 10;
+        int minXValue = -10;
+        int testDataSize = 20;
         try {
-            TrainingData.generateInitialTrainingData(maxXValue);
+            TrainingData.generateInitialTrainingData(minXValue, testDataSize);
         } catch (Exception e) {
             e.printStackTrace();
             fail("Could not generate intitial training data");

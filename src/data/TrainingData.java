@@ -31,7 +31,7 @@ public class TrainingData {
         return outputData;
     }
     
-    public static void generateInitialTrainingData(int maxValue) throws Exception {
+    public static void generateInitialTrainingData(double minValue, int dataSetSize) throws Exception {
         
         FileOutputStream outputStream = new FileOutputStream(TRAINING_FILE_NAME);
         
@@ -39,11 +39,13 @@ public class TrainingData {
         
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(out));
         
-        for (int i = 0; i < maxValue * 2; i++) {
-            double x = i - maxValue; 
+        for (int i = 0; i < dataSetSize; i++) {
+            double x = minValue; 
             double y = ((x * x) - 1)/2;
             
             bw.write("" + x + "," + y + "\n");
+            
+            minValue++;
         }
         
         bw.flush();
