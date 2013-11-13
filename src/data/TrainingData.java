@@ -41,7 +41,7 @@ public class TrainingData {
         
         for (int i = 0; i < maxValue * 2; i++) {
             double x = i - maxValue; 
-            double y = ((x * x) - 2)/2;
+            double y = ((x * x) - 1)/2;
             
             bw.write("" + x + "," + y + "\n");
         }
