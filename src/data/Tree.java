@@ -5,7 +5,11 @@ import utilities.NodeFactory;
 public class Tree {
     Node root = null;
     
-    public Tree(Node root) {
+    public Node getRoot() {
+		return root;
+	}
+
+	public Tree(Node root) {
         this.root = root;
     }
     
@@ -52,6 +56,7 @@ public class Tree {
         
         Node root = null;
         
+        //x probability < p 
         if (p <= 0.5) {
              root = generateFull(maxDepth);
         } else {

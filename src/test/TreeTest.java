@@ -9,6 +9,7 @@ import org.junit.Test;
 import data.Node;
 import data.Tree;
 import utilities.Settings;
+import utilities.Utilities;
 
 public class TreeTest {
 
@@ -36,6 +37,7 @@ public class TreeTest {
             
             tree.postOrderPrint();  
             System.out.println("");
+            //Utilities.printTreeNode(tree.getRoot());
             
             double xval = 1;
             System.out.println("Evaluate: " + tree.evaluate(xval));
@@ -43,6 +45,11 @@ public class TreeTest {
             e.printStackTrace();
             fail("Could not generate tree");
         }
+    }
+    
+    @Test
+    public void testPrintTree(){
+    	assertEquals(1,1);
     }
 
 }
