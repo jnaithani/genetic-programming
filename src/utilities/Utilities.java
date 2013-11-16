@@ -78,6 +78,8 @@ public class Utilities {
 	 * @param maxLevel
 	 */
 	private static void printTreeNodeInternal(List<Node> nodes, int level, int maxLevel) {
+	       if (nodes.isEmpty() || isAllElementsNull(nodes))
+	            return;
 
 		int floor = maxLevel - level;
 		int endgeLines = (int) Math.pow(2, (Math.max(floor - 1, 0)));
@@ -195,4 +197,12 @@ public class Utilities {
 		return lines;
 	}
 
+    private static <T> boolean isAllElementsNull(List<T> list) {
+        for (Object object : list) {
+            if (object != null)
+                return false;
+        }
+
+        return true;
+    }
 }

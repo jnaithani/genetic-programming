@@ -12,6 +12,7 @@ import data.GeneticProgrammingTree;
 import data.TrainingData;
 import data.Tree;
 import utilities.Settings;
+import utilities.Utilities;
 
 public class TreeTest {
 
@@ -38,8 +39,8 @@ public class TreeTest {
             System.out.println("Tree size: " + tree.size());
             
             tree.postOrderPrint();  
-            System.out.println("");
-            //Utilities.printTreeNode(tree.getRoot());
+
+            Utilities.printTreeNode(tree.getRoot());
             
             double xval = 1;
             System.out.println("Evaluate: " + tree.evaluate(xval));
@@ -93,10 +94,12 @@ public class TreeTest {
         try {
             for (int i = 0; i < size; i++) {
                 GeneticProgrammingTree gpTree = GeneticProgrammingTree.createGeneticProgrammingTree(TrainingData.getTrainingData()); 
-                System.out.println("Post Order Print");
-                gpTree.postOrderPrint();
+//                System.out.println("Post Order Print");
+//                gpTree.postOrderPrint();
                 
-                System.out.println("In Order Print");
+                Utilities.printTreeNode(gpTree.getRoot());
+                
+//                System.out.println("In Order Print");
                 gpTree.inOrderPrint();
                 population.add(gpTree);
             }
@@ -146,28 +149,56 @@ public class TreeTest {
                 
                 System.out.println("Evaluate: " + gpTree.evaluate(0));
                 
-                if (gpTree.evaluate(0) == Double.NaN)
-                    System.out.println("Evaluated to Nan");
-                
-                if (Double.isInfinite(gpTree.evaluate(0)))
-                    System.out.println("Evaluated to Infinity");
-                
-                assertTrue("Could not generate a good initial tree", !(Double.isNaN(gpTree.evaluate(0)) || Double.isInfinite(gpTree.evaluate(0))));
+                assertTrue("Could not generate a good initial tree", ((Double.isNaN(gpTree.evaluate(0)) || Double.isInfinite(gpTree.evaluate(0))) == false));
                 
                 System.out.println("Post Order Print");
                 gpTree.postOrderPrint();
+                
+                System.out.println("\nTree Print");
+                Utilities.printTreeNode(gpTree.getRoot());
                 
                 System.out.println("In Order Print");
                 gpTree.inOrderPrint();
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        
+        } 
     }
     
     @Test
-    public void testPrintTree() {     
-        assertEquals(1,1);
+    public void testPrintTree() {    
+        System.out.println("***testPrintTree***");
+        
+        int depth = 0;
+        int size = 0;
+        
+        try {
+            Properties settings = Settings.getSettings();
+            
+            String prop = settings.getProperty(Settings.PROP_MAX_DEPTH);
+            
+            depth = Integer.parseInt(prop);
+            
+            prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
+            
+            size = Integer.parseInt(prop);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Could not load property '" + Settings.PROP_MAX_DEPTH + "'");
+        }
+        
+        try {
+            for (int i = 0; i < size; i++) {
+                Tree gpTree = GeneticProgrammingTree.generateInitialTree(depth); 
+                
+                System.out.println("\nPrint Tree: " + i);
+
+                Utilities.printTreeNode(gpTree.getRoot());
+                
+                gpTree.inOrderPrint();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
     }
 }
