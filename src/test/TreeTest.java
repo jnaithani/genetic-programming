@@ -95,6 +95,11 @@ public class TreeTest {
         try {
             for (int i = 0; i < size; i++) {
                 GeneticProgrammingTree gpTree = GeneticProgrammingTree.createGeneticProgrammingTree(TrainingData.getTrainingData()); 
+                System.out.println("Post Order Print");
+                gpTree.postOrderPrint();
+                
+                System.out.println("In Order Print");
+                gpTree.inOrderPrint();
                 population.add(gpTree);
             }
         } catch (Exception e) {

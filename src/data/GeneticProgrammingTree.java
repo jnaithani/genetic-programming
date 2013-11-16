@@ -33,7 +33,10 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
     }
 
     private static GeneticProgrammingTree createGeneticProgrammingTree(ArrayList<TrainingData> trainingDataList, int maxDepth) {
-        Tree tree = Tree.generateTree(maxDepth);
+        Tree tree = null;
+        do {
+            tree = Tree.generateTree(maxDepth);           
+        } while (tree.evaluate(0) == Double.NaN || Double.isInfinite(tree.evaluate(0)));
        
         double fitness = 0;
         

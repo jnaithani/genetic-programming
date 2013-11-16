@@ -42,6 +42,16 @@ public class Tree {
     public void postOrderPrint() {
         if (root != null) {
             root.postOrderPrint();
+            System.out.println("");
+        } else {
+            System.out.println("Tree is empty!");
+        }
+    }
+    
+    public void inOrderPrint() {
+        if (root != null) {
+            root.inOrderPrint();
+            System.out.println("");
         } else {
             System.out.println("Tree is empty!");
         }

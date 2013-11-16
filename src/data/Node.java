@@ -50,6 +50,20 @@ public abstract class Node {
         System.out.print(this.getDataItem() + " ");  
     }
     
+    public void inOrderPrint() {
+        if (getLeftChild() != null) {
+            System.out.print("(");
+            getLeftChild().inOrderPrint();
+        }
+
+        System.out.print(" " + this.getDataItem() + " ");  
+        
+        if (getRightChild() != null) {
+            getRightChild().inOrderPrint();  
+            System.out.print(")");
+        }
+    }
+    
     public abstract String getDataItem();
     
     public abstract double evaluate(double xval);
