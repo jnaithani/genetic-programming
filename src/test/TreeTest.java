@@ -9,11 +9,9 @@ import java.util.Properties;
 import org.junit.Test;
 
 import data.GeneticProgrammingTree;
-import data.Node;
 import data.TrainingData;
 import data.Tree;
 import utilities.Settings;
-import utilities.Utilities;
 
 public class TreeTest {
 
@@ -118,6 +116,54 @@ public class TreeTest {
         for (GeneticProgrammingTree gpTree : population) {
             System.out.println("GP Tree Fitness: " + gpTree.getFitness());
         }
+    }
+    
+    @Test
+    public void testGenerateInitialTree() {    
+        System.out.println("***testGenerateInitialTree***");
+        
+        int depth = 0;
+        int size = 0;
+        
+        try {
+            Properties settings = Settings.getSettings();
+            
+            String prop = settings.getProperty(Settings.PROP_MAX_DEPTH);
+            
+            depth = Integer.parseInt(prop);
+            
+            prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
+            
+            size = Integer.parseInt(prop);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Could not load property '" + Settings.PROP_MAX_DEPTH + "'");
+        }
+        
+        try {
+            for (int i = 0; i < size; i++) {
+                Tree gpTree = GeneticProgrammingTree.generateInitialTree(depth); 
+                
+                System.out.println("Evaluate: " + gpTree.evaluate(0));
+                
+                if (gpTree.evaluate(0) == Double.NaN)
+                    System.out.println("Evaluated to Nan");
+                
+                if (Double.isInfinite(gpTree.evaluate(0)))
+                    System.out.println("Evaluated to Infinity");
+                
+                assertTrue("Could not generate a good initial tree", !(Double.isNaN(gpTree.evaluate(0)) || Double.isInfinite(gpTree.evaluate(0))));
+                
+                System.out.println("Post Order Print");
+                gpTree.postOrderPrint();
+                
+                System.out.println("In Order Print");
+                gpTree.inOrderPrint();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
     
     @Test

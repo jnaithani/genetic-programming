@@ -33,10 +33,7 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
     }
 
     private static GeneticProgrammingTree createGeneticProgrammingTree(ArrayList<TrainingData> trainingDataList, int maxDepth) {
-        Tree tree = null;
-        do {
-            tree = Tree.generateTree(maxDepth);           
-        } while (tree.evaluate(0) == Double.NaN || Double.isInfinite(tree.evaluate(0)));
+        Tree tree = generateInitialTree(maxDepth);
        
         double fitness = 0;
         
@@ -55,6 +52,19 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
         }
         
         return new GeneticProgrammingTree(tree.getRoot(), fitness);
+    }
+
+    public static Tree generateInitialTree(int maxDepth) {
+        Tree tree = null;
+        do {
+            tree = Tree.generateTree(maxDepth);
+        } while (Double.isNaN(tree.evaluate(0)) || Double.isInfinite(tree.evaluate(0)));
+        
+        if (Settings.trace()) {
+            System.out.println("Evaluate for x=0: " + tree.evaluate(0));
+        }
+        
+        return tree;
     }
 
     public int compareTo(GeneticProgrammingTree gpTree) {
