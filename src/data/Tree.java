@@ -51,7 +51,7 @@ public class Tree {
         return root.evaluate(xval);
     }
     
-    public static Node generateTree(int maxDepth) {
+    public static Tree generateTree(int maxDepth) {
         double p = Math.random();
         
         Node root = null;
@@ -63,7 +63,7 @@ public class Tree {
             root = generateGrow(maxDepth);
         }
         
-        return root;
+        return new Tree(root);
     }
     
     private static Node generateFull(int maxDepth) {
