@@ -47,6 +47,9 @@ public class OperatorNode extends Node {
         double left = getLeftChild().evaluate(xval);
         double right = getRightChild().evaluate(xval);
         
+        if (Settings.trace()) {
+            System.out.println("calculate(left, right, " + operator + "): " + calculate(left, right, operator));
+        }
         return calculate(left, right, operator);
     }
     

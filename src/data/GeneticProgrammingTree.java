@@ -1,13 +1,11 @@
 package data;
 
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 import java.util.Properties;
 
 import utilities.Settings;
 
-public class GeneticProgrammingTree extends Tree {
+public class GeneticProgrammingTree extends Tree implements Comparable<GeneticProgrammingTree>{
     
     private double fitness;
     
@@ -41,13 +39,30 @@ public class GeneticProgrammingTree extends Tree {
         
         for (TrainingData trainingData : trainingDataList) {
             double evalData = tree.evaluate(trainingData.inputData);
+            
+            if (Settings.trace()) {
+                System.out.println("Evaluate tree(" + trainingData.inputData + "): " + evalData);
+            }
+            
             fitness = fitness + Math.abs(trainingData.outputData - evalData);
             
-            if (Settings.debug()) {
-                System.out.println("Fitness : " + fitness);
+            if (Settings.trace()) {
+                System.out.println("Tree Fitness : Math.abs(" + trainingData.outputData + " - " + evalData + ") = " + fitness);
             }
         }
         
         return new GeneticProgrammingTree(tree.getRoot(), fitness);
+    }
+
+    public int compareTo(GeneticProgrammingTree gpTree) {
+        double delta  = this.fitness - gpTree.fitness;
+        
+        if (delta >= 0) {
+            return 1;
+        } else if (delta == 0) {
+            return 0;
+        } else {
+            return -1;
+        }
     }
 }

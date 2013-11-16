@@ -17,6 +17,7 @@ public class Settings extends Properties {
     public static String PROP_MAX_NODES = "maxnodes";
     public static String PROP_MAX_DEPTH = "maxdepth";
     public static String PROP_DEBUG = "debug";
+    public static String PROP_TRACE = "trace";
     
     public static double DEFAULT_MUTATOR_PROB = 0.5;
     public static int DEFAULT_POPULATION_SIZE = 1000;
@@ -54,8 +55,22 @@ public class Settings extends Properties {
                 return false;
         } catch (Exception e) {
             return false;
-        }
-        
+        }   
+    }
+    
+    public static boolean trace() {
+        try {
+            if (settings == null) {
+                Settings.loadSettings(getDefaultSettingsFilename());
+            }
+
+            if (settings.getProperty(PROP_TRACE) != null)
+                return Boolean.valueOf(settings.getProperty(PROP_TRACE));
+            else
+                return false;
+        } catch (Exception e) {
+            return false;
+        }   
     }
     
     private static String getDefaultSettingsFilename() throws Exception {

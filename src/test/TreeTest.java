@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Properties;
 
 import org.junit.Test;
@@ -54,7 +56,7 @@ public class TreeTest {
         System.out.println("***testCreateGeneticProgammingTree***");
         
         try {
-            GeneticProgrammingTree gpTree = GeneticProgrammingTree.createGeneticProgrammingTree(TrainingData.getTrainingData());;    
+            GeneticProgrammingTree gpTree = GeneticProgrammingTree.createGeneticProgrammingTree(TrainingData.getTrainingData());    
             
             System.out.println("Tree depth: " + gpTree.depth());
             System.out.println("Tree size: " + gpTree.size());
@@ -69,6 +71,47 @@ public class TreeTest {
         } catch (Exception e) {
             e.printStackTrace();
             fail("Could not generate GeneticProgramming tree");
+        }
+    }
+    
+    @Test
+    public void testSortGeneticProgammingPopulation() {
+        System.out.println("***testSortGeneticProgammingPopulation***");
+        
+        int size = 0;
+        
+        try {
+            Properties settings = Settings.getSettings();
+            
+            String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
+            
+            size = Integer.parseInt(prop);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
+        }
+        
+        ArrayList<GeneticProgrammingTree> population = new ArrayList<GeneticProgrammingTree>(size);
+        try {
+            for (int i = 0; i < size; i++) {
+                GeneticProgrammingTree gpTree = GeneticProgrammingTree.createGeneticProgrammingTree(TrainingData.getTrainingData()); 
+                population.add(gpTree);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Could not generate GeneticProgramming tree");
+        }
+        
+        System.out.println("Unsorted population");
+        for (GeneticProgrammingTree gpTree : population) {
+            System.out.println("GP Tree Fitness: " + gpTree.getFitness());
+        }
+        
+        Collections.sort(population);
+        
+        System.out.println("\nSorted population, in descending order");
+        for (GeneticProgrammingTree gpTree : population) {
+            System.out.println("GP Tree Fitness: " + gpTree.getFitness());
         }
     }
     
