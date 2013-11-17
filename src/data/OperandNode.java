@@ -1,32 +1,21 @@
 package data;
 
-import java.util.Random;
-
 import utilities.Settings;
 
 public class OperandNode extends Node {
     
-    private final static String OPERAND_X = "x";
+    public final static String OPERAND_X = "x";
+    public final static int TERMINAL_SET_SIZE = 11;
+    
     private String operand;
-    private final int MAX = 15;
 
-    public OperandNode() {
-        Random rand = new Random();
-        int randInt = rand.nextInt(MAX);
+    public OperandNode(String operand) throws Exception {
         
-        if (randInt >= 10) {
-            operand = OPERAND_X;
-        } else {
-            operand = Integer.toString(randInt);
-        }
+        this.operand = operand;
         
-        if (Settings.debug()) {
+        if (Settings.trace()) {
             System.out.println(operand);
         }
-    }
-
-    public void setOperand(String o) {
-        operand = o;
     }
     
     public String getOperand() {

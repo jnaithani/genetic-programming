@@ -11,26 +11,13 @@ public class OperatorNode extends Node {
     
     private String operator;
 
-    public OperatorNode()
+    public OperatorNode(String operator)
     {
-        double probability = Math.random();
-
-        if (probability <= .25) {
-            operator = OP_ADD;
-        }
-        else if (probability > .25 && probability <= .50) {
-            operator = OP_SUB;
-        }
-        else if (probability > .50 && probability <= .75) {
-            operator = OP_MUL;
-        }
-        else {
-            operator = OP_DIV;
-        }
+        this.operator = operator;
         
         setNumChildNodes(2);
         
-        if (Settings.debug()) {
+        if (Settings.trace()) {
             System.out.println(operator);
         }
     }

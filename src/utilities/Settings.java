@@ -84,4 +84,12 @@ public class Settings extends Properties {
     private Settings(String fileName) throws Exception {
         load(new FileInputStream(fileName));
     }
+
+    public static int getMaxDepth() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_MAX_DEPTH);
+        
+        return Integer.parseInt(prop);
+    }
 }

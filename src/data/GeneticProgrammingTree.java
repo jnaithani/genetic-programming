@@ -22,6 +22,36 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
         this.fitness = fitness;
     }     
     
+    public static ArrayList<GeneticProgrammingTree> getGeneticTreePopulation(int size) throws Exception {
+        ArrayList<GeneticProgrammingTree> population = new ArrayList<GeneticProgrammingTree>(size);
+        boolean singletonExists = false;
+        int i = 0;
+        while (i < size) {
+            GeneticProgrammingTree gpTree = GeneticProgrammingTree.createGeneticProgrammingTree(TrainingData.getTrainingData()); 
+            
+            if (gpTree.size() == 1) {
+                if (singletonExists) {
+                    continue;
+                } else {
+                    if (gpTree.equals(new OperandNode(OperandNode.OPERAND_X))) {
+                        population.add(gpTree);
+                        i++;
+                    }
+                }
+            } else {
+                if (gpTree.exists(new OperandNode(OperandNode.OPERAND_X))) {
+                    population.add(gpTree);
+                    i++;
+                }
+                else {
+                    continue;
+                }
+            }
+        }
+        
+        return population;
+    }
+    
     public static GeneticProgrammingTree createGeneticProgrammingTree(ArrayList<TrainingData> trainingDataList) throws Exception {
         Properties settings = Settings.getSettings();
         
@@ -32,7 +62,7 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
         return createGeneticProgrammingTree(trainingDataList, maxDepth); 
     }
 
-    private static GeneticProgrammingTree createGeneticProgrammingTree(ArrayList<TrainingData> trainingDataList, int maxDepth) {
+    private static GeneticProgrammingTree createGeneticProgrammingTree(ArrayList<TrainingData> trainingDataList, int maxDepth) throws Exception {
         Tree tree = generateInitialTree(maxDepth);
        
         double fitness = 0;
@@ -54,7 +84,7 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
         return new GeneticProgrammingTree(tree.getRoot(), fitness);
     }
 
-    public static Tree generateInitialTree(int maxDepth) {
+    public static Tree generateInitialTree(int maxDepth) throws Exception {
         Tree tree = null;
         do {
             tree = Tree.generateTree(maxDepth);

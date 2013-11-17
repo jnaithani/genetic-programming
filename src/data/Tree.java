@@ -1,5 +1,7 @@
 package data;
 
+import java.util.ArrayList;
+
 import utilities.NodeFactory;
 
 public class Tree {
@@ -57,11 +59,24 @@ public class Tree {
         }
     }
     
-    public double evaluate(double xval) {
+    public double evaluate(double xval) throws Exception {
         return root.evaluate(xval);
     }
     
-    public static Tree generateTree(int maxDepth) {
+    public boolean exists(Node node) throws Exception {
+        ArrayList<Node> nodeList = new ArrayList<Node>(this.size());
+        nodeList = this.getRoot().getNodeList(nodeList, node);
+        
+        for (Node n : nodeList) {
+            if (node.equals(n)) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    public static Tree generateTree(int maxDepth) throws Exception{
         double p = Math.random();
         
         Node root = null;
@@ -76,7 +91,7 @@ public class Tree {
         return new Tree(root);
     }
     
-    private static Node generateFull(int maxDepth) {
+    private static Node generateFull(int maxDepth) throws Exception {
         Node root;
         
         if (maxDepth > 1) {
@@ -96,7 +111,7 @@ public class Tree {
         return root;  
     }
     
-    private static Node generateGrow(int maxDepth) {
+    private static Node generateGrow(int maxDepth) throws Exception {
         Node root;
         
         if (maxDepth > 1) {

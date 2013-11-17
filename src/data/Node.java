@@ -1,5 +1,7 @@
 package data;
 
+import java.util.ArrayList;
+
 public abstract class Node {
     public final static int MAX_NUM_CHILD_NODES = 2;
     
@@ -62,6 +64,16 @@ public abstract class Node {
             getRightChild().inOrderPrint();  
             System.out.print(")");
         }
+    }
+    
+    public ArrayList<Node> getNodeList(ArrayList<Node> nodeList, Node node) {
+        if (node != null) { 
+            nodeList = getNodeList(nodeList, node.getLeftChild());
+            nodeList = getNodeList(nodeList, node.getRightChild());
+
+            nodeList.add(node);
+        }
+        return nodeList;
     }
     
     public abstract String getDataItem();
