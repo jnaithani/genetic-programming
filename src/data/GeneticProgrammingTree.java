@@ -38,6 +38,8 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
                         population.add(gpTree);
                         i++;
                         
+                        singletonExists = true;
+                        
                         if (Settings.trace()) {
                             Utilities.printTreeNode(gpTree.getRoot());
                         }

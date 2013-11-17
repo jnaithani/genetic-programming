@@ -67,7 +67,7 @@ public class NodeFactory {
         else {
             Random random = getRandomNumberGenerator();
             
-            int randInt = random.nextInt(OperandNode.TERMINAL_SET_SIZE);
+            int randInt = random.nextInt(OperandNode.TERMINAL_CONSTANTS_SIZE * 2);
             
             if (Settings.debug()) {
                 System.out.println("randomInt: " + randInt);
