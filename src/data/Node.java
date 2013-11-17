@@ -80,7 +80,58 @@ public abstract class Node {
         return nodeList;
     }
     
+    public ArrayList<Node> getOperatorNodeList(ArrayList<Node> nodeList) {
+        if (getLeftChild() != null) { 
+            nodeList = getLeftChild().getOperatorNodeList(nodeList);
+        }
+        
+        if (getRightChild() != null) {
+            nodeList = getRightChild().getNodeList(nodeList);
+        }
+
+        if (this instanceof OperatorNode) {
+            nodeList.add(this);
+        }
+
+        return nodeList;
+    }
+    
+    public ArrayList<Node> getOperandNodeList(ArrayList<Node> nodeList) {
+        if (getLeftChild() != null) { 
+            nodeList = getLeftChild().getOperandNodeList(nodeList);
+        }
+        
+        if (getRightChild() != null) {
+            nodeList = getRightChild().getOperandNodeList(nodeList);
+        }
+
+        if (this instanceof OperandNode) {
+            nodeList.add(this);
+        }
+
+        return nodeList;
+    }
+    
     public abstract String getDataItem();
     
+    protected abstract void setDataItem(String item);
+    
     public abstract double evaluate(double xval);
+    
+    public abstract Node getClone() throws Exception;
+    
+    public static void swap(Node nodeOne, Node nodeTwo) throws Exception {
+        Node tempNode = nodeOne.getClone();
+        
+        Node.replace(nodeOne, nodeTwo);
+        
+        Node.replace(nodeTwo, tempNode);
+    }
+    
+    public static void replace(Node targetNode, Node sourceNode) throws Exception {
+        targetNode.setDataItem(sourceNode.getDataItem());
+        targetNode.setLeftChild(sourceNode.getLeftChild());
+        targetNode.setRightChild(sourceNode.getRightChild());
+    }
+    
 }

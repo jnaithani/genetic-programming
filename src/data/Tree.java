@@ -64,9 +64,32 @@ public class Tree {
         return root.evaluate(xval);
     }
     
-    public boolean exists(Node node) throws Exception {
+    public ArrayList<Node> getAllNodes() {
         ArrayList<Node> nodeList = new ArrayList<Node>(this.size());
+        
         nodeList = this.getRoot().getNodeList(nodeList);
+        
+        return nodeList;
+    }
+    
+    public ArrayList<Node> getOperandNodes() {
+        ArrayList<Node> nodeList = new ArrayList<Node>(this.size());
+        
+        nodeList = this.getRoot().getOperandNodeList(nodeList);
+        
+        return nodeList;
+    }
+    
+    public ArrayList<Node> getOperatorNodes() {
+        ArrayList<Node> nodeList = new ArrayList<Node>(this.size());
+        
+        nodeList = this.getRoot().getOperatorNodeList(nodeList);
+        
+        return nodeList;
+    }
+    
+    public boolean exists(Node node) throws Exception {
+        ArrayList<Node> nodeList = getAllNodes();
         
         if (Settings.debug()) {
             System.out.print("Nodes(");
@@ -93,7 +116,6 @@ public class Tree {
         
         Node root = null;
         
-        //x probability < p 
         if (p <= 0.5) {
              root = generateFull(maxDepth);
         } else {

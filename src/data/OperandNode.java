@@ -11,7 +11,6 @@ public class OperandNode extends Node {
     private String operand;
 
     public OperandNode(String operand) throws Exception {
-        
         this.operand = operand;
         
         if (Settings.trace()) {
@@ -25,6 +24,18 @@ public class OperandNode extends Node {
     
     public String getDataItem() {
         return operand;
+    }
+    
+    public Node getClone() throws Exception {
+        Node clone = new OperandNode(operand);
+        clone.setLeftChild(getLeftChild());
+        clone.setRightChild(getRightChild());
+
+        return clone;
+    }
+    
+    protected void setDataItem(String item) {
+        operand = item;
     }
     
     public String toString() {

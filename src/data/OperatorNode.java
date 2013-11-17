@@ -26,6 +26,18 @@ public class OperatorNode extends Node {
         return operator;
     }
     
+    public Node getClone() throws Exception {
+        Node clone = new OperatorNode(operator);
+        clone.setLeftChild(getLeftChild());
+        clone.setRightChild(getRightChild());
+
+        return clone;
+    }
+    
+    protected void setDataItem(String item) {
+        operator = item;
+    }
+    
     public String toString() {
         return operator;
     }
