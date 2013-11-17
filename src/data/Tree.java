@@ -28,7 +28,7 @@ public class Tree {
         if (root == null)
             return 0;
         else
-            return 1 + Math.max(depth(root.getLeftChild()), depth(root.getRightChild()));
+            return root.depth();
     }
     
     public int size() {

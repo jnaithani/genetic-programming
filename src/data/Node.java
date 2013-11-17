@@ -96,6 +96,14 @@ public abstract class Node {
         return nodeList;
     }
     
+    public int depth() {
+        if (numChildNodes != 0) {
+            return 1 + Math.max(getLeftChild().depth(), getRightChild().depth());
+        } else {
+            return 1;
+        }
+    }
+    
     public ArrayList<Node> getOperandNodeList(ArrayList<Node> nodeList) {
         if (getLeftChild() != null) { 
             nodeList = getLeftChild().getOperandNodeList(nodeList);
@@ -111,15 +119,7 @@ public abstract class Node {
 
         return nodeList;
     }
-    
-    public abstract String getDataItem();
-    
-    protected abstract void setDataItem(String item);
-    
-    public abstract double evaluate(double xval);
-    
-    public abstract Node getClone() throws Exception;
-    
+     
     public static void swap(Node nodeOne, Node nodeTwo) throws Exception {
         Node tempNode = nodeOne.getClone();
         
@@ -134,4 +134,11 @@ public abstract class Node {
         targetNode.setRightChild(sourceNode.getRightChild());
     }
     
+    protected abstract void setDataItem(String item);
+    
+    public abstract String getDataItem();
+    
+    public abstract double evaluate(double xval);
+    
+    public abstract Node getClone() throws Exception;
 }
