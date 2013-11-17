@@ -6,6 +6,7 @@ public class OperandNode extends Node {
     
     public final static String OPERAND_X = "x";
     public final static int TERMINAL_SET_SIZE = 11;
+    public final static int TERMINAL_CONSTANTS_SIZE = 10;
     
     private String operand;
 

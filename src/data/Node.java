@@ -66,13 +66,17 @@ public abstract class Node {
         }
     }
     
-    public ArrayList<Node> getNodeList(ArrayList<Node> nodeList, Node node) {
-        if (node != null) { 
-            nodeList = getNodeList(nodeList, node.getLeftChild());
-            nodeList = getNodeList(nodeList, node.getRightChild());
-
-            nodeList.add(node);
+    public ArrayList<Node> getNodeList(ArrayList<Node> nodeList) {
+        if (getLeftChild() != null) { 
+            nodeList = getLeftChild().getNodeList(nodeList);
         }
+        
+        if (getRightChild() != null) {
+            nodeList = getRightChild().getNodeList(nodeList);
+        }
+
+        nodeList.add(this);
+
         return nodeList;
     }
     

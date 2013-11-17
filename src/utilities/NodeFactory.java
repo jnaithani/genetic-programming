@@ -8,7 +8,7 @@ import data.OperatorNode;
 
 public class NodeFactory {
 
-    public static final int MAX = 15;
+    private static Random random = new Random();
     
     public static Node getNode() throws Exception {
         return getRandomNode();
@@ -65,23 +65,46 @@ public class NodeFactory {
             return OperandNode.OPERAND_X;
         }
         else {
-            Random random = new Random();
+            Random random = getRandomNumberGenerator();
+            
+            int randInt = random.nextInt(OperandNode.TERMINAL_SET_SIZE);
+            
+            if (Settings.debug()) {
+                System.out.println("randomInt: " + randInt);
+            }
+            
+            if (randInt < OperandNode.TERMINAL_CONSTANTS_SIZE) {
+                return Integer.toString(random.nextInt(OperandNode.TERMINAL_CONSTANTS_SIZE));
+            } else {
+                return OperandNode.OPERAND_X;
+            }
+        }
+    }
+    
+    private static String getWeightedRandomOperand() throws Exception {    
+        int maxLeafNodes = getMaxLeafNodes();
+        
+        if (maxLeafNodes == 1) {
+            return OperandNode.OPERAND_X;
+        }
+        else {
+            Random random = getRandomNumberGenerator();
             
             if (maxLeafNodes < OperandNode.TERMINAL_SET_SIZE) {
                 if (Settings.debug()) {
                     System.out.println("maxLeafNodes: " + maxLeafNodes);
                 }
                 
-                int randomX = random.nextInt(maxLeafNodes);
+                int randInt = random.nextInt(maxLeafNodes);
                 
                 if (Settings.debug()) {
-                    System.out.println("randomX: " + randomX);
+                    System.out.println("randomInt: " + randInt);
                 }
                 
-                if (randomX < maxLeafNodes/2) {
+                if (randInt < maxLeafNodes/2) {
                     return OperandNode.OPERAND_X;
                 } else {
-                    return Integer.toString(random.nextInt(OperandNode.TERMINAL_SET_SIZE - 1));
+                    return Integer.toString(random.nextInt(OperandNode.TERMINAL_CONSTANTS_SIZE));
                 }
             } else {
                 int randInt = random.nextInt(OperandNode.TERMINAL_SET_SIZE);
@@ -90,8 +113,8 @@ public class NodeFactory {
                     System.out.println("randomInt: " + randInt);
                 }
                 
-                if (randInt <= OperandNode.TERMINAL_SET_SIZE - 1) {
-                    return Integer.toString(random.nextInt(OperandNode.TERMINAL_SET_SIZE - 1));
+                if (randInt < OperandNode.TERMINAL_CONSTANTS_SIZE) {
+                    return Integer.toString(random.nextInt(OperandNode.TERMINAL_CONSTANTS_SIZE));
                 } else {
                     return OperandNode.OPERAND_X;
                 }
@@ -99,10 +122,19 @@ public class NodeFactory {
         }
     }
 
+    public static Random getRandomNumberGenerator() {
+        return random;
+    }
+
     public static int getMaxLeafNodes() throws Exception {
         int depth = Settings.getMaxDepth();
         
+        return getMaxLeafNodes(depth);
+    }
+
+    public static int getMaxLeafNodes(int depth) {
         int maxLeafNodes = (int) Math.pow(2, (depth - 1));
+        
         return maxLeafNodes;
     }
     

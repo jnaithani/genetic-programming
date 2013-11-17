@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import utilities.Settings;
+import utilities.Utilities;
 
 public class GeneticProgrammingTree extends Tree implements Comparable<GeneticProgrammingTree>{
     
@@ -33,15 +34,23 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
                 if (singletonExists) {
                     continue;
                 } else {
-                    if (gpTree.equals(new OperandNode(OperandNode.OPERAND_X))) {
+                    if (gpTree.exists(new OperandNode(OperandNode.OPERAND_X))) {
                         population.add(gpTree);
                         i++;
+                        
+                        if (Settings.trace()) {
+                            Utilities.printTreeNode(gpTree.getRoot());
+                        }
                     }
                 }
             } else {
                 if (gpTree.exists(new OperandNode(OperandNode.OPERAND_X))) {
                     population.add(gpTree);
                     i++;
+                    
+                    if (Settings.trace()) {
+                        Utilities.printTreeNode(gpTree.getRoot());
+                    }
                 }
                 else {
                     continue;
@@ -62,7 +71,7 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
         return createGeneticProgrammingTree(trainingDataList, maxDepth); 
     }
 
-    private static GeneticProgrammingTree createGeneticProgrammingTree(ArrayList<TrainingData> trainingDataList, int maxDepth) throws Exception {
+    public static GeneticProgrammingTree createGeneticProgrammingTree(ArrayList<TrainingData> trainingDataList, int maxDepth) throws Exception {
         Tree tree = generateInitialTree(maxDepth);
        
         double fitness = 0;

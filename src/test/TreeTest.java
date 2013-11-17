@@ -232,4 +232,34 @@ public class TreeTest {
             Utilities.printTreeNode(gpTree.getRoot());
         }
     }
+    
+    @Test
+    public void testGetInitialGeneticTreePopulation() {
+        System.out.println("***testGetInitialGeneticTreePopulation***");
+        
+        int size = 0;
+        
+        try {
+            Properties settings = Settings.getSettings();
+            
+            String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
+            
+            size = Integer.parseInt(prop);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
+        }
+        
+        ArrayList<GeneticProgrammingTree> population = null;
+        try {
+            population = GeneticProgrammingTree.getGeneticTreePopulation(size);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Could not generate GeneticProgramming tree");
+        }
+        
+        for (GeneticProgrammingTree gpTree : population) {
+            Utilities.printTreeNode(gpTree.getRoot());
+        }
+    }
 }

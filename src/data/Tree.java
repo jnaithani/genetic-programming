@@ -3,6 +3,7 @@ package data;
 import java.util.ArrayList;
 
 import utilities.NodeFactory;
+import utilities.Settings;
 
 public class Tree {
     Node root = null;
@@ -65,10 +66,21 @@ public class Tree {
     
     public boolean exists(Node node) throws Exception {
         ArrayList<Node> nodeList = new ArrayList<Node>(this.size());
-        nodeList = this.getRoot().getNodeList(nodeList, node);
+        nodeList = this.getRoot().getNodeList(nodeList);
+        
+        if (Settings.debug()) {
+            System.out.print("Nodes(");
+            for (Node n : nodeList) {
+                System.out.print(" " + n.getDataItem() + " ");
+            }   
+            System.out.println(")");
+        }
         
         for (Node n : nodeList) {
-            if (node.equals(n)) {
+            if (node.getDataItem().equals(n.getDataItem())) {
+                if (Settings.trace()) {
+                    System.out.println("equals(" + node.getDataItem() + "," + n.getDataItem() +")");
+                }
                 return true;
             }
         }
