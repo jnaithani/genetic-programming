@@ -60,7 +60,12 @@ public class OperatorNode extends Node {
         } else if (operator.equals(OP_MUL)) {
             return left * right;
         } else if (operator.equals(OP_DIV)) {
-            return left / right;
+            // Perform a protected divide, return 1 always when dividing by 0
+            if (right == 0) {
+                return 1;
+            } else {
+                return left / right;
+            }
         }
         
         return 0;
