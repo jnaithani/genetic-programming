@@ -14,6 +14,7 @@ public class Settings extends Properties {
     public static String PROP_MUTATOR_PROB = "mutatorprobability";
     public static String PROP_POPULATION_SIZE = "populationsize";
     public static String PROP_CROSSOVER_PROB = "crossoverprobability";
+    public static String PROP_SURVIVAL_PROB = "survivalprobability";
     public static String PROP_MAX_NODES = "maxnodes";
     public static String PROP_MAX_DEPTH = "maxdepth";
     public static String PROP_DEBUG = "debug";
@@ -89,6 +90,22 @@ public class Settings extends Properties {
         Properties settings = getSettings();
         
         String prop = settings.getProperty(PROP_MAX_DEPTH);
+        
+        return Integer.parseInt(prop);
+    }
+    
+    public static double getSurvivalProbability() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_SURVIVAL_PROB);
+        
+        return Double.parseDouble(prop);
+    }
+    
+    public static int getPopulationSize() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_POPULATION_SIZE);
         
         return Integer.parseInt(prop);
     }
