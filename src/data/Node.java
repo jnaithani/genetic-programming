@@ -15,12 +15,16 @@ public abstract class Node {
     }
 
     public void setLeftChild(Node lc) {
-        lc.setParent(this);
+        if (lc != null) {
+            lc.setParent(this);
+        }
         leftChild = lc;
     }
 
     public void setRightChild(Node rc) {
-        rc.setParent(this);
+        if (rc != null) {
+            rc.setParent(this);
+        }
         rightChild = rc;
     }
     
@@ -86,7 +90,7 @@ public abstract class Node {
         }
         
         if (getRightChild() != null) {
-            nodeList = getRightChild().getNodeList(nodeList);
+            nodeList = getRightChild().getOperatorNodeList(nodeList);
         }
 
         if (this instanceof OperatorNode) {
@@ -134,7 +138,7 @@ public abstract class Node {
         targetNode.setRightChild(sourceNode.getRightChild());
     }
     
-    protected abstract void setDataItem(String item);
+    public abstract void setDataItem(String item);
     
     public abstract String getDataItem();
     
