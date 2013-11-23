@@ -23,7 +23,7 @@ public class GeneticOperators {
         return newPopulation;
     }
 
-    public static int getNewPopulationSize(int populationSize) throws Exception {
+    private static int getNewPopulationSize(int populationSize) throws Exception {
         double survivalProbability = Settings.getSurvivalProbability();
         
         int newPopulationSize = (int) Math.ceil(survivalProbability * populationSize);
