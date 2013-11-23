@@ -5,7 +5,6 @@ import java.util.Random;
 
 import data.GeneticProgrammingTree;
 import data.Node;
-import data.OperatorNode;
 import data.Tree;
 
 public class GeneticOperators {
@@ -14,9 +13,9 @@ public class GeneticOperators {
         int newPopulationSize = getNewPopulationSize(population.size());
                 
         ArrayList<GeneticProgrammingTree> newPopulation = new ArrayList<GeneticProgrammingTree>();
-        
+       
+        int index = 0;
         while (newPopulation.size() < newPopulationSize) {
-            int index = 0;
             newPopulation.add(population.get(index));
             index++;
         }
