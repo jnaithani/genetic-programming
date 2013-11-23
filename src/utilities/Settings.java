@@ -126,4 +126,12 @@ public class Settings extends Properties {
         
         return Long.parseLong(prop);
     }
+    
+    public static double getCrossoverProbability() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_CROSSOVER_PROB);
+        
+        return Double.parseDouble(prop);
+    }
 }

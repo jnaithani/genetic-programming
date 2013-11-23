@@ -1,5 +1,7 @@
 package utilities;
 
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -29,6 +31,22 @@ public class GeneticOperators {
         int newPopulationSize = (int) Math.ceil(survivalProbability * populationSize);
         
         return newPopulationSize;
+    }
+    
+    public static void crossover(ArrayList<GeneticProgrammingTree> population) throws Exception {
+        int numOfPairsForCrossover = getNumberOfPairsForCrossover(population.size());
+        
+        for (int i = 0; i < numOfPairsForCrossover; i = i + 2) {
+            GeneticOperators.crossover(population.get(i), population.get(i + 1));
+        }
+    }
+    
+    private static int getNumberOfPairsForCrossover(int populationSize) throws Exception {
+        double crossoverProbablity = Settings.getCrossoverProbability();
+        
+        int numberOfPairsForCrossover = (int) Math.floor((crossoverProbablity * populationSize)/2);
+        
+        return numberOfPairsForCrossover;
     }
     
     public static void crossover(Tree parent1, Tree parent2) throws Exception {

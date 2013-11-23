@@ -43,7 +43,7 @@ public class GeneticProgrammingMain {
         GeneticProgrammingTree currentMaxFitnessTree = getCurrentMaxFitnessTree(population);
        
         // Generate the best fit solution
-        while (!done(startTime, currentMaxFitnessTree)) {           
+        while (!done(startTime, currentMaxFitnessTree)) {        
         }
 	}
 
