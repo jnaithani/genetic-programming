@@ -40,23 +40,27 @@ public class GeneticProgrammingMain {
         Collections.sort(population);
         
         long startTime = getCurrentTime();
+        GeneticProgrammingTree currentMaxFitnessTree = getCurrentMaxFitnessTree(population);
        
         // Generate the best fit solution
-        while (done(startTime, population)) {           
+        while (!done(startTime, currentMaxFitnessTree)) {           
         }
 	}
 
-    private boolean done(long startTime, ArrayList<GeneticProgrammingTree> population) throws Exception {
+    public GeneticProgrammingTree getCurrentMaxFitnessTree(ArrayList<GeneticProgrammingTree> population) {
         GeneticProgrammingTree currentMaxFitnessTree = population.get(0);
-        
-        if (bestSolutionExists(currentMaxFitnessTree) && !(executionTimeExceeded(startTime))) {
+        return currentMaxFitnessTree;
+    }
+
+    private boolean done(long startTime, GeneticProgrammingTree gpTree) throws Exception {
+        if (bestSolutionFound(gpTree) && !(executionTimeExceeded(startTime))) {
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean bestSolutionExists(GeneticProgrammingTree currentMaxFitnessTree) throws Exception {
+    private boolean bestSolutionFound(GeneticProgrammingTree currentMaxFitnessTree) throws Exception {
         return currentMaxFitnessTree.getFitness() >= Settings.getFitnessThreshold();
     }
 	
