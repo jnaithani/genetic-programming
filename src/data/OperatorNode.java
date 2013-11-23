@@ -34,7 +34,7 @@ public class OperatorNode extends Node {
         return clone;
     }
     
-    protected void setDataItem(String item) {
+    public void setDataItem(String item) {
         operator = item;
     }
     

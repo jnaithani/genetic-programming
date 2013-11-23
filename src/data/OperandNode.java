@@ -34,7 +34,7 @@ public class OperandNode extends Node {
         return clone;
     }
     
-    protected void setDataItem(String item) {
+    public void setDataItem(String item) {
         operand = item;
     }
     

@@ -56,23 +56,46 @@ public class GeneticOperatorsTest {
                   fail("Could not perform crossover");
               }
           }
-        
-//        for (GeneticProgrammingTree gpTree : population) {
-//            Utilities.printTreeNode(gpTree.getRoot());
-//        }
-//        
-//        for (int i = 0; i < size; i = i + 2) {
-//            try {
-//                GeneticOperators.crossover(population.get(i), population.get(i+1));
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                fail("Could not perform crossover");
-//            }
-//        }
-//        
-//        for (GeneticProgrammingTree gpTree : population) {
-//            Utilities.printTreeNode(gpTree.getRoot());
-//        }
     }
-
+    
+    @Test
+    public void testMutation() {
+        System.out.println("***testMutation***");
+        
+        int size = 0;
+        
+        try {
+            Properties settings = Settings.getSettings();
+            
+            String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
+            
+            size = Integer.parseInt(prop);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
+        }
+        
+        ArrayList<GeneticProgrammingTree> population = null;
+        try {
+            population = GeneticProgrammingTree.getGeneticTreePopulation(size);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Could not generate GeneticProgramming tree");
+        }
+        
+          for (GeneticProgrammingTree gpTree : population) {
+              try {
+                System.out.println("Before mutation:");
+                Utilities.printTreeNode(gpTree.getRoot());
+                
+                GeneticOperators.mutate(gpTree);
+                
+                System.out.println("After mutation:");
+                Utilities.printTreeNode(gpTree.getRoot());
+            } catch (Exception e) {
+                e.printStackTrace();
+                fail("Could not perform mutation");
+            }
+          }
+    }
 }
