@@ -4,7 +4,7 @@
  *
  */
 
-public class GP_Main {
+public class GeneticProgrammingMain {
 
 	/**
 	 * Main Run() 
