@@ -75,6 +75,12 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
     public static GeneticProgrammingTree createGeneticProgrammingTree(ArrayList<TrainingData> trainingDataList, int maxDepth) throws Exception {
         Tree tree = generateInitialTree(maxDepth);
 
+        double fitness = evaluateFitness(trainingDataList, tree);
+
+        return new GeneticProgrammingTree(tree.getRoot(), fitness);
+    }
+
+    public static double evaluateFitness(ArrayList<TrainingData> trainingDataList, Tree tree) throws Exception {
         double fitness = 0;
 
         for (TrainingData trainingData : trainingDataList) {
@@ -90,21 +96,15 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
                 System.out.println("Tree Fitness : Math.abs(" + trainingData.outputData + " - " + evalData + ") = " + fitness);
             }
         }
-
-        return new GeneticProgrammingTree(tree.getRoot(), fitness);
+        return fitness;
     }
 
     public static void updateFitness(GeneticProgrammingTree tree, ArrayList<TrainingData> trainingDataList) throws Exception {
 
         if (tree != null && trainingDataList.size() > 0) {
-
-            double fitness = 0;
-            for (TrainingData trainingData : trainingDataList) {
-                double evalData = tree.evaluate(trainingData.inputData);
-                fitness = fitness + Math.abs(trainingData.outputData - evalData);
-
-                tree.setFitness(fitness);
-            }
+            double fitness = evaluateFitness(trainingDataList, tree);
+            
+            tree.setFitness(fitness);
         }
     }
 

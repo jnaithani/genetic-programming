@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Properties;
 
+import utilities.GeneticOperators;
 import utilities.Settings;
 import data.GeneticProgrammingTree;
 import data.TrainingData;
@@ -39,13 +40,32 @@ public class GeneticProgrammingMain {
         // Sort population according to fitness, in descending order
         Collections.sort(population);
         
+        // Get current time in milliseconds
         long startTime = getCurrentTime();
+        
         GeneticProgrammingTree currentMaxFitnessTree = getCurrentMaxFitnessTree(population);
        
         // Generate the best fit solution
-        while (!done(startTime, currentMaxFitnessTree)) {        
+        while (!done(startTime, currentMaxFitnessTree)) {   
+            ArrayList<GeneticProgrammingTree> nextGenPopulation = GeneticOperators.selection(population);
+            
+            GeneticOperators.crossoverTrees(nextGenPopulation);
+            
+            GeneticOperators.mutateTrees(nextGenPopulation);
+            
+            performFitnesEvaluation(nextGenPopulation);
+            
+            Collections.sort(nextGenPopulation);
+            
+            currentMaxFitnessTree = getCurrentMaxFitnessTree(population);
         }
 	}
+
+    public void performFitnesEvaluation(ArrayList<GeneticProgrammingTree> nextGenPopulation)throws Exception {
+        for (GeneticProgrammingTree gpTree : nextGenPopulation) {
+            GeneticProgrammingTree.evaluateFitness(TrainingData.getTrainingData(), gpTree);
+        }
+    }
 
     public GeneticProgrammingTree getCurrentMaxFitnessTree(ArrayList<GeneticProgrammingTree> population) {
         GeneticProgrammingTree currentMaxFitnessTree = population.get(0);
