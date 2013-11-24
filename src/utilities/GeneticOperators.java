@@ -47,8 +47,6 @@ public class GeneticOperators {
                 //grab a single random tree
                 GeneticProgrammingTree tree = trees.get(randomGenerator.nextInt(mutateNum));
 
-                //copy this tree
-
                 //mutate tree
                 mutate(tree);
 
