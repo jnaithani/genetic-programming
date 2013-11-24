@@ -2,9 +2,11 @@ package utilities;
 
 import data.GeneticProgrammingTree;
 import data.Node;
+import data.TrainingData;
 import data.Tree;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class GeneticOperators {
@@ -30,7 +32,39 @@ public class GeneticOperators {
         
         return newPopulationSize;
     }
-    
+    public static void mutateTrees(ArrayList<GeneticProgrammingTree> trees) {
+
+        int treeSize = trees.size();
+        if (treeSize < 0)
+            return;
+
+        try {
+            Random randomGenerator = new Random();
+            int mutateNum = (int) Math.ceil(Settings.getMutationProbability() * treeSize);
+
+            for (int i = 0; i < mutateNum; i++) {
+
+                //grab a single random tree
+                GeneticProgrammingTree tree = trees.get(randomGenerator.nextInt(mutateNum));
+
+                //copy this tree
+
+                //mutate tree
+                mutate(tree);
+
+                //evaluate fitness with training data
+                GeneticProgrammingTree.updateFitness(tree, TrainingData.getTrainingData());
+
+                Collections.sort(trees);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Failed in Mutating Trees");
+            e.printStackTrace();
+        }
+
+    }
+
     public static void crossover(Tree parent1, Tree parent2) throws Exception {
         ArrayList<Node> p1Nodes = parent1.getAllNodes();
         ArrayList<Node> p2Nodes = parent2.getAllNodes();
