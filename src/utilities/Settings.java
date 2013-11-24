@@ -15,6 +15,7 @@ public class Settings extends Properties {
     public static String PROP_POPULATION_SIZE = "populationsize";
     public static String PROP_CROSSOVER_PROB = "crossoverprobability";
     public static String PROP_SURVIVAL_PROB = "survivalprobability";
+    public static String PROP_FITNESS_THRESHOLD = "fitnessThreshold";
     public static String PROP_MAX_NODES = "maxnodes";
     public static String PROP_MAX_DEPTH = "maxdepth";
     public static String PROP_DEBUG = "debug";
@@ -116,5 +117,29 @@ public class Settings extends Properties {
         String prop = settings.getProperty(PROP_POPULATION_SIZE);
         
         return Integer.parseInt(prop);
+    }
+    
+    public static double getFitnessThreshold() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_POPULATION_SIZE);
+        
+        return Double.parseDouble(prop);
+    }
+    
+    public static long maxExecutionTime() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_POPULATION_SIZE);
+        
+        return Long.parseLong(prop);
+    }
+    
+    public static double getCrossoverProbability() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_CROSSOVER_PROB);
+        
+        return Double.parseDouble(prop);
     }
 }
