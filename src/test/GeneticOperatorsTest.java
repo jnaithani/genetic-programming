@@ -1,17 +1,16 @@
 package test;
 
-import static org.junit.Assert.*;
+import data.GeneticProgrammingTree;
+import org.junit.Test;
+import utilities.GeneticOperators;
+import utilities.Settings;
+import utilities.Utilities;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
 
-import org.junit.Test;
-
-import utilities.GeneticOperators;
-import utilities.Settings;
-import utilities.Utilities;
-import data.GeneticProgrammingTree;
+import static org.junit.Assert.fail;
 
 public class GeneticOperatorsTest {
 
@@ -155,5 +154,10 @@ public class GeneticOperatorsTest {
                 fail("Could not perform selection");
             }
         }
+    }
+
+    @Test
+    public void testMutateTrees(){
+
     }
 }

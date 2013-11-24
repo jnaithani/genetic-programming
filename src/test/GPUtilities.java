@@ -3,7 +3,6 @@ package test;
 import org.junit.Test;
 import utilities.Utilities;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;

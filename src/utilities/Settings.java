@@ -101,7 +101,15 @@ public class Settings extends Properties {
         
         return Double.parseDouble(prop);
     }
-    
+
+    public static double getMutationProbability() throws Exception {
+        Properties settings = getSettings();
+
+        String prop = settings.getProperty(PROP_MUTATOR_PROB);
+
+        return Double.parseDouble(prop);
+    }
+
     public static int getPopulationSize() throws Exception {
         Properties settings = getSettings();
         
