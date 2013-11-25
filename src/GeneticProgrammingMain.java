@@ -6,6 +6,7 @@ import java.util.Properties;
 import utilities.GeneticOperators;
 import utilities.Settings;
 import data.GeneticProgrammingTree;
+import data.OutputData;
 import data.TrainingData;
 
 /**
@@ -34,6 +35,7 @@ public class GeneticProgrammingMain {
 	public void process() throws Exception {
 	    // Initialize 
 	    ArrayList<TrainingData> trainingData = TrainingData.getTrainingData();
+	    OutputData output = new OutputData();
 	    
         ArrayList<GeneticProgrammingTree> population = getInitialPopulation(trainingData);
         
@@ -42,32 +44,49 @@ public class GeneticProgrammingMain {
         
         // Get current time in milliseconds
         long startTime = getCurrentTime();
+        output.setStartTime(startTime);
         
         GeneticProgrammingTree currentMaxFitnessTree = getCurrentMaxFitnessTree(population);
+        output.incrementGenerationCount();
+        output.addFittestTreeInGeneration(currentMaxFitnessTree);
+        output.addPopulationSizeInGeneration(population.size());
        
         // Generate the best fit solution
         while (!done(startTime, currentMaxFitnessTree)) {   
+            output.displayResults();
+            
             ArrayList<GeneticProgrammingTree> nextGenPopulation = GeneticOperators.selection(population);
+            output.incrementGenerationCount();
+            output.addPopulationSizeInGeneration(population.size());
             
-            GeneticOperators.crossoverTrees(nextGenPopulation);
-            
-            GeneticOperators.mutateTrees(nextGenPopulation);
-            
-            performFitnesEvaluation(nextGenPopulation);
-            
-            Collections.sort(nextGenPopulation);
-            
-            currentMaxFitnessTree = getCurrentMaxFitnessTree(population);
+            if (nextGenPopulation != null && nextGenPopulation.size() > 0) {
+                
+                GeneticOperators.crossoverTrees(nextGenPopulation);
+                
+                GeneticOperators.mutateTrees(nextGenPopulation);
+                
+                performFitnesEvaluation(nextGenPopulation);
+                
+                Collections.sort(nextGenPopulation);
+                
+                currentMaxFitnessTree = getCurrentMaxFitnessTree(population);
+                output.addFittestTreeInGeneration(currentMaxFitnessTree);
+            } else {
+                break;
+            }
         }
+        
+        currentMaxFitnessTree.inOrderPrint();
+        output.displayResults();
 	}
 
-    public void performFitnesEvaluation(ArrayList<GeneticProgrammingTree> nextGenPopulation)throws Exception {
+    private void performFitnesEvaluation(ArrayList<GeneticProgrammingTree> nextGenPopulation)throws Exception {
         for (GeneticProgrammingTree gpTree : nextGenPopulation) {
             GeneticProgrammingTree.evaluateFitness(TrainingData.getTrainingData(), gpTree);
         }
     }
 
-    public GeneticProgrammingTree getCurrentMaxFitnessTree(ArrayList<GeneticProgrammingTree> population) {
+    private GeneticProgrammingTree getCurrentMaxFitnessTree(ArrayList<GeneticProgrammingTree> population) {
         GeneticProgrammingTree currentMaxFitnessTree = population.get(0);
         return currentMaxFitnessTree;
     }
