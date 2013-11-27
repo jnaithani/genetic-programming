@@ -76,7 +76,6 @@ public class GeneticProgrammingMain {
             }
         }
         
-        currentMaxFitnessTree.inOrderPrint();
         output.displayResults();
 	}
 
@@ -100,11 +99,18 @@ public class GeneticProgrammingMain {
     }
 
     private boolean bestSolutionFound(GeneticProgrammingTree currentMaxFitnessTree) throws Exception {
-        return currentMaxFitnessTree.getFitness() >= Settings.getFitnessThreshold();
+        return currentMaxFitnessTree.getFitness() <= Settings.getFitnessThreshold();
     }
 	
     private boolean executionTimeExceeded(long startTime) throws Exception {
-        long runDuration = new Date().getTime() - startTime;
+        long currentTime = new Date().getTime();
+        long runDuration = currentTime - startTime;
+        
+        if (Settings.trace()) {
+            System.out.println("[Trace] StartTime   : " + startTime);
+            System.out.println("[Trace] CurrentTime : " + currentTime);
+            System.out.println("[Trace] Run Duration: " + runDuration);
+        }
         
         if (runDuration > Settings.maxExecutionTime()) {
             return true;

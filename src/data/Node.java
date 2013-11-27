@@ -2,6 +2,8 @@ package data;
 
 import java.util.ArrayList;
 
+import utilities.Settings;
+
 public abstract class Node {
     public final static int MAX_NUM_CHILD_NODES = 2;
     
@@ -12,6 +14,10 @@ public abstract class Node {
 
     public void setParent(Node p) {
         parent = p;
+    }
+    
+    public Node getParent() {
+        return parent;
     }
 
     public void setLeftChild(Node lc) {
@@ -94,6 +100,9 @@ public abstract class Node {
         }
 
         if (this instanceof OperatorNode) {
+            if (Settings.trace()) {
+                System.out.println("[Trace] Operator: " + this.getDataItem());
+            }
             nodeList.add(this);
         }
 
@@ -118,6 +127,9 @@ public abstract class Node {
         }
 
         if (this instanceof OperandNode) {
+            if (Settings.trace()) {
+                System.out.println("Operand: " + this.getDataItem());
+            }
             nodeList.add(this);
         }
 
@@ -125,17 +137,38 @@ public abstract class Node {
     }
      
     public static void swap(Node nodeOne, Node nodeTwo) throws Exception {
-        Node tempNode = nodeOne.getClone();
+        Node parentNodeOne = nodeOne.getParent();
+        Node parentNodeTwo = nodeTwo.getParent();
         
-        Node.replace(nodeOne, nodeTwo);
+        if (parentNodeOne != null) {
+            if (parentNodeOne.getLeftChild() != null && parentNodeOne.getLeftChild() == nodeOne) {
+                parentNodeOne.setLeftChild(nodeTwo);
+            } else {
+                if (parentNodeOne.getRightChild() != null && parentNodeOne.getRightChild() == nodeOne)
+                parentNodeOne.setRightChild(nodeTwo);
+            }
+        } 
         
-        Node.replace(nodeTwo, tempNode);
+        if (parentNodeTwo != null) {
+            if (parentNodeTwo.getLeftChild() != null && parentNodeTwo.getLeftChild() == nodeTwo) {
+                parentNodeTwo.setLeftChild(nodeOne);
+            } else {
+                if (parentNodeTwo.getRightChild() != null && parentNodeTwo.getRightChild() == nodeTwo)
+                parentNodeTwo.setRightChild(nodeTwo);
+            }
+        }
+    }
+    
+    public static void update(Node targetNode, Node sourceNode) throws Exception {
+        targetNode.setDataItem(sourceNode.getDataItem());
+        targetNode.setLeftChild(sourceNode.getLeftChild());
+        targetNode.setRightChild(sourceNode.getRightChild());        
     }
     
     public static void replace(Node targetNode, Node sourceNode) throws Exception {
         targetNode.setDataItem(sourceNode.getDataItem());
         targetNode.setLeftChild(sourceNode.getLeftChild());
-        targetNode.setRightChild(sourceNode.getRightChild());
+        targetNode.setRightChild(sourceNode.getRightChild());        
     }
     
     public abstract void setDataItem(String item);

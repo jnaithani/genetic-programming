@@ -7,13 +7,18 @@ import utilities.Settings;
 
 public class Tree {
     Node root = null;
-    
-    public Node getRoot() {
-		return root;
-	}
 
 	public Tree(Node root) {
+        setRoot(root);
+    }	
+    
+    public Node getRoot() {
+        return root;
+    }
+    
+    public void setRoot(Node root) {
         this.root = root;
+        root.setParent(null);
     }
     
     public boolean isEmpty() {
@@ -23,13 +28,13 @@ public class Tree {
     public int depth() {
         return depth(root);
     }
-
+    
     private int depth(Node root) {
         if (root == null)
             return 0;
         else
             return root.depth();
-    }
+    }    
     
     public int size() {
         return size(root);
@@ -109,6 +114,51 @@ public class Tree {
         }
         
         return false;
+    }
+    
+    public void replace(Node node1, Node node2) throws Exception {
+        if (root != null) {
+            if (root == node1) {
+                setRoot(node2);
+            } else {
+                Node parentNode1 = node1.getParent();
+                if (parentNode1 != null) {
+                    if (parentNode1.getLeftChild() != null && parentNode1.getLeftChild() == node1) {
+                        parentNode1.setLeftChild(node2);
+                    } else if (parentNode1.getRightChild() != null && parentNode1.getRightChild() == node1) {
+                        parentNode1.setRightChild(node2);
+                    }
+                }
+            }
+        }
+    }
+    
+    public static void swap(Tree treeOne, Node nodeOne, Tree treeTwo, Node nodeTwo) throws Exception {
+        Node parentNodeOne = nodeOne.getParent();
+        Node parentNodeTwo = nodeTwo.getParent();
+        
+        if (parentNodeOne != null) {
+            if (parentNodeOne.getLeftChild() != null && parentNodeOne.getLeftChild() == nodeOne) {
+                parentNodeOne.setLeftChild(nodeTwo);
+            } else {
+                if (parentNodeOne.getRightChild() != null && parentNodeOne.getRightChild() == nodeOne)
+                parentNodeOne.setRightChild(nodeTwo);
+            }
+        } else {
+            treeOne.setRoot(nodeTwo);
+        }
+        
+        if (parentNodeTwo != null) {
+            if (parentNodeTwo.getLeftChild() != null && parentNodeTwo.getLeftChild() == nodeTwo) {
+                parentNodeTwo.setLeftChild(nodeOne);
+            } else {
+                if (parentNodeTwo.getRightChild() != null && parentNodeTwo.getRightChild() == nodeTwo) {
+                    parentNodeTwo.setRightChild(nodeOne);
+                }
+            }
+        } else {
+            treeTwo.setRoot(nodeOne);
+        }
     }
     
     public static Tree generateTree(int maxDepth) throws Exception{
