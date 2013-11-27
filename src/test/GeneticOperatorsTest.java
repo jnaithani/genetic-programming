@@ -17,20 +17,20 @@ public class GeneticOperatorsTest {
     @Test
     public void testCrossover() {
         System.out.println("***testCrossover***");
-        
+
         int size = 0;
-        
+
         try {
             Properties settings = Settings.getSettings();
-            
+
             String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
-            
+
             size = Integer.parseInt(prop);
         } catch (Exception e) {
             e.printStackTrace();
             fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
         }
-        
+
         ArrayList<GeneticProgrammingTree> population = null;
         try {
             population = GeneticProgrammingTree.getGeneticTreePopulation(size);
@@ -38,7 +38,7 @@ public class GeneticOperatorsTest {
             e.printStackTrace();
             fail("Could not generate GeneticProgramming tree");
         }
-        
+
         for (int i = 0; i < size - 1; i = i + 2) {
             try {
                 System.out.println("crossover(" + i + "," + (i + 1) + ")");
@@ -57,24 +57,24 @@ public class GeneticOperatorsTest {
             }
         }
     }
-    
+
     @Test
     public void testMutation() {
         System.out.println("***testMutation***");
-        
+
         int size = 0;
-        
+
         try {
             Properties settings = Settings.getSettings();
-            
+
             String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
-            
+
             size = Integer.parseInt(prop);
         } catch (Exception e) {
             e.printStackTrace();
             fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
         }
-        
+
         ArrayList<GeneticProgrammingTree> population = null;
         try {
             population = GeneticProgrammingTree.getGeneticTreePopulation(size);
@@ -82,7 +82,7 @@ public class GeneticOperatorsTest {
             e.printStackTrace();
             fail("Could not generate GeneticProgramming tree");
         }
-        
+
         for (GeneticProgrammingTree gpTree : population) {
             try {
                 System.out.println("Before mutation:");
@@ -98,24 +98,24 @@ public class GeneticOperatorsTest {
             }
         }
     }
-    
+
     @Test
     public void testSelection() {
         System.out.println("***testSelection***");
-        
+
         int size = 0;
-        
+
         try {
             Properties settings = Settings.getSettings();
-            
+
             String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
-            
+
             size = Integer.parseInt(prop);
         } catch (Exception e) {
             e.printStackTrace();
             fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
         }
-        
+
         ArrayList<GeneticProgrammingTree> population = null;
         try {
             population = GeneticProgrammingTree.getGeneticTreePopulation(size);
@@ -123,11 +123,11 @@ public class GeneticOperatorsTest {
             e.printStackTrace();
             fail("Could not generate GeneticProgramming tree");
         }
-        
+
         Collections.sort(population);
-        
+
         ArrayList<GeneticProgrammingTree> newPopulation = null;
-        
+
         System.out.println("Before selection:");
         for (GeneticProgrammingTree gpTree : population) {
             try {
@@ -137,14 +137,14 @@ public class GeneticOperatorsTest {
                 fail("Could not perform selection");
             }
         }
-        
+
         try {
             newPopulation = GeneticOperators.selection(population);
         } catch (Exception e) {
             e.printStackTrace();
             fail("Could not perform selection");
         }
-        
+
         System.out.println("After selection:");
         for (GeneticProgrammingTree gpTree : newPopulation) {
             try {
@@ -157,7 +157,13 @@ public class GeneticOperatorsTest {
     }
 
     @Test
-    public void testMutateTrees(){
+    public void testMutateTrees() throws Exception {
+        Properties settings = Settings.getSettings();
+        String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
 
+        int size = Integer.parseInt(prop);
+        ArrayList<GeneticProgrammingTree> population = GeneticProgrammingTree.getGeneticTreePopulation(size);
+
+        GeneticOperators.mutateTrees(population);
     }
 }
