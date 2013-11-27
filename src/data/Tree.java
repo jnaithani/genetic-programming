@@ -25,11 +25,11 @@ public class Tree {
         return root == null;
     }
     
-    public int depth() {
+    public int depth() throws Exception {
         return depth(root);
     }
     
-    private int depth(Node root) {
+    private int depth(Node root) throws Exception {
         if (root == null)
             return 0;
         else
@@ -69,24 +69,24 @@ public class Tree {
         return root.evaluate(xval);
     }
     
-    public ArrayList<Node> getAllNodes() {
-        ArrayList<Node> nodeList = new ArrayList<Node>(this.size());
+    public ArrayList<Node> getAllNodes() throws Exception {
+        ArrayList<Node> nodeList = new ArrayList<Node>(this.depth());
         
         nodeList = this.getRoot().getNodeList(nodeList);
         
         return nodeList;
     }
     
-    public ArrayList<Node> getOperandNodes() {
-        ArrayList<Node> nodeList = new ArrayList<Node>(this.size());
+    public ArrayList<Node> getOperandNodes() throws Exception {
+        ArrayList<Node> nodeList = new ArrayList<Node>(this.depth());
         
         nodeList = this.getRoot().getOperandNodeList(nodeList);
         
         return nodeList;
     }
     
-    public ArrayList<Node> getOperatorNodes() {
-        ArrayList<Node> nodeList = new ArrayList<Node>(this.size());
+    public ArrayList<Node> getOperatorNodes() throws Exception {
+        ArrayList<Node> nodeList = new ArrayList<Node>(this.depth());
         
         nodeList = this.getRoot().getOperatorNodeList(nodeList);
         

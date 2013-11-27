@@ -30,7 +30,7 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
         while (i < size) {
             GeneticProgrammingTree gpTree = GeneticProgrammingTree.createGeneticProgrammingTree(TrainingData.getTrainingData());
 
-            if (gpTree.size() == 1) {
+            if (gpTree.depth() == 1) {
                 if (singletonExists) {
                     continue;
                 } else {

@@ -109,9 +109,13 @@ public abstract class Node {
         return nodeList;
     }
     
-    public int depth() {
+    public int depth() throws Exception {
         if (numChildNodes != 0) {
-            return 1 + Math.max(getLeftChild().depth(), getRightChild().depth());
+            if (getLeftChild() != null && getRightChild() != null) {
+                return 1 + Math.max(getLeftChild().depth(), getRightChild().depth());
+            } else {
+                throw new Exception("Error:  Number of child nodes not 0, and one of the child nodes is null.");
+            } 
         } else {
             return 1;
         }

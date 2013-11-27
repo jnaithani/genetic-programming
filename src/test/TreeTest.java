@@ -292,9 +292,15 @@ public class TreeTest {
         for (GeneticProgrammingTree gpTree : population) {
             Utilities.printTreeNode(gpTree.getRoot());
             
-            System.out.println("All Nodes: " + gpTree.getAllNodes());
-            System.out.println("Operand Nodes: " + gpTree.getOperandNodes());
-            System.out.println("Operator Nodes: " + gpTree.getOperatorNodes());
+            try {
+                System.out.println("All Nodes: " + gpTree.getAllNodes());
+                System.out.println("Operand Nodes: " + gpTree.getOperandNodes());
+                System.out.println("Operator Nodes: " + gpTree.getOperatorNodes());
+            } catch (Exception e) {
+                e.printStackTrace();
+                fail("Could not print tree nodes");
+            }
+
         }
     }
 }

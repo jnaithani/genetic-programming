@@ -52,13 +52,13 @@ public class GeneticProgrammingMain {
         output.addPopulationSizeInGeneration(population.size());
        
         // Generate the best fit solution
-        while (!done(startTime, currentMaxFitnessTree) && output.getGenerationCount() < Settings.getMaxGeneration()) {   
+        while (!done(startTime, currentMaxFitnessTree) && output.getGenerationCount() < Settings.getMaxGeneration()) {  
             output.setCurrentTime(getCurrentTime());
             output.displayResults();
             
             ArrayList<GeneticProgrammingTree> nextGenPopulation = GeneticOperators.selection(population);
             output.incrementGenerationCount();
-            output.addPopulationSizeInGeneration(population.size());
+            output.addPopulationSizeInGeneration(nextGenPopulation.size());
             
             if (nextGenPopulation != null && nextGenPopulation.size() > 0) {
                 
@@ -75,6 +75,8 @@ public class GeneticProgrammingMain {
             } else {
                 break;
             }
+            
+            population = nextGenPopulation;
         }
         
         output.setCurrentTime(getCurrentTime());

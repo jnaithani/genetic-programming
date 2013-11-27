@@ -1,7 +1,6 @@
 package data;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import utilities.Utilities;
 
@@ -38,24 +37,25 @@ public class OutputData {
     
     public void displayResults() {
         printSeperatorLine();
-        print();
+        printResults();
         printSeperatorLine();
     }
 
-    public void printSeperatorLine() {
+    private void printSeperatorLine() {
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
     
     public void displayFinalResults() {
         printSeperatorLine();
         System.out.println("----------------------------------------------------------------*** Final Results ***-----------------------------------------------------------------------------");
-        print();
+        printResults();
         System.out.println("");
         Utilities.printTreeNode(fittestTreeInEachGeneration.get(generationCount - 1).getRoot());
         printSeperatorLine();
+        printSeperatorLine();
     }
 
-    private void print() {
+    private void printResults() {
         System.out.println("Elapsed seconds                     : " + (currentTime - startTime));
         System.out.println("Current generation count            : " + generationCount);
         System.out.println("Current generation population size  : " + populationSizeInEachGeneration.get(generationCount - 1));

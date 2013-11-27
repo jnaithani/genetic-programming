@@ -12,24 +12,35 @@ import java.util.Random;
 public class GeneticOperators {
     
     public static ArrayList<GeneticProgrammingTree> selection(ArrayList<GeneticProgrammingTree> population) throws Exception {
-        int newPopulationSize = getNewPopulationSize(population.size());
-                
         ArrayList<GeneticProgrammingTree> newPopulation = new ArrayList<GeneticProgrammingTree>();
+        
+        int newPopulationSize = getNewPopulationSize(population.size());
        
         int index = 0;
         while (newPopulation.size() < newPopulationSize) {
             newPopulation.add(population.get(index));
-            index++;
+            
+//            if (Settings.trace()) {
+                System.out.print("[Trace] newPopulation[" + newPopulation.size() + "]         = ");
+                newPopulation.get(newPopulation.size() - 1).inOrderPrint();
+                System.out.println("[Trace] newPopulation[" + newPopulation.size() + "].fitness = " + newPopulation.get(newPopulation.size() - 1).getFitness());
+//            }
+            
+            ++index;
         }
         
         return newPopulation;
     }
 
-    public static int getNewPopulationSize(int populationSize) throws Exception {
+    private static int getNewPopulationSize(int populationSize) throws Exception {
         double survivalProbability = Settings.getSurvivalProbability();
         
         int newPopulationSize = (int) Math.ceil(survivalProbability * populationSize);
         
+        if (Settings.trace()) {
+            System.out.println("[Trace] New Generation Population Size: " + newPopulationSize);
+        }
+
         return newPopulationSize;
     }
     
@@ -80,27 +91,32 @@ public class GeneticOperators {
         return numberOfPairsForCrossover;
     }
     
-    public static void crossover(Tree parent1, Tree parent2) throws Exception {
-        ArrayList<Node> p1Nodes = parent1.getAllNodes();
-        ArrayList<Node> p2Nodes = parent2.getAllNodes();
+    public static void crossover(Tree t1, Tree t2) throws Exception {
+        ArrayList<Node> p1Nodes = t1.getAllNodes();
+        ArrayList<Node> p2Nodes = t2.getAllNodes();
         
         Random random = new Random();
         int indexp1 = random.nextInt(p1Nodes.size());
         int indexp2 = random.nextInt(p2Nodes.size());
         
         if (Settings.trace()) {
-            System.out.println("Trace: Crossover node index for first tree: " + indexp1);
-            System.out.println("Trace: Crossover node index for first tree: " + indexp2);
+            System.out.println("Trace: Crossover node index for first tree : " + indexp1);
+            System.out.println("Trace: Crossover node index for second tree: " + indexp2);
         }
         
         Node n1 = p1Nodes.get(indexp1);
         Node n2 = p2Nodes.get(indexp2);
         
-        Node.swap(n1, n2);
+        if (Settings.trace()) {
+            System.out.println("Trace: Crossover point node value for first tree : " + n1);
+            System.out.println("Trace: Crossover point node value for second tree: " + n2);
+        }
+        
+        Tree.swap(t1, n1, t2, n2);
     }
     
     public static void mutate(Tree tree) throws Exception {
-        if (tree.size() > 1) {
+        if (tree.depth() > 1) {
             ArrayList<Node> operandNodes = tree.getOperandNodes();
             ArrayList<Node> operatorNodes = tree.getOperatorNodes();
             
