@@ -16,6 +16,7 @@ public class Settings extends Properties {
     public static String PROP_CROSSOVER_PROB = "crossoverprobability";
     public static String PROP_SURVIVAL_PROB = "survivalprobability";
     public static String PROP_FITNESS_THRESHOLD = "fitnessThreshold";
+    public static String PROP_MAXGENERATION = "maxgeneration";
     public static String PROP_MAX_NODES = "maxnodes";
     public static String PROP_MAX_DEPTH = "maxdepth";
     public static String PROP_DEBUG = "debug";
@@ -141,5 +142,13 @@ public class Settings extends Properties {
         String prop = settings.getProperty(PROP_CROSSOVER_PROB);
         
         return Double.parseDouble(prop);
+    }
+
+    public static int getMaxGeneration() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_MAXGENERATION);
+        
+        return Integer.parseInt(prop);
     }
 }

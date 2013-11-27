@@ -22,6 +22,10 @@ public class OutputData {
         generationCount++;
     }
     
+    public int getGenerationCount() {
+        return generationCount;
+    }
+    
     public void addPopulationSizeInGeneration(int size) {
         populationSizeInEachGeneration.add(Integer.valueOf(size));
     }
@@ -31,12 +35,13 @@ public class OutputData {
     }
     
     public void displayResults() {
-        System.out.println("-----------------------------------------------------------------------------------------------------------------");
-        System.out.println("Elapsed seconds  : " + ((new Date()).getTime() - startTime));
-        System.out.println("Generation count : " + generationCount);
-        System.out.print("Fittest Solution : ");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Elapsed seconds                     : " + (currentTime - startTime));
+        System.out.println("Current generation count            : " + generationCount);
+        System.out.println("Current generation population size  : " + populationSizeInEachGeneration.get(generationCount - 1));
+        System.out.print("Fittest Solution                    : ");
         fittestTreeInEachGeneration.get(generationCount - 1).inOrderPrint();
-        System.out.println("Fitness          : " + fittestTreeInEachGeneration.get(generationCount - 1).getFitness());
-        System.out.println("-----------------------------------------------------------------------------------------------------------------");
+        System.out.println("Fitness                             : " + fittestTreeInEachGeneration.get(generationCount - 1).getFitness());
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 }
