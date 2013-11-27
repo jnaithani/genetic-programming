@@ -1,9 +1,9 @@
 package data;
 
-import java.util.ArrayList;
-
 import utilities.NodeFactory;
 import utilities.Settings;
+
+import java.util.ArrayList;
 
 public class Tree {
     Node root = null;
@@ -40,7 +40,7 @@ public class Tree {
         return size(root);
     }
 
-    private int size(Node root) {
+    private int size(Node root) throws StackOverflowError{
         if (root == null)
             return 0;
         else
