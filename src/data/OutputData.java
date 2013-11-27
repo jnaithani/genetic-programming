@@ -3,6 +3,8 @@ package data;
 import java.util.ArrayList;
 import java.util.Date;
 
+import utilities.Utilities;
+
 public class OutputData {
     private ArrayList<GeneticProgrammingTree> fittestTreeInEachGeneration = new ArrayList<GeneticProgrammingTree>();
     private ArrayList<Integer> populationSizeInEachGeneration = new ArrayList<Integer>();
@@ -35,13 +37,30 @@ public class OutputData {
     }
     
     public void displayResults() {
+        printSeperatorLine();
+        print();
+        printSeperatorLine();
+    }
+
+    public void printSeperatorLine() {
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    }
+    
+    public void displayFinalResults() {
+        printSeperatorLine();
+        System.out.println("----------------------------------------------------------------*** Final Results ***-----------------------------------------------------------------------------");
+        print();
+        System.out.println("");
+        Utilities.printTreeNode(fittestTreeInEachGeneration.get(generationCount - 1).getRoot());
+        printSeperatorLine();
+    }
+
+    private void print() {
         System.out.println("Elapsed seconds                     : " + (currentTime - startTime));
         System.out.println("Current generation count            : " + generationCount);
         System.out.println("Current generation population size  : " + populationSizeInEachGeneration.get(generationCount - 1));
         System.out.print("Fittest Solution                    : ");
         fittestTreeInEachGeneration.get(generationCount - 1).inOrderPrint();
         System.out.println("Fitness                             : " + fittestTreeInEachGeneration.get(generationCount - 1).getFitness());
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 }

@@ -78,7 +78,7 @@ public class GeneticProgrammingMain {
         }
         
         output.setCurrentTime(getCurrentTime());
-        output.displayResults();
+        output.displayFinalResults();
 	}
 
     private void performFitnesEvaluation(ArrayList<GeneticProgrammingTree> nextGenPopulation)throws Exception {
