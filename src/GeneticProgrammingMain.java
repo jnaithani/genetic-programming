@@ -56,7 +56,7 @@ public class GeneticProgrammingMain {
         while (!done(startTime, currentMaxFitnessTree) && output.getGenerationCount() < Settings.getMaxGeneration()) {  
             output.setCurrentTime(getCurrentTime());
             output.displayResults();
-            output.displayPopulation(population);
+//            output.displayPopulation(population);
             
             ArrayList<GeneticProgrammingTree> nextGenPopulation = GeneticOperators.selection(population);
             

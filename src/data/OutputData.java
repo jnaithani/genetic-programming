@@ -35,7 +35,7 @@ public class OutputData {
         fittestTreeInEachGeneration.add(tree);
     }
     
-    public void displayResults() {
+    public void displayResults() throws Exception {
         printSeperatorLine();
         printResults();
         printSeperatorLine();
@@ -55,7 +55,7 @@ public class OutputData {
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
     
-    public void displayFinalResults() {
+    public void displayFinalResults() throws Exception {
         printSeperatorLine();
         System.out.println("----------------------------------------------------------------*** Final Results ***-----------------------------------------------------------------------------");
         printResults();
@@ -65,12 +65,13 @@ public class OutputData {
         printSeperatorLine();
     }
 
-    private void printResults() {
+    private void printResults() throws Exception {
         System.out.println("Elapsed seconds                     : " + (currentTime - startTime));
         System.out.println("Current generation count            : " + generationCount);
         System.out.println("Current generation population size  : " + populationSizeInEachGeneration.get(generationCount - 1));
         System.out.print("Fittest Solution                    : ");
         fittestTreeInEachGeneration.get(generationCount - 1).inOrderPrint();
+        System.out.println("Fittest Soluton depth               : " + fittestTreeInEachGeneration.get(generationCount - 1).depth());
         System.out.println("Fitness                             : " + fittestTreeInEachGeneration.get(generationCount - 1).getFitness());
     }
 }
