@@ -17,6 +17,7 @@ public class Settings extends Properties {
     public static String PROP_SURVIVAL_PROB = "survivalprobability";
     public static String PROP_FITNESS_THRESHOLD = "fitnessthreshold";
     public static String PROP_MAXGENERATION = "maxgeneration";
+    public static String PROP_MAXTIMELIMIT = "maxtimelimit";
     public static String PROP_MAX_NODES = "maxnodes";
     public static String PROP_MAX_DEPTH = "maxdepth";
     public static String PROP_DEBUG = "debug";
@@ -131,7 +132,7 @@ public class Settings extends Properties {
     public static long maxExecutionTime() throws Exception {
         Properties settings = getSettings();
         
-        String prop = settings.getProperty(PROP_POPULATION_SIZE);
+        String prop = settings.getProperty(PROP_MAXTIMELIMIT);
         
         return Long.parseLong(prop);
     }

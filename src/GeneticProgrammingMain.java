@@ -98,14 +98,34 @@ public class GeneticProgrammingMain {
 
     private boolean done(long startTime, GeneticProgrammingTree gpTree) throws Exception {
         if (bestSolutionFound(gpTree) && !(executionTimeExceeded(startTime))) {
+            if (Settings.trace()) {
+                System.out.println("[Trace:done()] *** Done! ***");
+            }
             return true;
         } else {
+            if (Settings.trace()) {
+                System.out.println("[Trace:done()] Not done");
+            }
             return false;
         }
     }
 
     private boolean bestSolutionFound(GeneticProgrammingTree currentMaxFitnessTree) throws Exception {
-        return currentMaxFitnessTree.getFitness() <= Settings.getFitnessThreshold();
+        boolean found = false;
+        if (currentMaxFitnessTree.getFitness() <= Settings.getFitnessThreshold()) {
+            found = true;
+            
+            if (Settings.trace()) {
+                System.out.println("[Trace:bestSolutionFound()] *** Best fit solution found! ***");
+            }
+        }
+        
+        if (Settings.trace()) {
+            System.out.println("[Trace} currentMaxFitness: " + currentMaxFitnessTree.getFitness());
+            System.out.println("[Trace} fitnessThreshold : " + Settings.getFitnessThreshold());
+        }
+        
+        return found;
     }
 	
     private boolean executionTimeExceeded(long startTime) throws Exception {
@@ -116,11 +136,20 @@ public class GeneticProgrammingMain {
             System.out.println("[Trace] StartTime   : " + startTime);
             System.out.println("[Trace] CurrentTime : " + currentTime);
             System.out.println("[Trace] Run Duration: " + runDuration);
+            System.out.println("[Trace] Max Duration: " + Settings.maxExecutionTime());
         }
         
         if (runDuration > Settings.maxExecutionTime()) {
+            if (Settings.trace()) {
+                System.out.println("[Trace] Run Duration: " + runDuration);
+                System.out.println("[Trace] Max Duration: " + Settings.maxExecutionTime());
+            }
             return true;
         } else {
+            if (Settings.trace()) {
+                System.out.println("[Trace] Run Duration: " + runDuration);
+                System.out.println("[Trace] Max Duration: " + Settings.maxExecutionTime());
+            }
             return false;
         }  
     }
