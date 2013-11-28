@@ -19,7 +19,7 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
         return fitness;
     }
 
-    private void setFitness(double fitness) {
+    public void setFitness(double fitness) {
         this.fitness = fitness;
     }
 
@@ -122,9 +122,9 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
     }
 
     public int compareTo(GeneticProgrammingTree gpTree) {
-        double delta = this.fitness - gpTree.fitness;
+        double delta = this.fitness - gpTree.getFitness();
 
-        if (delta >= 0) {
+        if (delta > 0) {
             return 1;
         } else if (delta == 0) {
             return 0;

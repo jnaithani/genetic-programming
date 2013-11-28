@@ -63,9 +63,9 @@ public class GeneticOperators {
                 mutate(tree);
 
                 //evaluate fitness with training data
-                GeneticProgrammingTree.updateFitness(tree, TrainingData.getTrainingData());
+//                GeneticProgrammingTree.updateFitness(tree, TrainingData.getTrainingData());
 
-                Collections.sort(trees);
+//                Collections.sort(trees);
             }
 
         } catch (Exception e) {

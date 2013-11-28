@@ -15,7 +15,7 @@ public class Settings extends Properties {
     public static String PROP_POPULATION_SIZE = "populationsize";
     public static String PROP_CROSSOVER_PROB = "crossoverprobability";
     public static String PROP_SURVIVAL_PROB = "survivalprobability";
-    public static String PROP_FITNESS_THRESHOLD = "fitnessThreshold";
+    public static String PROP_FITNESS_THRESHOLD = "fitnessthreshold";
     public static String PROP_MAXGENERATION = "maxgeneration";
     public static String PROP_MAX_NODES = "maxnodes";
     public static String PROP_MAX_DEPTH = "maxdepth";
@@ -123,7 +123,7 @@ public class Settings extends Properties {
     public static double getFitnessThreshold() throws Exception {
         Properties settings = getSettings();
         
-        String prop = settings.getProperty(PROP_POPULATION_SIZE);
+        String prop = settings.getProperty(PROP_FITNESS_THRESHOLD);
         
         return Double.parseDouble(prop);
     }

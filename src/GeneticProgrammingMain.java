@@ -73,6 +73,7 @@ public class GeneticProgrammingMain {
                 currentMaxFitnessTree = getCurrentMaxFitnessTree(population);
                 output.addFittestTreeInGeneration(currentMaxFitnessTree);
             } else {
+                System.out.println("Error:  Next Generation Population has become null or empty.");
                 break;
             }
             
@@ -85,7 +86,8 @@ public class GeneticProgrammingMain {
 
     private void performFitnesEvaluation(ArrayList<GeneticProgrammingTree> nextGenPopulation)throws Exception {
         for (GeneticProgrammingTree gpTree : nextGenPopulation) {
-            GeneticProgrammingTree.evaluateFitness(TrainingData.getTrainingData(), gpTree);
+            double fitness = GeneticProgrammingTree.evaluateFitness(TrainingData.getTrainingData(), gpTree);
+            gpTree.setFitness(fitness);
         }
     }
 
