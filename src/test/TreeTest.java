@@ -37,7 +37,6 @@ public class TreeTest {
             Tree tree = Tree.generateTree(maxHeight);;    
             
             System.out.println("Tree depth: " + tree.depth());
-            System.out.println("Tree size: " + tree.size());
             
             tree.postOrderPrint();  
 
@@ -59,7 +58,6 @@ public class TreeTest {
             GeneticProgrammingTree gpTree = GeneticProgrammingTree.createGeneticProgrammingTree(TrainingData.getTrainingData());    
             
             System.out.println("Tree depth: " + gpTree.depth());
-            System.out.println("Tree size: " + gpTree.size());
             
             gpTree.postOrderPrint();  
             System.out.println("");

@@ -35,18 +35,7 @@ public class Tree {
         else
             return root.depth();
     }    
-    
-    public int size() {
-        return size(root);
-    }
 
-    private int size(Node root) throws StackOverflowError{
-        if (root == null)
-            return 0;
-        else
-            return 1 + size(root.getLeftChild()) + size(root.getRightChild());
-    }
-    
     public void postOrderPrint() {
         if (root != null) {
             root.postOrderPrint();
