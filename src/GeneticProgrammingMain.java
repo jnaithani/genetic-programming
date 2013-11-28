@@ -37,21 +37,22 @@ public class GeneticProgrammingMain {
 	    ArrayList<TrainingData> trainingData = TrainingData.getTrainingData();
 	    OutputData output = new OutputData();
 	    
-        ArrayList<GeneticProgrammingTree> population = getInitialPopulation(trainingData);
+        ArrayList<GeneticProgrammingTree> initialPopulation = getInitialPopulation(trainingData);
         
         // Sort population according to fitness, in descending order
-        Collections.sort(population);
+        Collections.sort(initialPopulation);
         
         // Get current time in milliseconds
         long startTime = getCurrentTime();
         output.setStartTime(startTime);
         
-        GeneticProgrammingTree currentMaxFitnessTree = getCurrentMaxFitnessTree(population);
+        GeneticProgrammingTree currentMaxFitnessTree = getCurrentMaxFitnessTree(initialPopulation);
         output.incrementGenerationCount();
         output.addFittestTreeInGeneration(currentMaxFitnessTree);
-        output.addPopulationSizeInGeneration(population.size());
+        output.addPopulationSizeInGeneration(initialPopulation.size());
        
         // Generate the best fit solution
+        ArrayList<GeneticProgrammingTree> population = initialPopulation;
         while (!done(startTime, currentMaxFitnessTree) && output.getGenerationCount() < Settings.getMaxGeneration()) {  
             output.setCurrentTime(getCurrentTime());
             output.displayResults();
@@ -70,7 +71,7 @@ public class GeneticProgrammingMain {
                 
                 Collections.sort(nextGenPopulation);
                 
-                currentMaxFitnessTree = getCurrentMaxFitnessTree(population);
+                currentMaxFitnessTree = getCurrentMaxFitnessTree(nextGenPopulation);
                 output.addFittestTreeInGeneration(currentMaxFitnessTree);
             } else {
                 System.out.println("Error:  Next Generation Population has become null or empty.");
