@@ -12,6 +12,7 @@ import data.GeneticProgrammingTree;
 import data.Node;
 import data.TrainingData;
 import data.Tree;
+import utilities.GeneticOperators;
 import utilities.Settings;
 import utilities.Utilities;
 
@@ -299,6 +300,61 @@ public class TreeTest {
                 fail("Could not print tree nodes");
             }
 
+        }
+    }
+    
+    @Test
+    public void testTreeCopy() {
+        System.out.println("***testTreeCopy***");
+        
+        int size = 0;
+        
+        try {
+            Properties settings = Settings.getSettings();
+            
+            String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
+            
+            size = Integer.parseInt(prop);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
+        }
+        
+        ArrayList<GeneticProgrammingTree> population = null;
+        try {
+            population = GeneticProgrammingTree.getGeneticTreePopulation(size);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Could not generate GeneticProgramming tree");
+        }
+        
+        for (GeneticProgrammingTree gpTree : population) {
+            GeneticProgrammingTree gpcopyTree = null;
+            try {
+                gpcopyTree = GeneticProgrammingTree.copy(gpTree);
+            } catch (Exception e) {
+                e.printStackTrace();
+                fail("Could not copy tree");
+            }
+            
+            System.out.println("Original - before mutation:");
+            Utilities.printTreeNode(gpTree.getRoot());
+            
+            System.out.println("Copy - before mutation:");
+            Utilities.printTreeNode(gpcopyTree.getRoot());
+            
+            try {
+                GeneticOperators.mutate(gpcopyTree);
+            } catch (Exception e) {
+                e.printStackTrace();
+                fail("Could not mutate tree");
+            }
+
+            System.out.println("Original - after mutation:");
+            Utilities.printTreeNode(gpTree.getRoot());
+            
+            System.out.println("Copy - after mutation:");
+            Utilities.printTreeNode(gpcopyTree.getRoot());
         }
     }
 }

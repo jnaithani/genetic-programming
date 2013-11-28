@@ -28,10 +28,20 @@ public class OperatorNode extends Node {
     
     public Node getClone() throws Exception {
         Node clone = new OperatorNode(operator);
+        
         clone.setLeftChild(getLeftChild());
         clone.setRightChild(getRightChild());
-
+        
         return clone;
+    }
+    
+    public Node copy() throws Exception {
+        Node copy = new OperatorNode(operator);
+        
+        copy.setLeftChild(this.getLeftChild().copy());
+        copy.setRightChild(this.getRightChild().copy());
+        
+        return copy;
     }
     
     public void setDataItem(String item) {

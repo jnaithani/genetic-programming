@@ -182,4 +182,6 @@ public abstract class Node {
     public abstract double evaluate(double xval);
     
     public abstract Node getClone() throws Exception;
+    
+    public abstract Node copy() throws Exception;
 }

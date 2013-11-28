@@ -58,6 +58,22 @@ public class NodeFactory {
         return new OperatorNode(operator);
     }
     
+    private static String getRandomOperandNew() throws Exception {    
+        Random random = getRandomNumberGenerator();
+        
+        int randInt = random.nextInt(OperandNode.TERMINAL_SET_SIZE);
+        
+        if (Settings.debug()) {
+            System.out.println("randomInt: " + randInt);
+        }
+        
+        if (randInt < OperandNode.TERMINAL_CONSTANTS_SIZE) {
+            return Integer.toString(random.nextInt(OperandNode.TERMINAL_CONSTANTS_SIZE));
+        } else {
+            return OperandNode.OPERAND_X;
+        }
+    }
+    
     private static String getRandomOperand() throws Exception {    
         int maxLeafNodes = getMaxLeafNodes();
         

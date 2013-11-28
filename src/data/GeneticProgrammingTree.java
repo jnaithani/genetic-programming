@@ -79,6 +79,12 @@ public class GeneticProgrammingTree extends Tree implements Comparable<GeneticPr
 
         return new GeneticProgrammingTree(tree.getRoot(), fitness);
     }
+    
+    public static GeneticProgrammingTree copy(GeneticProgrammingTree tree) throws Exception {
+        Tree copyTree = Tree.copy(tree);
+        
+        return new GeneticProgrammingTree(copyTree.getRoot(), tree.getFitness());
+    }
 
     public static double evaluateFitness(ArrayList<TrainingData> trainingDataList, Tree tree) throws Exception {
         double fitness = 0;

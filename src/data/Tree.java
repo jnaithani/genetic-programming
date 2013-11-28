@@ -164,6 +164,16 @@ public class Tree {
         return new Tree(root);
     }
     
+    public static Tree copy(Tree tree) throws Exception {
+        Node root = tree.getRoot();
+        
+        if (root == null) {
+            return new Tree(null);
+        } else {
+            return new Tree(root.copy());
+        }
+    }
+    
     private static Node generateFull(int maxDepth) throws Exception {
         Node root;
         

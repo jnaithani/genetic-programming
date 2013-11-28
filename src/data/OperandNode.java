@@ -28,10 +28,20 @@ public class OperandNode extends Node {
     
     public Node getClone() throws Exception {
         Node clone = new OperandNode(operand);
+        
         clone.setLeftChild(getLeftChild());
         clone.setRightChild(getRightChild());
-
+        
         return clone;
+    }
+    
+    public Node copy() throws Exception {
+        Node copy = new OperandNode(operand);
+        
+        copy.setLeftChild(null);
+        copy.setRightChild(null);
+        
+        return copy;
     }
     
     public void setDataItem(String item) {
