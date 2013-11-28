@@ -56,32 +56,31 @@ public class GeneticProgrammingMain {
         while (!done(startTime, currentMaxFitnessTree) && output.getGenerationCount() < Settings.getMaxGeneration()) {  
             output.setCurrentTime(getCurrentTime());
             output.displayResults();
+            output.displayPopulation(population);
             
             ArrayList<GeneticProgrammingTree> nextGenPopulation = GeneticOperators.selection(population);
+            
+            ArrayList<GeneticProgrammingTree> children = GeneticOperators.crossoverTrees(population);
+            
+            GeneticOperators.mutateTrees(children);
+            
+            nextGenPopulation.addAll(children);
+            
             output.incrementGenerationCount();
             output.addPopulationSizeInGeneration(nextGenPopulation.size());
+                
+            performFitnesEvaluation(nextGenPopulation);
+                
+            Collections.sort(nextGenPopulation);
             
-            if (nextGenPopulation != null && nextGenPopulation.size() > 0) {
-                
-                GeneticOperators.crossoverTrees(nextGenPopulation);
-                
-                GeneticOperators.mutateTrees(nextGenPopulation);
-                
-                performFitnesEvaluation(nextGenPopulation);
-                
-                Collections.sort(nextGenPopulation);
-                
-                currentMaxFitnessTree = getCurrentMaxFitnessTree(nextGenPopulation);
-                output.addFittestTreeInGeneration(currentMaxFitnessTree);
-            } else {
-                System.out.println("Error:  Next Generation Population has become null or empty.");
-                break;
-            }
-            
+            currentMaxFitnessTree = getCurrentMaxFitnessTree(nextGenPopulation);
+            output.addFittestTreeInGeneration(currentMaxFitnessTree);
+                 
             population = nextGenPopulation;
         }
         
         output.setCurrentTime(getCurrentTime());
+        output.displayPopulation(population);
         output.displayFinalResults();
 	}
 

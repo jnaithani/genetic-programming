@@ -40,6 +40,16 @@ public class OutputData {
         printResults();
         printSeperatorLine();
     }
+    
+    public void displayPopulation(ArrayList<GeneticProgrammingTree> population) {
+        int index = 0;
+        for (GeneticProgrammingTree gpTree : population) {
+            System.out.print("population[" + index + "]         = ");
+            gpTree.inOrderPrint();
+            System.out.println("population[" + index + "].fitness = " + gpTree.getFitness());
+            ++index;
+        }
+    }
 
     private void printSeperatorLine() {
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");

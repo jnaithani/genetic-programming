@@ -12,19 +12,19 @@ import java.util.Random;
 public class GeneticOperators {
     
     public static ArrayList<GeneticProgrammingTree> selection(ArrayList<GeneticProgrammingTree> population) throws Exception {
-        ArrayList<GeneticProgrammingTree> newPopulation = new ArrayList<GeneticProgrammingTree>();
+        ArrayList<GeneticProgrammingTree> newPopulation = new ArrayList<GeneticProgrammingTree>(Settings.getPopulationSize());
         
-        int newPopulationSize = getNewPopulationSize(population.size());
+        int numberOfSurvivors = getNumberOfSurvivors();
        
         int index = 0;
-        while (newPopulation.size() < newPopulationSize) {
-            newPopulation.add(population.get(index));
+        while (index < numberOfSurvivors) {
+            newPopulation.add(GeneticProgrammingTree.copy(population.get(index)));
             
-//            if (Settings.trace()) {
+            if (Settings.trace()) {
                 System.out.print("[Trace] newPopulation[" + newPopulation.size() + "]         = ");
                 newPopulation.get(newPopulation.size() - 1).inOrderPrint();
                 System.out.println("[Trace] newPopulation[" + newPopulation.size() + "].fitness = " + newPopulation.get(newPopulation.size() - 1).getFitness());
-//            }
+            }
             
             ++index;
         }
@@ -32,16 +32,17 @@ public class GeneticOperators {
         return newPopulation;
     }
 
-    private static int getNewPopulationSize(int populationSize) throws Exception {
+    private static int getNumberOfSurvivors() throws Exception {
         double survivalProbability = Settings.getSurvivalProbability();
+        double populationSize = Settings.getPopulationSize();
         
-        int newPopulationSize = (int) Math.ceil(survivalProbability * populationSize);
+        int numberOfSurvivors = (int) Math.ceil(survivalProbability * populationSize);
         
         if (Settings.trace()) {
-            System.out.println("[Trace] New Generation Population Size: " + newPopulationSize);
+            System.out.println("[Trace] New Generation Population Size: " + numberOfSurvivors);
         }
 
-        return newPopulationSize;
+        return numberOfSurvivors;
     }
     
     public static void mutateTrees(ArrayList<GeneticProgrammingTree> trees) {
@@ -75,12 +76,17 @@ public class GeneticOperators {
 
     }
 
-    public static void crossoverTrees(ArrayList<GeneticProgrammingTree> population) throws Exception {
+    public static ArrayList<GeneticProgrammingTree> crossoverTrees(ArrayList<GeneticProgrammingTree> population) throws Exception {
+        ArrayList<GeneticProgrammingTree> children = new ArrayList<GeneticProgrammingTree>();
         int numOfPairsForCrossover = getNumberOfPairsForCrossover(population.size());
         
-        for (int i = 0; i < numOfPairsForCrossover; i = i + 2) {
+        for (int i = 0; i < numOfPairsForCrossover * 2; i = i + 2) {
             GeneticOperators.crossover(population.get(i), population.get(i + 1));
+            children.add(population.get(i));
+            children.add(population.get(i + 1));
         }
+        
+        return children;
     }
     
     private static int getNumberOfPairsForCrossover(int populationSize) throws Exception {
