@@ -2,11 +2,9 @@ package utilities;
 
 import data.GeneticProgrammingTree;
 import data.Node;
-import data.TrainingData;
 import data.Tree;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 public class GeneticOperators {
@@ -126,11 +124,32 @@ public class GeneticOperators {
                 treeTwo.inOrderPrint();
             }
             
+            if (Settings.isMaxDepthLimitSet()) {
+                if (treeOne.depth() > Settings.maxDepthLimit()) {     
+                    treeOne = getCopyOfRandomParent(population.get(i1), population.get(i2));
+                }
+                
+                if (treeTwo.depth() > Settings.maxDepthLimit()) {
+                    treeTwo = getCopyOfRandomParent(population.get(i1), population.get(i2));
+                }
+            }
+            
             children.add(treeOne);
             children.add(treeTwo);
         }
         
         return children;
+    }
+
+    private static GeneticProgrammingTree getCopyOfRandomParent(GeneticProgrammingTree p1, GeneticProgrammingTree p2) throws Exception {
+        double probability = Math.random();
+
+        if (probability < 0.5) {
+            return GeneticProgrammingTree.copy(p1);
+        }
+        else {
+            return GeneticProgrammingTree.copy(p2);
+        }
     }
     
     private static int getNumberOfPairsForCrossover(int populationSize) throws Exception {

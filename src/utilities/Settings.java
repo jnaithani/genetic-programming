@@ -15,11 +15,13 @@ public class Settings extends Properties {
     public static String PROP_POPULATION_SIZE = "populationsize";
     public static String PROP_CROSSOVER_PROB = "crossoverprobability";
     public static String PROP_SURVIVAL_PROB = "survivalprobability";
+    public static String PROP_FUNCTION_SELECTION_PROB = "functionselectionprobability";
     public static String PROP_FITNESS_THRESHOLD = "fitnessthreshold";
     public static String PROP_MAXGENERATION = "maxgeneration";
     public static String PROP_MAXTIMELIMIT = "maxtimelimit";
     public static String PROP_MAX_NODES = "maxnodes";
     public static String PROP_MAX_DEPTH = "maxdepth";
+    public static String PROP_MAX_DEPTHLIMIT = "maxdepthlimit";
     public static String PROP_DEBUG = "debug";
     public static String PROP_TRACE = "trace";
     
@@ -32,7 +34,6 @@ public class Settings extends Properties {
     private final static String SETTINGS_FILE_NAME = "settings.properties";
     
     private static Properties settings = null;
-    private static boolean debug = false;
     
     public static final Properties getSettings() throws Exception {
         if (settings == null) {
@@ -150,6 +151,39 @@ public class Settings extends Properties {
         
         String prop = settings.getProperty(PROP_MAXGENERATION);
         
-        return Integer.parseInt(prop);
+        if (prop != null) {
+            return Integer.parseInt(prop);
+        } else {
+            return Integer.MAX_VALUE;
+        }
     }
+    
+    public static double getFunctionSelectionProbability() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_FUNCTION_SELECTION_PROB);
+        
+        return Double.parseDouble(prop);
+    }
+    
+    public static long maxDepthLimit() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_MAX_DEPTHLIMIT);
+        
+        return Long.parseLong(prop);
+    }
+    
+    public static boolean isMaxDepthLimitSet() throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_MAX_DEPTHLIMIT);
+        
+        if (prop == null || prop.trim().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
 }
