@@ -56,15 +56,23 @@ public class GeneticProgrammingMain {
         while (!done(startTime, currentMaxFitnessTree) && output.getGenerationCount() < Settings.getMaxGeneration()) {  
             output.setCurrentTime(getCurrentTime());
             output.displayResults();
-//            output.displayPopulation(population);
+            
+            if (Settings.trace()) {
+                output.displayPopulation(population);
+            }
             
             ArrayList<GeneticProgrammingTree> nextGenPopulation = GeneticOperators.selection(population);
             
+            if (Settings.trace()) {
+                System.out.println("[Trace] Display selected population:");
+                output.displayPopulation(nextGenPopulation);
+            }
+            
             ArrayList<GeneticProgrammingTree> children = GeneticOperators.crossoverTrees(population);
             
-            GeneticOperators.mutateTrees(children);
-            
             nextGenPopulation.addAll(children);
+            
+            GeneticOperators.mutateTrees(nextGenPopulation);
             
             output.incrementGenerationCount();
             output.addPopulationSizeInGeneration(nextGenPopulation.size());

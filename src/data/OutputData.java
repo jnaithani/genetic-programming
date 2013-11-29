@@ -60,7 +60,9 @@ public class OutputData {
         System.out.println("----------------------------------------------------------------*** Final Results ***-----------------------------------------------------------------------------");
         printResults();
         System.out.println("");
-        Utilities.printTreeNode(fittestTreeInEachGeneration.get(generationCount - 1).getRoot());
+        if (fittestTreeInEachGeneration.get(generationCount - 1).getRoot().depth() < 6) {
+            Utilities.printTreeNode(fittestTreeInEachGeneration.get(generationCount - 1).getRoot());
+        }
         printSeperatorLine();
         printSeperatorLine();
     }

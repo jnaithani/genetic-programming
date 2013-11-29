@@ -18,6 +18,7 @@ public class GeneticOperators {
        
         int index = 0;
         while (index < numberOfSurvivors) {
+
             newPopulation.add(GeneticProgrammingTree.copy(population.get(index)));
             
             if (Settings.trace()) {
@@ -53,19 +54,30 @@ public class GeneticOperators {
 
         try {
             Random randomGenerator = new Random();
-            int mutateNum = (int) Math.ceil(Settings.getMutationProbability() * treeSize);
+            int mutateNum = getNumberOfTreesForMutation(treeSize);
 
             for (int i = 0; i < mutateNum; i++) {
 
                 //grab a single random tree
-                GeneticProgrammingTree tree = trees.get(randomGenerator.nextInt(mutateNum));
+                int i1 = randomGenerator.nextInt(trees.size());
+                GeneticProgrammingTree tree = trees.get(i1);
 
+                if (Settings.trace()) {
+                    System.out.println("[Trace] Before Mutation - Tree[" + i1 + "]");
+                    trees.get(i1).inOrderPrint();
+                }
+                
                 //mutate tree
                 mutate(tree);
+                
+                if (Settings.trace()) {
+                    System.out.println("After Mutation - Tree[" + i1 + "]");
+                    trees.get(i1).inOrderPrint();
+                }
 
                 //evaluate fitness with training data
 //                GeneticProgrammingTree.updateFitness(tree, TrainingData.getTrainingData());
-
+//
 //                Collections.sort(trees);
             }
 
@@ -76,14 +88,46 @@ public class GeneticOperators {
 
     }
 
+    private static int getNumberOfTreesForMutation(int treeSize) throws Exception {
+        return (int) Math.ceil(Settings.getMutationProbability() * treeSize);
+    }
+
     public static ArrayList<GeneticProgrammingTree> crossoverTrees(ArrayList<GeneticProgrammingTree> population) throws Exception {
         ArrayList<GeneticProgrammingTree> children = new ArrayList<GeneticProgrammingTree>();
         int numOfPairsForCrossover = getNumberOfPairsForCrossover(population.size());
         
-        for (int i = 0; i < numOfPairsForCrossover * 2; i = i + 2) {
-            GeneticOperators.crossover(population.get(i), population.get(i + 1));
-            children.add(population.get(i));
-            children.add(population.get(i + 1));
+        Random randomGenerator = new Random();
+        
+        for (int i = 0; i < numOfPairsForCrossover; ++i) {
+            int i1 = 0, i2 = 0;
+            while (i1 == i2) {
+                i1 = randomGenerator.nextInt(population.size());
+                i2 = randomGenerator.nextInt(population.size());
+            }
+            
+            if (Settings.trace()) {
+                System.out.println("Before Crossover - Tree[" + i1 + "]");
+                population.get(i1).inOrderPrint();
+                System.out.println("Before Crossover - Tree[" + i2 + "]");
+                population.get(i2).inOrderPrint();
+            }
+            
+            GeneticProgrammingTree treeOne = GeneticProgrammingTree.copy(population.get(i1));
+            GeneticProgrammingTree treeTwo = GeneticProgrammingTree.copy(population.get(i2));
+
+            if (treeOne.depth() != 1 && treeTwo.depth() != 1) {
+                GeneticOperators.crossover(treeOne, treeTwo);
+            }
+            
+            if (Settings.trace()) {
+                System.out.println("Afer Crossover - copy of Tree[" + i1 + "]");
+                treeOne.inOrderPrint();
+                System.out.println("After Crossover - copy of Tree[" + i2 + "]");
+                treeTwo.inOrderPrint();
+            }
+            
+            children.add(treeOne);
+            children.add(treeTwo);
         }
         
         return children;
@@ -102,8 +146,14 @@ public class GeneticOperators {
         ArrayList<Node> p2Nodes = t2.getAllNodes();
         
         Random random = new Random();
-        int indexp1 = random.nextInt(p1Nodes.size());
-        int indexp2 = random.nextInt(p2Nodes.size());
+        int indexp1 = 0, indexp2 = 0;
+        boolean rootNodes = true;
+        while (rootNodes) {
+            indexp1 = random.nextInt(p1Nodes.size());
+            indexp2 = random.nextInt(p2Nodes.size());
+            
+            rootNodes = areRootNodes(p1Nodes, p2Nodes, indexp1, indexp2);
+        }
         
         if (Settings.trace()) {
             System.out.println("Trace: Crossover node index for first tree : " + indexp1);
@@ -119,6 +169,16 @@ public class GeneticOperators {
         }
         
         Tree.swap(t1, n1, t2, n2);
+    }
+
+    public static boolean areRootNodes(ArrayList<Node> p1Nodes,ArrayList<Node> p2Nodes, int indexp1, int indexp2) {
+        boolean areRootNodes = true;
+        
+        if ((p1Nodes.get(indexp1).getParent() != null) || p2Nodes.get(indexp2).getParent() != null) {
+            areRootNodes = false;
+        }
+        
+        return areRootNodes;
     }
     
     public static void mutate(Tree tree) throws Exception {
@@ -147,9 +207,12 @@ public class GeneticOperators {
         Random random = new Random();
         int nodeIndex = random.nextInt(nodes.size());
         
-        Node node = NodeFactory.getFunction();
-        
         Node mutationNode = nodes.get(nodeIndex);
+
+        Node node = null;
+        do {
+            node = NodeFactory.getFunction();;
+        } while (node.getDataItem() == mutationNode.getDataItem());
         
         mutationNode.setDataItem(node.getDataItem());
     }
@@ -158,9 +221,12 @@ public class GeneticOperators {
         Random random = new Random();
         int nodeIndex = random.nextInt(nodes.size());
         
-        Node node = NodeFactory.getTerminal();
-        
         Node mutationNode = nodes.get(nodeIndex);
+        
+        Node node = null;
+        do {
+            node = NodeFactory.getTerminal();
+        } while (node.getDataItem() == mutationNode.getDataItem());
         
         mutationNode.setDataItem(node.getDataItem());
     }
