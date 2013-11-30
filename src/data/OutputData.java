@@ -1,7 +1,10 @@
 package data;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
@@ -164,7 +167,17 @@ public class OutputData {
     }
 
     private void printResults() throws Exception {
-        System.out.println("Elapsed seconds                     : " + (currentTime - startTime));
+        Date start = new Date(startTime); 
+        Date end = new Date(currentTime);
+
+         // This is to format the your current date to the desired format
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        
+        String startString = sdf.format(start);
+        String endString = sdf.format(end);
+        System.out.println("Start Time                          : " + startString);
+        System.out.println("Current Time                        : " + endString);
+        System.out.println("Elapsed seconds                     : " + (currentTime - startTime) + " milliseconds");
         System.out.println("Current generation count            : " + generationCount);
         System.out.println("Current generation population size  : " + populationSizeInEachGeneration.get(generationCount - 1));
         System.out.print("Fittest Solution                    : ");
