@@ -1,7 +1,16 @@
 package data;
 
+import java.io.File;
 import java.util.ArrayList;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
+import utilities.Settings;
 import utilities.Utilities;
 
 public class OutputData {
@@ -63,8 +72,95 @@ public class OutputData {
         if (fittestTreeInEachGeneration.get(generationCount - 1).getRoot().depth() < 9) {
             Utilities.printTreeNode(fittestTreeInEachGeneration.get(generationCount - 1).getRoot());
         }
+        generateBestFitnessGenerationChart();
         printSeperatorLine();
         printSeperatorLine();
+    }
+    
+    private void generateBestFitnessGenerationChart() throws Exception {
+        XYSeries series = new XYSeries("Best Fitness/Generation");
+        
+        int gen = 0;
+        for (GeneticProgrammingTree gpTree : fittestTreeInEachGeneration) {
+            series.add(gen, gpTree.getFitness());
+            ++gen;
+        }
+        
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        dataset.addSeries(series);
+        
+        JFreeChart chart = ChartFactory.createXYLineChart(
+            "Best Fitness/Generation", // Title
+            "Generation",              // x-axis Label
+            "Best Fitness",            // y-axis Label
+            dataset,                   // Data set
+            PlotOrientation.VERTICAL,  // Plot Orientation
+            true,                      // Show Legend
+            true,                      // Use tool tips
+            false                      // Generate URLs
+        );
+
+        ChartUtilities.saveChartAsJPEG(new File("bestfitness_generation.jpg"), chart, 1500, 900);
+    }
+    
+    public void recordInitialPopulationFitness(ArrayList<GeneticProgrammingTree> population) throws Exception {
+        String fileName = "initial_population_fitness";
+        recordFitnessOfPopulation(population, "Initial Population/Fitness", fileName);
+    }
+    
+    public void recordFinalPopulationFitness(ArrayList<GeneticProgrammingTree> population) throws Exception {
+        String fileName = "final_population_fitness";
+        recordFitnessOfPopulation(population, "Final Population/Fitness", fileName);
+    }
+    
+    private void recordFitnessOfPopulation(ArrayList<GeneticProgrammingTree> population, String title, String fileName) throws Exception {
+        XYSeries series = new XYSeries(title);
+        
+        int t = 0;
+        for (GeneticProgrammingTree gpTree : population) {
+            series.add(t, gpTree.getFitness());
+            ++t;
+        }
+        
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        dataset.addSeries(series);
+        
+        JFreeChart chart = ChartFactory.createXYLineChart(
+            title,                    
+            "Tree",                    
+            "Fitness",
+            dataset,
+            PlotOrientation.VERTICAL,
+            true,
+            true,
+            false
+        );
+
+        ChartUtilities.saveChartAsJPEG(new File(fileName + ".jpg"), chart, 1500, 900);
+    }
+    
+    public void recordXYGraph() throws Exception{
+        XYSeries series = new XYSeries("x/f(x)");
+            
+        for (TrainingData trainingData : TrainingData.getTrainingData()) {
+            series.add(trainingData.inputData, fittestTreeInEachGeneration.get(generationCount - 1).evaluate(trainingData.inputData));
+        }
+        
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        dataset.addSeries(series);
+        
+        JFreeChart chart = ChartFactory.createXYLineChart(
+            "x/f(x)",                    
+            "x",                    
+            "y",
+            dataset,
+            PlotOrientation.VERTICAL,
+            true,
+            true,
+            false
+        );
+
+        ChartUtilities.saveChartAsJPEG(new File("xy_graph.jpg"), chart, 1500, 900);
     }
 
     private void printResults() throws Exception {

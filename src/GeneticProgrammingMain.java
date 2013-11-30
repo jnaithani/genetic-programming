@@ -50,6 +50,7 @@ public class GeneticProgrammingMain {
         output.incrementGenerationCount();
         output.addFittestTreeInGeneration(currentMaxFitnessTree);
         output.addPopulationSizeInGeneration(initialPopulation.size());
+        output.recordInitialPopulationFitness(initialPopulation);
        
         // Generate the best fit solution
         ArrayList<GeneticProgrammingTree> population = initialPopulation;
@@ -90,6 +91,8 @@ public class GeneticProgrammingMain {
         output.setCurrentTime(getCurrentTime());
         output.displayPopulation(population);
         output.displayFinalResults();
+        output.recordXYGraph();
+        output.recordFinalPopulationFitness(population);
 	}
 
     private void performFitnesEvaluation(ArrayList<GeneticProgrammingTree> nextGenPopulation)throws Exception {
