@@ -108,7 +108,7 @@ public class GeneticProgrammingMain {
     }
 
     private boolean done(long startTime, GeneticProgrammingTree gpTree) throws Exception {
-        if (bestSolutionFound(gpTree) && !(executionTimeExceeded(startTime))) {
+        if (bestSolutionFound(gpTree) || executionTimeExceeded(startTime)) {
             if (Settings.trace()) {
                 System.out.println("[Trace:done()] *** Done! ***");
             }
@@ -154,13 +154,16 @@ public class GeneticProgrammingMain {
             if (Settings.trace()) {
                 System.out.println("[Trace] Run Duration: " + runDuration);
                 System.out.println("[Trace] Max Duration: " + Settings.maxExecutionTime());
+                System.out.println("[Trace:bestSolutionFound()] *** Max exection time exceeded! ***");
             }
+            
             return true;
         } else {
             if (Settings.trace()) {
                 System.out.println("[Trace] Run Duration: " + runDuration);
                 System.out.println("[Trace] Max Duration: " + Settings.maxExecutionTime());
             }
+
             return false;
         }  
     }
