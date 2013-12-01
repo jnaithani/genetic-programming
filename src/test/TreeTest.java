@@ -10,6 +10,7 @@ import utilities.Utilities;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
+import static org.hamcrest.CoreMatchers.instanceOf;
 
 import static org.junit.Assert.*;
 
@@ -89,6 +90,22 @@ public class TreeTest {
         }
     }
 
+    /**
+     * Test the tree generation to make sure root is always an operator
+     * @throws Exception
+     */
+    @Test
+    public void testOperatorFirst() throws Exception{
+
+        int maxDepth = 4;
+
+        for(int i = 0; i < 100; i++){
+            Tree gpTree = GeneticProgrammingTree.generateTree(maxDepth);
+
+            assertThat(gpTree.getRoot(), instanceOf(OperatorNode.class));
+        }
+
+    }
     @Test
     public void testCreateGeneticProgammingTree() {
         System.out.println("***testCreateGeneticProgammingTree***");
