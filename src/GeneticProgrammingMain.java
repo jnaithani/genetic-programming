@@ -47,14 +47,16 @@ public class GeneticProgrammingMain {
         output.setStartTime(startTime);
         
         GeneticProgrammingTree currentMaxFitnessTree = getCurrentMaxFitnessTree(initialPopulation);
-        output.incrementGenerationCount();
-        output.addFittestTreeInGeneration(currentMaxFitnessTree);
-        output.addPopulationSizeInGeneration(initialPopulation.size());
-        output.recordInitialPopulationFitness(initialPopulation);
+        initializeOutputData(output, initialPopulation, currentMaxFitnessTree);
        
         // Generate the best fit solution
         ArrayList<GeneticProgrammingTree> population = initialPopulation;
         while (!done(startTime, currentMaxFitnessTree) && output.getGenerationCount() < Settings.getMaxGeneration()) {  
+            if (Settings.regenerateTrees(output.getGenerationCount())) {
+                population = getInitialPopulation(trainingData);
+                Collections.sort(initialPopulation);
+            }
+            
             output.setCurrentTime(getCurrentTime());
             output.displayResults();
             
@@ -94,6 +96,13 @@ public class GeneticProgrammingMain {
         output.recordXYGraph();
         output.recordFinalPopulationFitness(population);
 	}
+
+    public void initializeOutputData(OutputData output, ArrayList<GeneticProgrammingTree> initialPopulation, GeneticProgrammingTree currentMaxFitnessTree) throws Exception {
+        output.incrementGenerationCount();
+        output.addFittestTreeInGeneration(currentMaxFitnessTree);
+        output.addPopulationSizeInGeneration(initialPopulation.size());
+        output.recordInitialPopulationFitness(initialPopulation);
+    }
 
     private void performFitnesEvaluation(ArrayList<GeneticProgrammingTree> nextGenPopulation)throws Exception {
         for (GeneticProgrammingTree gpTree : nextGenPopulation) {

@@ -22,6 +22,7 @@ public class Settings extends Properties {
     public static String PROP_MAX_NODES = "maxnodes";
     public static String PROP_MAX_DEPTH = "maxdepth";
     public static String PROP_MAX_DEPTHLIMIT = "maxdepthlimit";
+    public static String PROP_MAX_GENERATIONCOUNT = "maxgenerationcount";
     public static String PROP_DEBUG = "debug";
     public static String PROP_TRACE = "trace";
     
@@ -186,4 +187,17 @@ public class Settings extends Properties {
         }
     }
     
+    public static boolean regenerateTrees(long count) throws Exception {
+        Properties settings = getSettings();
+        
+        String prop = settings.getProperty(PROP_MAX_GENERATIONCOUNT);
+        
+        long maxGenerationCount =  Long.parseLong(prop);
+        
+        if (count > 0 && ((count % maxGenerationCount) == 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

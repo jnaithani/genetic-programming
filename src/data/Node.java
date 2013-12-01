@@ -87,11 +87,28 @@ public abstract class Node {
         }
 
         System.out.print(" " + this.getDataItem() + " ");  
-        
+
         if (getRightChild() != null) {
             getRightChild().inOrderPrint();  
             System.out.print(")");
         }
+    }
+    
+    public String getExpression() {
+        StringBuffer sb = new StringBuffer();
+        if (getLeftChild() != null) {
+            sb.append("(");
+            sb.append(getLeftChild().getExpression());
+        }
+
+        sb.append(this.getDataItem());
+        
+        if (getRightChild() != null) {
+            sb.append(getRightChild().getExpression());  
+            sb.append(")");
+        }
+        
+        return sb.toString();
     }
     
     public ArrayList<Node> getNodeList(ArrayList<Node> nodeList) {

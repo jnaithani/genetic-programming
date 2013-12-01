@@ -56,6 +56,15 @@ public class Tree {
         }
     }
     
+    public String getExpression() {
+        if (root != null) {
+            String s = root.getExpression();
+            return s;
+        } else {
+            return "";
+        }
+    }
+    
     public double evaluate(double xval) throws Exception {
         return root.evaluate(xval);
     }
