@@ -45,12 +45,14 @@ public class Tree {
         }
     }
     
-    public void inOrderPrint() {
+    public String inOrderPrint() {
         if (root != null) {
-            root.inOrderPrint();
+            String s = root.inOrderPrint();
             System.out.println("");
+            return s;
         } else {
             System.out.println("Tree is empty!");
+            return "";
         }
     }
     

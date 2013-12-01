@@ -62,18 +62,24 @@ public abstract class Node {
         System.out.print(this.getDataItem() + " ");  
     }
     
-    public void inOrderPrint() {
+    public String inOrderPrint() {
+        StringBuffer sb = new StringBuffer();
         if (getLeftChild() != null) {
             System.out.print("(");
-            getLeftChild().inOrderPrint();
+            sb.append("(");
+            sb.append(getLeftChild().inOrderPrint());
         }
 
         System.out.print(" " + this.getDataItem() + " ");  
+        sb.append(this.getDataItem());
         
         if (getRightChild() != null) {
-            getRightChild().inOrderPrint();  
+            sb.append(getRightChild().inOrderPrint());  
             System.out.print(")");
+            sb.append(")");
         }
+        
+        return sb.toString();
     }
     
     public ArrayList<Node> getNodeList(ArrayList<Node> nodeList) {

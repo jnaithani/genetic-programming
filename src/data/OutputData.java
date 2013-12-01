@@ -35,6 +35,12 @@ public class OutputData {
         generationCount++;
     }
     
+    public void resetData() {
+        fittestTreeInEachGeneration = new ArrayList<GeneticProgrammingTree>();
+        populationSizeInEachGeneration = new ArrayList<Integer>();
+        generationCount = 0;
+    }
+    
     public int getGenerationCount() {
         return generationCount;
     }
@@ -181,7 +187,8 @@ public class OutputData {
         System.out.println("Current generation count            : " + generationCount);
         System.out.println("Current generation population size  : " + populationSizeInEachGeneration.get(generationCount - 1));
         System.out.print("Fittest Solution                    : ");
-        fittestTreeInEachGeneration.get(generationCount - 1).inOrderPrint();
+        String expression = fittestTreeInEachGeneration.get(generationCount - 1).inOrderPrint();
+        System.out.println("Fittest Solution (trimmed)          : " + expression);
         System.out.println("Fittest Soluton depth               : " + fittestTreeInEachGeneration.get(generationCount - 1).depth());
         System.out.println("Fitness                             : " + fittestTreeInEachGeneration.get(generationCount - 1).getFitness());
     }
