@@ -173,7 +173,7 @@ public class GeneticOperators {
             
             rootNodes = areRootNodes(p1Nodes, p2Nodes, indexp1, indexp2);
         }
-        
+
         if (Settings.trace()) {
             System.out.println("Trace: Crossover node index for first tree : " + indexp1);
             System.out.println("Trace: Crossover node index for second tree: " + indexp2);

@@ -1,38 +1,22 @@
 package test;
 
-import static org.junit.Assert.*;
+import data.TrainingData;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
-
-import data.TrainingData;
+import static org.junit.Assert.assertEquals;
 
 public class TrainingDataTest {
 
     @Test
-    public void testLoadTrainingData() {
+    public void testLoadTrainingData() throws Exception{
         System.out.println("***testLoadTrainingData***");
         
-        int minXValue = -10;
-        int testDataSize = 20;
-        try {
-            TrainingData.generateInitialTrainingData(minXValue, testDataSize);
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail("Could not generate intitial training data");
-        }
-        
-        ArrayList<TrainingData> trainingData = null;
-        try {
-            trainingData = TrainingData.getTrainingData();
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail("Could not load intitial training data");
-        }
-        
-        for (TrainingData td : trainingData) {
-            System.out.println(td.inputData() + "," + td.outputData());
-        }
+        int minXValue = -10, testDataSize = 20;
+        TrainingData.generateInitialTrainingData(minXValue, testDataSize);
+        ArrayList<TrainingData> trainingData = TrainingData.getTrainingData();
+
+        assertEquals(20, trainingData.size());
     }
 }

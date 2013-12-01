@@ -1,6 +1,7 @@
 package test;
 
 import data.GeneticProgrammingTree;
+import data.Node;
 import org.junit.Test;
 import utilities.GeneticOperators;
 import utilities.Settings;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class GeneticOperatorsTest {
 
@@ -59,111 +60,57 @@ public class GeneticOperatorsTest {
     }
 
     @Test
-    public void testMutation() {
-        System.out.println("***testMutation***");
-
-        int size = 0;
-
-        try {
-            Properties settings = Settings.getSettings();
-
-            String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
-
-            size = Integer.parseInt(prop);
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
-        }
-
-        ArrayList<GeneticProgrammingTree> population = null;
-        try {
-            population = GeneticProgrammingTree.getGeneticTreePopulation(size);
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail("Could not generate GeneticProgramming tree");
-        }
-
-        for (GeneticProgrammingTree gpTree : population) {
-            try {
-                System.out.println("Before mutation:");
-                Utilities.printTreeNode(gpTree.getRoot());
-
-                GeneticOperators.mutate(gpTree);
-
-                System.out.println("After mutation:");
-                Utilities.printTreeNode(gpTree.getRoot());
-            } catch (Exception e) {
-                e.printStackTrace();
-                fail("Could not perform mutation");
-            }
-        }
-    }
-
-    @Test
-    public void testSelection() {
+    public void testSelection() throws Exception {
         System.out.println("***testSelection***");
 
-        int size = 0;
+        Properties settings = Settings.getSettings();
+        String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
+        int size = Integer.parseInt(prop);
 
-        try {
-            Properties settings = Settings.getSettings();
+        ArrayList<GeneticProgrammingTree> population = GeneticProgrammingTree.getGeneticTreePopulation(size);
+        ArrayList<GeneticProgrammingTree> newPopulation = GeneticOperators.selection(population);
+        Collections.sort(population);
 
-            String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
 
-            size = Integer.parseInt(prop);
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
-        }
 
+        //make sure sizes of original population and after selection are not the same
+        double selectionProbability = Settings.getSurvivalProbability();
+        int customPopSize = 340;
+
+        int numberOfSurvivors = (int) Math.ceil(selectionProbability * customPopSize);
+
+
+        assertEquals(68, numberOfSurvivors); // test to make sure probability and number of trees moving forward
+        assertFalse(population.size() == newPopulation.size());
+
+    }
+
+    @Test
+    public void testMutate() throws Exception {
         ArrayList<GeneticProgrammingTree> population = null;
         try {
+            int size = 0;
+            Properties settings = Settings.getSettings();
+            String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
+            size = Integer.parseInt(prop);
             population = GeneticProgrammingTree.getGeneticTreePopulation(size);
         } catch (Exception e) {
             e.printStackTrace();
             fail("Could not generate GeneticProgramming tree");
         }
 
-        Collections.sort(population);
 
-        ArrayList<GeneticProgrammingTree> newPopulation = null;
+        GeneticProgrammingTree singleTree = population.get(1); //get the first tree from the population
+        ArrayList<String> beforeMutationLst = Node.postOrderItems(singleTree.getRoot());
+        String postOrderStr = Utilities.convertArrayListToString(beforeMutationLst);
+        int originalDepth = singleTree.depth();
 
-        System.out.println("Before selection:");
-        for (GeneticProgrammingTree gpTree : population) {
-            try {
-                System.out.println("Fitness: " + gpTree.getFitness());
-            } catch (Exception e) {
-                e.printStackTrace();
-                fail("Could not perform selection");
-            }
-        }
+        GeneticOperators.mutate(singleTree);
 
-        try {
-            newPopulation = GeneticOperators.selection(population);
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail("Could not perform selection");
-        }
+        ArrayList<String> afterMutationLst = Node.postOrderItems(singleTree.getRoot());
+        String postOrderStrAfter = Utilities.convertArrayListToString(afterMutationLst);
 
-        System.out.println("After selection:");
-        for (GeneticProgrammingTree gpTree : newPopulation) {
-            try {
-                System.out.println("Fitness: " + gpTree.getFitness());
-            } catch (Exception e) {
-                e.printStackTrace();
-                fail("Could not perform selection");
-            }
-        }
-    }
-
-    @Test
-    public void testMutateTrees() throws Exception {
-        Properties settings = Settings.getSettings();
-        String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
-
-        int size = Integer.parseInt(prop);
-        ArrayList<GeneticProgrammingTree> population = GeneticProgrammingTree.getGeneticTreePopulation(size);
-
-        GeneticOperators.mutateTrees(population);
+        assertEquals(originalDepth, singleTree.depth());
+        assertNotSame(postOrderStrAfter, postOrderStr);
     }
 }

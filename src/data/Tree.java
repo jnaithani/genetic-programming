@@ -36,13 +36,15 @@ public class Tree {
             return root.depth();
     }    
 
-    public void postOrderPrint() {
+    public String postOrderPrint() {
+        String treeEquation = "";
         if (root != null) {
-            root.postOrderPrint();
+           treeEquation += root.postOrderPrint();
             System.out.println("");
         } else {
             System.out.println("Tree is empty!");
         }
+        return treeEquation;
     }
     
     public void inOrderPrint() {

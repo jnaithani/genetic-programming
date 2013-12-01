@@ -1,8 +1,8 @@
 package data;
 
-import java.util.ArrayList;
-
 import utilities.Settings;
+
+import java.util.ArrayList;
 
 public abstract class Node {
     public final static int MAX_NUM_CHILD_NODES = 2;
@@ -11,6 +11,7 @@ public abstract class Node {
     private Node leftChild = null;
     private Node rightChild = null;
     private int numChildNodes = 0;
+    private static ArrayList<String> items = new ArrayList<String>();
 
     public void setParent(Node p) {
         parent = p;
@@ -49,8 +50,25 @@ public abstract class Node {
     public int numChildNodes() {
         return numChildNodes;
     }
-    
-    public void postOrderPrint() {
+    /**
+     * Print all the items in the tree to which root points.
+     * The item in the left subtree is printed first, followed
+     * by the items in the right subtree and then the item
+     * in the root node.
+     */
+    public static ArrayList<String> postOrderItems(Node root) {
+
+
+        if (root != null) {  // (Otherwise, there's nothing to print.)
+            postOrderItems(root.leftChild);   // Print items in left subtree.
+            postOrderItems(root.rightChild);  // Print items in right subtree.
+            System.out.print(root.getDataItem() + " ");  // Print the root item.
+            items.add(root.getDataItem());
+        }
+        return items;
+    }
+
+    public String postOrderPrint() {
         if (getLeftChild() != null) {
             getLeftChild().postOrderPrint();
         }
@@ -58,8 +76,8 @@ public abstract class Node {
         if (getRightChild() != null) {
             getRightChild().postOrderPrint();  
         }
-        
-        System.out.print(this.getDataItem() + " ");  
+        System.out.print(this.getDataItem() + " ");
+        return this.getDataItem();
     }
     
     public void inOrderPrint() {

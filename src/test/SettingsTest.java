@@ -1,13 +1,13 @@
 package test;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
+import utilities.Settings;
 
 import java.util.Enumeration;
 import java.util.Properties;
 
-import org.junit.Test;
-
-import utilities.Settings;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class SettingsTest {
 
@@ -17,7 +17,8 @@ public class SettingsTest {
         
         try {
             Properties settings = Settings.getSettings();
-            
+            int maxNodes = Integer.parseInt(settings.getProperty(Settings.PROP_MAX_NODES));
+            assertEquals(15, maxNodes);
             System.out.println(Settings.PROP_MAX_NODES + "=" + settings.getProperty(Settings.PROP_MAX_NODES));
         } catch (Exception e) {
             e.printStackTrace();
