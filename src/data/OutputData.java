@@ -187,8 +187,8 @@ public class OutputData {
         System.out.println("Current generation count            : " + generationCount);
         System.out.println("Current generation population size  : " + populationSizeInEachGeneration.get(generationCount - 1));
         System.out.print("Fittest Solution                    : ");
-        String expression = fittestTreeInEachGeneration.get(generationCount - 1).inOrderPrint();
-        System.out.println("Fittest Solution (trimmed)          : " + expression);
+        fittestTreeInEachGeneration.get(generationCount - 1).inOrderPrint();
+        System.out.println("Fittest Solution (trimmed)          : " + fittestTreeInEachGeneration.get(generationCount - 1).getExpression());
         System.out.println("Fittest Soluton depth               : " + fittestTreeInEachGeneration.get(generationCount - 1).depth());
         System.out.println("Fitness                             : " + fittestTreeInEachGeneration.get(generationCount - 1).getFitness());
     }

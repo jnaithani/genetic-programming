@@ -62,20 +62,31 @@ public abstract class Node {
         System.out.print(this.getDataItem() + " ");  
     }
     
-    public String inOrderPrint() {
-        StringBuffer sb = new StringBuffer();
+    public void inOrderPrint() {
         if (getLeftChild() != null) {
             System.out.print("(");
-            sb.append("(");
-            sb.append(getLeftChild().inOrderPrint());
+            getLeftChild().inOrderPrint();
         }
 
         System.out.print(" " + this.getDataItem() + " ");  
+
+        if (getRightChild() != null) {
+            getRightChild().inOrderPrint();  
+            System.out.print(")");
+        }
+    }
+    
+    public String getExpression() {
+        StringBuffer sb = new StringBuffer();
+        if (getLeftChild() != null) {
+            sb.append("(");
+            sb.append(getLeftChild().getExpression());
+        }
+
         sb.append(this.getDataItem());
         
         if (getRightChild() != null) {
-            sb.append(getRightChild().inOrderPrint());  
-            System.out.print(")");
+            sb.append(getRightChild().getExpression());  
             sb.append(")");
         }
         

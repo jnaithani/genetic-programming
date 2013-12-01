@@ -45,13 +45,20 @@ public class Tree {
         }
     }
     
-    public String inOrderPrint() {
+    public void inOrderPrint() {
         if (root != null) {
-            String s = root.inOrderPrint();
+            root.inOrderPrint();
             System.out.println("");
-            return s;
         } else {
             System.out.println("Tree is empty!");
+        }
+    }
+    
+    public String getExpression() {
+        if (root != null) {
+            String s = root.getExpression();
+            return s;
+        } else {
             return "";
         }
     }
