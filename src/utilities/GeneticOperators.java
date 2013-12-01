@@ -65,18 +65,12 @@ public class GeneticOperators {
                     trees.get(i1).inOrderPrint();
                 }
                 
-                //mutate tree
                 mutate(tree);
                 
                 if (Settings.trace()) {
                     System.out.println("After Mutation - Tree[" + i1 + "]");
                     trees.get(i1).inOrderPrint();
                 }
-
-                //evaluate fitness with training data
-//                GeneticProgrammingTree.updateFitness(tree, TrainingData.getTrainingData());
-//
-//                Collections.sort(trees);
             }
 
         } catch (Exception e) {
