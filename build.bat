@@ -8,7 +8,14 @@ rem BUILD
 echo Building gps.jar ...
 jar cvfm gps.jar src\Manifest.txt -C classes .
 
+rem PACKAGE
+echo Packing gps.zip ...
+if not exist .\deliv mkdir deliv
+jar cvfM deliv\gps.zip gps.jar settings.properties trainingdata.txt run.bat lib/* 
+
 rem END
 echo Done.
-echo To execute program: java -jar gps.jar
-echo Note: Thirdparty libraries should be located under the 'lib' folder
+echo To execute program, do the following: 
+echo    	cd deliv
+echo    	jar xvf gps.zip
+echo    	java -jar gps.jar
