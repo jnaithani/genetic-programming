@@ -1,11 +1,13 @@
 package data;
 
 import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+
 import utilities.Utilities;
 
 import java.io.File;
@@ -14,12 +16,19 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.swing.JFrame;
+
 public class OutputData {
     private ArrayList<GeneticProgrammingTree> fittestTreeInEachGeneration = new ArrayList<GeneticProgrammingTree>();
     private ArrayList<Integer> populationSizeInEachGeneration = new ArrayList<Integer>();
     private long startTime = 0;
     private long currentTime = 0;
     private int generationCount = 0;
+    
+    JFreeChart chart = null;
+    ChartPanel cp = null;
+    JFrame frame = null;
+    XYSeries series = null;
     
     public void setStartTime(long time) {
         startTime = time;
@@ -167,7 +176,45 @@ public class OutputData {
             false
         );
 
-        ChartUtilities.saveChartAsJPEG(new File("xy_graph.jpg"), chart, 1500, 900);
+        ChartUtilities.saveChartAsJPEG(new File("xy_graph.jpg"), chart, 1500, 900);       
+    }
+    
+    public void createXYGraphDisplay() throws Exception{
+        series = new XYSeries("x/f(x)");
+            
+        for (TrainingData trainingData : TrainingData.getTrainingData()) {
+            series.add(trainingData.inputData, fittestTreeInEachGeneration.get(generationCount - 1).evaluate(trainingData.inputData));
+        }
+        
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        dataset.addSeries(series);
+        
+        frame = new JFrame("XYChart");
+        
+        frame.setSize(1200, 800);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+         chart = ChartFactory.createXYLineChart(
+            "x/f(x)",                    
+            "x",                    
+            "y",
+            dataset,
+            PlotOrientation.VERTICAL,
+            true,
+            true,
+            false
+        );
+        
+        cp = new ChartPanel(chart);
+    
+        frame.getContentPane().add(cp); 
+    }
+    
+    public void updateXYGraphDisplay() throws Exception {
+        for (TrainingData trainingData : TrainingData.getTrainingData()) {
+            series.update(trainingData.inputData, fittestTreeInEachGeneration.get(generationCount - 1).evaluate(trainingData.inputData));
+        }
     }
 
     private void printResults() throws Exception {
