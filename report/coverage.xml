@@ -1,0 +1,1788 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1386024905095" clover="3.2.0">
+   <project timestamp="1386024675923" name="gps Coverage Report">
+      <metrics conditionals="344" methods="171" classes="16" files="15" packages="4" coveredstatements="726" complexity="378" loc="2449" ncloc="1806" coveredmethods="145" coveredconditionals="221" statements="997" coveredelements="1092" elements="1512"/>
+      <package name="test">
+         <metrics conditionals="4" methods="2" classes="1" files="1" coveredstatements="8" complexity="5" loc="43" ncloc="29" coveredmethods="2" coveredconditionals="3" statements="9" coveredelements="13" elements="15"/>
+         <file name="GPUtilities.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\test\GPUtilities.java">
+            <metrics classes="1" methods="2" conditionals="4" ncloc="29" coveredstatements="8" coveredmethods="2" complexity="5" coveredconditionals="3" statements="9" loc="43" coveredelements="13" elements="15"/>
+            <class name="GPUtilities">
+               <metrics methods="2" conditionals="4" coveredstatements="8" coveredmethods="2" complexity="5" coveredconditionals="3" statements="9" coveredelements="13" elements="15"/>
+            </class>
+            <line num="14" count="1" visibility="public" complexity="1" type="method" signature="testFileReader() : void"/>
+            <line num="16" count="1" type="stmt"/>
+            <line num="17" count="1" type="stmt"/>
+            <line num="19" count="1" type="stmt"/>
+            <line num="23" count="1" visibility="public" complexity="4" type="method" signature="testGetRandomNumber() : void"/>
+            <line num="26" count="1" type="stmt"/>
+            <line num="27" count="1" type="stmt"/>
+            <line num="28" count="1" type="stmt"/>
+            <line num="28" falsecount="1" type="cond" truecount="1000"/>
+            <line num="30" count="1000" type="stmt"/>
+            <line num="32" count="1000" type="stmt"/>
+            <line num="32" falsecount="1000" type="cond" truecount="0"/>
+            <line num="33" count="0" type="stmt"/>
+         </file>
+      </package>
+      <package name="utilities">
+         <metrics conditionals="144" methods="65" classes="7" files="6" coveredstatements="253" complexity="153" loc="1025" ncloc="736" coveredmethods="51" coveredconditionals="83" statements="432" coveredelements="387" elements="641"/>
+         <file name="Utilities.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\utilities\Utilities.java">
+            <metrics classes="1" methods="9" conditionals="22" ncloc="125" coveredstatements="64" coveredmethods="8" complexity="26" coveredconditionals="20" statements="81" loc="213" coveredelements="92" elements="112"/>
+            <class name="Utilities">
+               <metrics methods="9" conditionals="22" coveredstatements="64" coveredmethods="8" complexity="26" coveredconditionals="20" statements="81" coveredelements="92" elements="112"/>
+            </class>
+            <line num="22" count="1000" visibility="public" complexity="1" type="method" signature="getRandomNumber(int,int) : int"/>
+            <line num="24" count="1000" type="stmt"/>
+            <line num="28" count="1000" type="stmt"/>
+            <line num="29" count="1000" type="stmt"/>
+            <line num="39" count="0" visibility="public" complexity="5" type="method" signature="performOperation(char,double,double) : double"/>
+            <line num="40" count="0" type="stmt"/>
+            <line num="42" count="0" type="stmt"/>
+            <line num="43" count="0" type="stmt"/>
+            <line num="44" count="0" type="stmt"/>
+            <line num="45" count="0" type="stmt"/>
+            <line num="46" count="0" type="stmt"/>
+            <line num="47" count="0" type="stmt"/>
+            <line num="48" count="0" type="stmt"/>
+            <line num="49" count="0" type="stmt"/>
+            <line num="50" count="0" type="stmt"/>
+            <line num="51" count="0" type="stmt"/>
+            <line num="52" count="0" type="stmt"/>
+            <line num="53" count="0" type="stmt"/>
+            <line num="54" count="0" type="stmt"/>
+            <line num="55" count="0" type="stmt"/>
+            <line num="58" count="0" type="stmt"/>
+            <line num="64" count="1203" visibility="public" complexity="1" type="method" signature="printTreeNode(Node) : void"/>
+            <line num="66" count="1203" type="stmt"/>
+            <line num="67" count="1203" type="stmt"/>
+            <line num="74" count="5616" visibility="private" complexity="9" type="method" signature="printTreeNodeInternal(List&lt;Node&gt;,int,int) : void"/>
+            <line num="75" count="5616" type="stmt"/>
+            <line num="75" falsecount="4413" type="cond" truecount="1203"/>
+            <line num="76" count="1203" type="stmt"/>
+            <line num="78" count="4413" type="stmt"/>
+            <line num="79" count="4413" type="stmt"/>
+            <line num="80" count="4413" type="stmt"/>
+            <line num="81" count="4413" type="stmt"/>
+            <line num="83" count="4413" type="stmt"/>
+            <line num="85" count="4413" type="stmt"/>
+            <line num="88" count="4413" type="stmt"/>
+            <line num="89" count="17069" type="stmt"/>
+            <line num="89" falsecount="2968" type="cond" truecount="14101"/>
+            <line num="90" count="14101" type="stmt"/>
+            <line num="91" count="14101" type="stmt"/>
+            <line num="92" count="14101" type="stmt"/>
+            <line num="94" count="2968" type="stmt"/>
+            <line num="95" count="2968" type="stmt"/>
+            <line num="96" count="2968" type="stmt"/>
+            <line num="99" count="17069" type="stmt"/>
+            <line num="101" count="4413" type="stmt"/>
+            <line num="104" count="4413" type="stmt"/>
+            <line num="104" falsecount="4413" type="cond" truecount="9136"/>
+            <line num="105" count="9136" type="stmt"/>
+            <line num="105" falsecount="9136" type="cond" truecount="23652"/>
+            <line num="106" count="23652" type="stmt"/>
+            <line num="107" count="23652" type="stmt"/>
+            <line num="107" falsecount="20492" type="cond" truecount="3160"/>
+            <line num="108" count="3160" type="stmt"/>
+            <line num="110" count="3160" type="stmt"/>
+            <line num="113" count="20492" type="stmt"/>
+            <line num="113" falsecount="8034" type="cond" truecount="12458"/>
+            <line num="114" count="12458" type="stmt"/>
+            <line num="116" count="8034" type="stmt"/>
+            <line num="118" count="20492" type="stmt"/>
+            <line num="120" count="20492" type="stmt"/>
+            <line num="120" falsecount="8034" type="cond" truecount="12458"/>
+            <line num="121" count="12458" type="stmt"/>
+            <line num="123" count="8034" type="stmt"/>
+            <line num="125" count="20492" type="stmt"/>
+            <line num="128" count="9136" type="stmt"/>
+            <line num="131" count="4413" type="stmt"/>
+            <line num="139" count="29405" visibility="public" complexity="2" type="method" signature="getMaxNodeLevel(Node) : int"/>
+            <line num="140" count="29405" type="stmt"/>
+            <line num="140" falsecount="14101" type="cond" truecount="15304"/>
+            <line num="141" count="15304" type="stmt"/>
+            <line num="143" count="14101" type="stmt"/>
+            <line num="150" count="105346" visibility="private" complexity="2" type="method" signature="printWhitespaces(int) : void"/>
+            <line num="151" count="105346" type="stmt"/>
+            <line num="151" falsecount="105346" type="cond" truecount="303719"/>
+            <line num="152" count="303719" type="stmt"/>
+            <line num="161" count="1" visibility="public" complexity="3" type="method" signature="readFileGetLine(String) : HashMap&lt;String, String&gt;"/>
+            <line num="163" count="1" type="stmt"/>
+            <line num="164" count="1" type="stmt"/>
+            <line num="165" count="1" type="stmt"/>
+            <line num="167" count="1" type="stmt"/>
+            <line num="168" count="1" type="stmt"/>
+            <line num="169" count="1" type="stmt"/>
+            <line num="174" count="1" type="stmt"/>
+            <line num="174" falsecount="0" type="cond" truecount="0"/>
+            <line num="176" count="3" type="stmt"/>
+            <line num="177" count="3" type="stmt"/>
+            <line num="179" count="3" type="stmt"/>
+            <line num="183" count="1" type="stmt"/>
+            <line num="186" count="0" type="stmt"/>
+            <line num="189" count="1" type="stmt"/>
+            <line num="192" count="5616" visibility="private" complexity="2" type="method" signature="isAllElementsNull(List&lt;T&gt;) : boolean"/>
+            <line num="193" count="5616" type="stmt"/>
+            <line num="194" count="24013" type="stmt"/>
+            <line num="194" falsecount="19600" type="cond" truecount="4413"/>
+            <line num="195" count="4413" type="stmt"/>
+            <line num="198" count="1203" type="stmt"/>
+            <line num="205" count="2" visibility="public" complexity="1" type="method" signature="convertArrayListToString(ArrayList&lt;String&gt;) : String"/>
+            <line num="206" count="2" type="stmt"/>
+            <line num="208" count="2" type="stmt"/>
+            <line num="209" count="39" type="stmt"/>
+            <line num="211" count="2" type="stmt"/>
+         </file>
+         <file name="TreePrinter.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\utilities\TreePrinter.java">
+            <metrics classes="1" methods="6" conditionals="20" ncloc="75" coveredstatements="0" coveredmethods="0" complexity="17" coveredconditionals="0" statements="45" loc="99" coveredelements="0" elements="71"/>
+            <class name="TreePrinter">
+               <metrics methods="6" conditionals="20" coveredstatements="0" coveredmethods="0" complexity="17" coveredconditionals="0" statements="45" coveredelements="0" elements="71"/>
+            </class>
+            <line num="9" count="0" visibility="public" complexity="1" type="method" signature="TreePrinter()"/>
+            <line num="13" count="0" visibility="public" complexity="1" type="method" signature="printNode(Node&lt;T&gt;) : void"/>
+            <line num="14" count="0" type="stmt"/>
+            <line num="16" count="0" type="stmt"/>
+            <line num="19" count="0" visibility="private" complexity="9" type="method" signature="printNodeInternal(List&lt;Node&lt;T&gt;&gt;,int,int) : void"/>
+            <line num="21" count="0" type="stmt"/>
+            <line num="21" falsecount="0" type="cond" truecount="0"/>
+            <line num="22" count="0" type="stmt"/>
+            <line num="24" count="0" type="stmt"/>
+            <line num="25" count="0" type="stmt"/>
+            <line num="26" count="0" type="stmt"/>
+            <line num="27" count="0" type="stmt"/>
+            <line num="29" count="0" type="stmt"/>
+            <line num="31" count="0" type="stmt"/>
+            <line num="32" count="0" type="stmt"/>
+            <line num="33" count="0" type="stmt"/>
+            <line num="33" falsecount="0" type="cond" truecount="0"/>
+            <line num="34" count="0" type="stmt"/>
+            <line num="35" count="0" type="stmt"/>
+            <line num="36" count="0" type="stmt"/>
+            <line num="38" count="0" type="stmt"/>
+            <line num="39" count="0" type="stmt"/>
+            <line num="40" count="0" type="stmt"/>
+            <line num="43" count="0" type="stmt"/>
+            <line num="45" count="0" type="stmt"/>
+            <line num="47" count="0" type="stmt"/>
+            <line num="47" falsecount="0" type="cond" truecount="0"/>
+            <line num="48" count="0" type="stmt"/>
+            <line num="48" falsecount="0" type="cond" truecount="0"/>
+            <line num="49" count="0" type="stmt"/>
+            <line num="50" count="0" type="stmt"/>
+            <line num="50" falsecount="0" type="cond" truecount="0"/>
+            <line num="51" count="0" type="stmt"/>
+            <line num="53" count="0" type="stmt"/>
+            <line num="56" count="0" type="stmt"/>
+            <line num="56" falsecount="0" type="cond" truecount="0"/>
+            <line num="57" count="0" type="stmt"/>
+            <line num="59" count="0" type="stmt"/>
+            <line num="61" count="0" type="stmt"/>
+            <line num="63" count="0" type="stmt"/>
+            <line num="63" falsecount="0" type="cond" truecount="0"/>
+            <line num="64" count="0" type="stmt"/>
+            <line num="66" count="0" type="stmt"/>
+            <line num="68" count="0" type="stmt"/>
+            <line num="71" count="0" type="stmt"/>
+            <line num="74" count="0" type="stmt"/>
+            <line num="77" count="0" visibility="private" complexity="2" type="method" signature="printWhitespaces(int) : void"/>
+            <line num="78" count="0" type="stmt"/>
+            <line num="78" falsecount="0" type="cond" truecount="0"/>
+            <line num="79" count="0" type="stmt"/>
+            <line num="82" count="0" visibility="private" complexity="2" type="method" signature="maxLevel(Node&lt;T&gt;) : int"/>
+            <line num="83" count="0" type="stmt"/>
+            <line num="83" falsecount="0" type="cond" truecount="0"/>
+            <line num="84" count="0" type="stmt"/>
+            <line num="86" count="0" type="stmt"/>
+            <line num="90" count="0" visibility="private" complexity="2" type="method" signature="isAllElementsNull(List&lt;T&gt;) : boolean"/>
+            <line num="91" count="0" type="stmt"/>
+            <line num="92" count="0" type="stmt"/>
+            <line num="92" falsecount="0" type="cond" truecount="0"/>
+            <line num="93" count="0" type="stmt"/>
+            <line num="96" count="0" type="stmt"/>
+         </file>
+         <file name="Settings.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\utilities\Settings.java">
+            <metrics classes="1" methods="19" conditionals="16" ncloc="146" coveredstatements="54" coveredmethods="18" complexity="31" coveredconditionals="10" statements="65" loc="203" coveredelements="82" elements="100"/>
+            <class name="Settings">
+               <metrics methods="19" conditionals="16" coveredstatements="54" coveredmethods="18" complexity="31" coveredconditionals="10" statements="65" coveredelements="82" elements="100"/>
+            </class>
+            <line num="39" count="705109" visibility="public" complexity="2" type="method" signature="getSettings() : Properties"/>
+            <line num="40" count="705109" type="stmt"/>
+            <line num="40" falsecount="705104" type="cond" truecount="5"/>
+            <line num="41" count="5" type="stmt"/>
+            <line num="43" count="705104" type="stmt"/>
+            <line num="47" count="5" visibility="public" complexity="1" type="method" signature="loadSettings(String) : Properties"/>
+            <line num="48" count="5" type="stmt"/>
+            <line num="49" count="5" type="stmt"/>
+            <line num="52" count="80047" visibility="public" complexity="4" type="method" signature="debug() : boolean"/>
+            <line num="53" count="80047" type="stmt"/>
+            <line num="54" count="80047" type="stmt"/>
+            <line num="54" falsecount="80047" type="cond" truecount="0"/>
+            <line num="55" count="0" type="stmt"/>
+            <line num="58" count="80047" type="stmt"/>
+            <line num="58" falsecount="80047" type="cond" truecount="0"/>
+            <line num="59" count="0" type="stmt"/>
+            <line num="61" count="80047" type="stmt"/>
+            <line num="63" count="0" type="stmt"/>
+            <line num="67" count="145452662" visibility="public" complexity="4" type="method" signature="trace() : boolean"/>
+            <line num="68" count="145452662" type="stmt"/>
+            <line num="69" count="145452662" type="stmt"/>
+            <line num="69" falsecount="145452662" type="cond" truecount="0"/>
+            <line num="70" count="0" type="stmt"/>
+            <line num="73" count="145452662" type="stmt"/>
+            <line num="73" falsecount="145452662" type="cond" truecount="0"/>
+            <line num="74" count="0" type="stmt"/>
+            <line num="76" count="145452662" type="stmt"/>
+            <line num="78" count="0" type="stmt"/>
+            <line num="82" count="5" visibility="private" complexity="1" type="method" signature="getDefaultSettingsFilename() : String"/>
+            <line num="83" count="5" type="stmt"/>
+            <line num="86" count="5" visibility="private" complexity="1" type="method" signature="getCurrentWorkingDir() : String"/>
+            <line num="87" count="5" type="stmt"/>
+            <line num="90" count="5" visibility="private" complexity="1" type="method" signature="Settings(String)"/>
+            <line num="91" count="5" type="stmt"/>
+            <line num="94" count="160051" visibility="public" complexity="1" type="method" signature="getMaxDepth() : int"/>
+            <line num="95" count="160051" type="stmt"/>
+            <line num="97" count="160051" type="stmt"/>
+            <line num="99" count="160051" type="stmt"/>
+            <line num="102" count="4215" visibility="public" complexity="1" type="method" signature="getSurvivalProbability() : double"/>
+            <line num="103" count="4215" type="stmt"/>
+            <line num="105" count="4215" type="stmt"/>
+            <line num="107" count="4215" type="stmt"/>
+            <line num="110" count="4213" visibility="public" complexity="1" type="method" signature="getMutationProbability() : double"/>
+            <line num="111" count="4213" type="stmt"/>
+            <line num="113" count="4213" type="stmt"/>
+            <line num="115" count="4213" type="stmt"/>
+            <line num="118" count="8428" visibility="public" complexity="1" type="method" signature="getPopulationSize() : int"/>
+            <line num="119" count="8428" type="stmt"/>
+            <line num="121" count="8428" type="stmt"/>
+            <line num="123" count="8428" type="stmt"/>
+            <line num="126" count="4215" visibility="public" complexity="1" type="method" signature="getFitnessThreshold() : double"/>
+            <line num="127" count="4215" type="stmt"/>
+            <line num="129" count="4215" type="stmt"/>
+            <line num="131" count="4215" type="stmt"/>
+            <line num="134" count="4213" visibility="public" complexity="1" type="method" signature="maxExecutionTime() : long"/>
+            <line num="135" count="4213" type="stmt"/>
+            <line num="137" count="4213" type="stmt"/>
+            <line num="139" count="4213" type="stmt"/>
+            <line num="142" count="4213" visibility="public" complexity="1" type="method" signature="getCrossoverProbability() : double"/>
+            <line num="143" count="4213" type="stmt"/>
+            <line num="145" count="4213" type="stmt"/>
+            <line num="147" count="4213" type="stmt"/>
+            <line num="150" count="4213" visibility="public" complexity="2" type="method" signature="getMaxGeneration() : int"/>
+            <line num="151" count="4213" type="stmt"/>
+            <line num="153" count="4213" type="stmt"/>
+            <line num="155" count="4213" type="stmt"/>
+            <line num="155" falsecount="4213" type="cond" truecount="0"/>
+            <line num="156" count="0" type="stmt"/>
+            <line num="158" count="4213" type="stmt"/>
+            <line num="162" count="0" visibility="public" complexity="1" type="method" signature="getFunctionSelectionProbability() : double"/>
+            <line num="163" count="0" type="stmt"/>
+            <line num="165" count="0" type="stmt"/>
+            <line num="167" count="0" type="stmt"/>
+            <line num="170" count="337040" visibility="public" complexity="1" type="method" signature="maxDepthLimit() : long"/>
+            <line num="171" count="337040" type="stmt"/>
+            <line num="173" count="337040" type="stmt"/>
+            <line num="175" count="337040" type="stmt"/>
+            <line num="178" count="168520" visibility="public" complexity="3" type="method" signature="isMaxDepthLimitSet() : boolean"/>
+            <line num="179" count="168520" type="stmt"/>
+            <line num="181" count="168520" type="stmt"/>
+            <line num="183" count="168520" type="stmt"/>
+            <line num="183" falsecount="168520" type="cond" truecount="0"/>
+            <line num="184" count="0" type="stmt"/>
+            <line num="186" count="168520" type="stmt"/>
+            <line num="190" count="4213" visibility="public" complexity="3" type="method" signature="regenerateTrees(long) : boolean"/>
+            <line num="191" count="4213" type="stmt"/>
+            <line num="193" count="4213" type="stmt"/>
+            <line num="195" count="4213" type="stmt"/>
+            <line num="197" count="4213" type="stmt"/>
+            <line num="197" falsecount="4210" type="cond" truecount="3"/>
+            <line num="198" count="3" type="stmt"/>
+            <line num="200" count="4210" type="stmt"/>
+         </file>
+         <file name="NodeFactory.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\utilities\NodeFactory.java">
+            <metrics classes="1" methods="15" conditionals="36" ncloc="138" coveredstatements="38" coveredmethods="13" complexity="35" coveredconditionals="14" statements="68" loc="176" coveredelements="65" elements="119"/>
+            <class name="NodeFactory">
+               <metrics methods="15" conditionals="36" coveredstatements="38" coveredmethods="13" complexity="35" coveredconditionals="14" statements="68" coveredelements="65" elements="119"/>
+            </class>
+            <line num="13" count="2803" visibility="public" complexity="1" type="method" signature="getNode() : Node"/>
+            <line num="14" count="2803" type="stmt"/>
+            <line num="17" count="77934" visibility="public" complexity="2" type="method" signature="getTerminal() : Node"/>
+            <line num="18" count="77934" type="stmt"/>
+            <line num="18" falsecount="77934" type="cond" truecount="0"/>
+            <line num="19" count="0" type="stmt"/>
+            <line num="21" count="77934" type="stmt"/>
+            <line num="25" count="58444" visibility="public" complexity="1" type="method" signature="getFunction() : Node"/>
+            <line num="26" count="58444" type="stmt"/>
+            <line num="29" count="2803" visibility="private" complexity="3" type="method" signature="getRandomNode() : Node"/>
+            <line num="30" count="2803" type="stmt"/>
+            <line num="32" count="2803" type="stmt"/>
+            <line num="32" falsecount="2803" type="cond" truecount="0"/>
+            <line num="33" count="0" type="stmt"/>
+            <line num="35" count="2803" type="stmt"/>
+            <line num="35" falsecount="1380" type="cond" truecount="1423"/>
+            <line num="36" count="1423" type="stmt"/>
+            <line num="38" count="1380" type="stmt"/>
+            <line num="43" count="79314" visibility="private" complexity="1" type="method" signature="getOperand() : Node"/>
+            <line num="44" count="79314" type="stmt"/>
+            <line num="47" count="59867" visibility="private" complexity="1" type="method" signature="getOperator() : Node"/>
+            <line num="48" count="59867" type="stmt"/>
+            <line num="51" count="79314" visibility="private" complexity="1" type="method" signature="getRandomOperandNode() : Node"/>
+            <line num="52" count="79314" type="stmt"/>
+            <line num="53" count="79314" type="stmt"/>
+            <line num="56" count="59867" visibility="private" complexity="1" type="method" signature="getRandomOperatorNode() : Node"/>
+            <line num="57" count="59867" type="stmt"/>
+            <line num="58" count="59867" type="stmt"/>
+            <line num="61" count="0" visibility="private" complexity="3" type="method" signature="getRandomOperandNew() : String"/>
+            <line num="62" count="0" type="stmt"/>
+            <line num="64" count="0" type="stmt"/>
+            <line num="66" count="0" type="stmt"/>
+            <line num="66" falsecount="0" type="cond" truecount="0"/>
+            <line num="67" count="0" type="stmt"/>
+            <line num="70" count="0" type="stmt"/>
+            <line num="70" falsecount="0" type="cond" truecount="0"/>
+            <line num="71" count="0" type="stmt"/>
+            <line num="73" count="0" type="stmt"/>
+            <line num="77" count="79314" visibility="private" complexity="4" type="method" signature="getRandomOperand() : String"/>
+            <line num="78" count="79314" type="stmt"/>
+            <line num="80" count="79314" type="stmt"/>
+            <line num="80" falsecount="79314" type="cond" truecount="0"/>
+            <line num="81" count="0" type="stmt"/>
+            <line num="84" count="79314" type="stmt"/>
+            <line num="86" count="79314" type="stmt"/>
+            <line num="88" count="79314" type="stmt"/>
+            <line num="88" falsecount="79314" type="cond" truecount="0"/>
+            <line num="89" count="0" type="stmt"/>
+            <line num="92" count="79314" type="stmt"/>
+            <line num="92" falsecount="39336" type="cond" truecount="39978"/>
+            <line num="93" count="39978" type="stmt"/>
+            <line num="95" count="39336" type="stmt"/>
+            <line num="100" count="0" visibility="private" complexity="8" type="method" signature="getWeightedRandomOperand() : String"/>
+            <line num="101" count="0" type="stmt"/>
+            <line num="103" count="0" type="stmt"/>
+            <line num="103" falsecount="0" type="cond" truecount="0"/>
+            <line num="104" count="0" type="stmt"/>
+            <line num="107" count="0" type="stmt"/>
+            <line num="109" count="0" type="stmt"/>
+            <line num="109" falsecount="0" type="cond" truecount="0"/>
+            <line num="110" count="0" type="stmt"/>
+            <line num="110" falsecount="0" type="cond" truecount="0"/>
+            <line num="111" count="0" type="stmt"/>
+            <line num="114" count="0" type="stmt"/>
+            <line num="116" count="0" type="stmt"/>
+            <line num="116" falsecount="0" type="cond" truecount="0"/>
+            <line num="117" count="0" type="stmt"/>
+            <line num="120" count="0" type="stmt"/>
+            <line num="120" falsecount="0" type="cond" truecount="0"/>
+            <line num="121" count="0" type="stmt"/>
+            <line num="123" count="0" type="stmt"/>
+            <line num="126" count="0" type="stmt"/>
+            <line num="128" count="0" type="stmt"/>
+            <line num="128" falsecount="0" type="cond" truecount="0"/>
+            <line num="129" count="0" type="stmt"/>
+            <line num="132" count="0" type="stmt"/>
+            <line num="132" falsecount="0" type="cond" truecount="0"/>
+            <line num="133" count="0" type="stmt"/>
+            <line num="135" count="0" type="stmt"/>
+            <line num="141" count="79314" visibility="public" complexity="1" type="method" signature="getRandomNumberGenerator() : Random"/>
+            <line num="142" count="79314" type="stmt"/>
+            <line num="145" count="160051" visibility="public" complexity="1" type="method" signature="getMaxLeafNodes() : int"/>
+            <line num="146" count="160051" type="stmt"/>
+            <line num="148" count="160051" type="stmt"/>
+            <line num="151" count="160051" visibility="public" complexity="1" type="method" signature="getMaxLeafNodes(int) : int"/>
+            <line num="152" count="160051" type="stmt"/>
+            <line num="154" count="160051" type="stmt"/>
+            <line num="157" count="59867" visibility="private" complexity="6" type="method" signature="getRandomOperator() : String"/>
+            <line num="158" count="59867" type="stmt"/>
+            <line num="159" count="59867" type="stmt"/>
+            <line num="161" count="59867" type="stmt"/>
+            <line num="161" falsecount="45038" type="cond" truecount="14829"/>
+            <line num="162" count="14829" type="stmt"/>
+            <line num="164" count="45038" type="stmt"/>
+            <line num="164" falsecount="30134" type="cond" truecount="14904"/>
+            <line num="165" count="14904" type="stmt"/>
+            <line num="167" count="30134" type="stmt"/>
+            <line num="167" falsecount="14969" type="cond" truecount="15165"/>
+            <line num="168" count="15165" type="stmt"/>
+            <line num="171" count="14969" type="stmt"/>
+            <line num="174" count="59867" type="stmt"/>
+         </file>
+         <file name="GeneticOperators.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\utilities\GeneticOperators.java">
+            <metrics classes="1" methods="12" conditionals="50" ncloc="183" coveredstatements="97" coveredmethods="12" complexity="40" coveredconditionals="39" statements="122" loc="246" coveredelements="148" elements="184"/>
+            <class name="GeneticOperators">
+               <metrics methods="12" conditionals="50" coveredstatements="97" coveredmethods="12" complexity="40" coveredconditionals="39" statements="122" coveredelements="148" elements="184"/>
+            </class>
+            <line num="12" count="4214" visibility="public" complexity="3" type="method" signature="selection(ArrayList&lt;GeneticProgrammingTree&gt;) : ArrayList&lt;GeneticProgrammingTree&gt;"/>
+            <line num="13" count="4214" type="stmt"/>
+            <line num="15" count="4214" type="stmt"/>
+            <line num="17" count="4214" type="stmt"/>
+            <line num="18" count="4214" type="stmt"/>
+            <line num="18" falsecount="4214" type="cond" truecount="84280"/>
+            <line num="20" count="84280" type="stmt"/>
+            <line num="22" count="84280" type="stmt"/>
+            <line num="22" falsecount="84280" type="cond" truecount="0"/>
+            <line num="23" count="0" type="stmt"/>
+            <line num="24" count="0" type="stmt"/>
+            <line num="25" count="0" type="stmt"/>
+            <line num="28" count="84280" type="stmt"/>
+            <line num="31" count="4214" type="stmt"/>
+            <line num="34" count="4214" visibility="private" complexity="2" type="method" signature="getNumberOfSurvivors() : int"/>
+            <line num="35" count="4214" type="stmt"/>
+            <line num="36" count="4214" type="stmt"/>
+            <line num="38" count="4214" type="stmt"/>
+            <line num="40" count="4214" type="stmt"/>
+            <line num="40" falsecount="4214" type="cond" truecount="0"/>
+            <line num="41" count="0" type="stmt"/>
+            <line num="44" count="4214" type="stmt"/>
+            <line num="47" count="4213" visibility="public" complexity="6" type="method" signature="mutateTrees(ArrayList&lt;GeneticProgrammingTree&gt;) : void"/>
+            <line num="49" count="4213" type="stmt"/>
+            <line num="50" count="4213" type="stmt"/>
+            <line num="50" falsecount="4213" type="cond" truecount="0"/>
+            <line num="51" count="0" type="stmt"/>
+            <line num="53" count="4213" type="stmt"/>
+            <line num="54" count="4213" type="stmt"/>
+            <line num="55" count="4213" type="stmt"/>
+            <line num="57" count="4213" type="stmt"/>
+            <line num="57" falsecount="4213" type="cond" truecount="84260"/>
+            <line num="60" count="84260" type="stmt"/>
+            <line num="61" count="84260" type="stmt"/>
+            <line num="63" count="84260" type="stmt"/>
+            <line num="63" falsecount="84260" type="cond" truecount="0"/>
+            <line num="64" count="0" type="stmt"/>
+            <line num="65" count="0" type="stmt"/>
+            <line num="68" count="84260" type="stmt"/>
+            <line num="70" count="84260" type="stmt"/>
+            <line num="70" falsecount="84260" type="cond" truecount="0"/>
+            <line num="71" count="0" type="stmt"/>
+            <line num="72" count="0" type="stmt"/>
+            <line num="77" count="0" type="stmt"/>
+            <line num="78" count="0" type="stmt"/>
+            <line num="83" count="4213" visibility="private" complexity="1" type="method" signature="getNumberOfTreesForMutation(int) : int"/>
+            <line num="84" count="4213" type="stmt"/>
+            <line num="87" count="4213" visibility="public" complexity="10" type="method" signature="crossoverTrees(ArrayList&lt;GeneticProgrammingTree&gt;) : ArrayList&lt;GeneticProgrammingTree&gt;"/>
+            <line num="88" count="4213" type="stmt"/>
+            <line num="89" count="4213" type="stmt"/>
+            <line num="91" count="4213" type="stmt"/>
+            <line num="93" count="4213" type="stmt"/>
+            <line num="93" falsecount="4213" type="cond" truecount="168520"/>
+            <line num="94" count="168520" type="stmt"/>
+            <line num="95" count="168520" type="stmt"/>
+            <line num="95" falsecount="168520" type="cond" truecount="170281"/>
+            <line num="96" count="170281" type="stmt"/>
+            <line num="97" count="170281" type="stmt"/>
+            <line num="100" count="168520" type="stmt"/>
+            <line num="100" falsecount="168520" type="cond" truecount="0"/>
+            <line num="101" count="0" type="stmt"/>
+            <line num="102" count="0" type="stmt"/>
+            <line num="103" count="0" type="stmt"/>
+            <line num="104" count="0" type="stmt"/>
+            <line num="107" count="168520" type="stmt"/>
+            <line num="108" count="168520" type="stmt"/>
+            <line num="110" count="168520" type="stmt"/>
+            <line num="110" falsecount="26999" type="cond" truecount="141521"/>
+            <line num="111" count="141521" type="stmt"/>
+            <line num="114" count="168520" type="stmt"/>
+            <line num="114" falsecount="168520" type="cond" truecount="0"/>
+            <line num="115" count="0" type="stmt"/>
+            <line num="116" count="0" type="stmt"/>
+            <line num="117" count="0" type="stmt"/>
+            <line num="118" count="0" type="stmt"/>
+            <line num="121" count="168520" type="stmt"/>
+            <line num="121" falsecount="0" type="cond" truecount="168520"/>
+            <line num="122" count="168520" type="stmt"/>
+            <line num="122" falsecount="147218" type="cond" truecount="21302"/>
+            <line num="123" count="21302" type="stmt"/>
+            <line num="126" count="168520" type="stmt"/>
+            <line num="126" falsecount="146940" type="cond" truecount="21580"/>
+            <line num="127" count="21580" type="stmt"/>
+            <line num="131" count="168520" type="stmt"/>
+            <line num="132" count="168520" type="stmt"/>
+            <line num="135" count="4213" type="stmt"/>
+            <line num="138" count="42882" visibility="private" complexity="2" type="method" signature="getCopyOfRandomParent(GeneticProgrammingTree,GeneticProgrammingTree) : GeneticProgrammingTree"/>
+            <line num="139" count="42882" type="stmt"/>
+            <line num="141" count="42882" type="stmt"/>
+            <line num="141" falsecount="21466" type="cond" truecount="21416"/>
+            <line num="142" count="21416" type="stmt"/>
+            <line num="145" count="21466" type="stmt"/>
+            <line num="149" count="4213" visibility="private" complexity="1" type="method" signature="getNumberOfPairsForCrossover(int) : int"/>
+            <line num="150" count="4213" type="stmt"/>
+            <line num="152" count="4213" type="stmt"/>
+            <line num="154" count="4213" type="stmt"/>
+            <line num="157" count="141571" visibility="public" complexity="4" type="method" signature="crossover(Tree,Tree) : void"/>
+            <line num="158" count="141571" type="stmt"/>
+            <line num="159" count="141571" type="stmt"/>
+            <line num="161" count="141571" type="stmt"/>
+            <line num="162" count="141571" type="stmt"/>
+            <line num="163" count="141571" type="stmt"/>
+            <line num="164" count="141571" type="stmt"/>
+            <line num="164" falsecount="141571" type="cond" truecount="141914"/>
+            <line num="165" count="141914" type="stmt"/>
+            <line num="166" count="141914" type="stmt"/>
+            <line num="168" count="141914" type="stmt"/>
+            <line num="171" count="141571" type="stmt"/>
+            <line num="171" falsecount="141571" type="cond" truecount="0"/>
+            <line num="172" count="0" type="stmt"/>
+            <line num="173" count="0" type="stmt"/>
+            <line num="176" count="141571" type="stmt"/>
+            <line num="177" count="141571" type="stmt"/>
+            <line num="179" count="141571" type="stmt"/>
+            <line num="179" falsecount="141571" type="cond" truecount="0"/>
+            <line num="180" count="0" type="stmt"/>
+            <line num="181" count="0" type="stmt"/>
+            <line num="184" count="141571" type="stmt"/>
+            <line num="187" count="141914" visibility="public" complexity="3" type="method" signature="areRootNodes(ArrayList&lt;Node&gt;,ArrayList&lt;Node&gt;,int,int) : boolean"/>
+            <line num="188" count="141914" type="stmt"/>
+            <line num="190" count="141914" type="stmt"/>
+            <line num="190" falsecount="343" type="cond" truecount="141571"/>
+            <line num="191" count="141571" type="stmt"/>
+            <line num="194" count="141914" type="stmt"/>
+            <line num="197" count="84361" visibility="public" complexity="4" type="method" signature="mutate(Tree) : void"/>
+            <line num="198" count="84361" type="stmt"/>
+            <line num="198" falsecount="7135" type="cond" truecount="77226"/>
+            <line num="199" count="77226" type="stmt"/>
+            <line num="200" count="77226" type="stmt"/>
+            <line num="202" count="77226" type="stmt"/>
+            <line num="202" falsecount="77226" type="cond" truecount="0"/>
+            <line num="203" count="0" type="stmt"/>
+            <line num="204" count="0" type="stmt"/>
+            <line num="207" count="77226" type="stmt"/>
+            <line num="208" count="77226" type="stmt"/>
+            <line num="208" falsecount="38407" type="cond" truecount="38819"/>
+            <line num="209" count="38819" type="stmt"/>
+            <line num="211" count="38407" type="stmt"/>
+            <line num="214" count="7135" type="stmt"/>
+            <line num="215" count="7135" type="stmt"/>
+            <line num="219" count="38819" visibility="public" complexity="2" type="method" signature="mutateOperatorNode(ArrayList&lt;Node&gt;) : void"/>
+            <line num="220" count="38819" type="stmt"/>
+            <line num="221" count="38819" type="stmt"/>
+            <line num="223" count="38819" type="stmt"/>
+            <line num="225" count="38819" type="stmt"/>
+            <line num="226" count="38819" type="stmt"/>
+            <line num="227" count="51952" type="stmt"/>
+            <line num="227" count="51952" type="stmt"/>
+            <line num="228" falsecount="38819" type="cond" truecount="13133"/>
+            <line num="230" count="38819" type="stmt"/>
+            <line num="233" count="45542" visibility="public" complexity="2" type="method" signature="mutateOperandNode(ArrayList&lt;Node&gt;) : void"/>
+            <line num="234" count="45542" type="stmt"/>
+            <line num="235" count="45542" type="stmt"/>
+            <line num="237" count="45542" type="stmt"/>
+            <line num="239" count="45542" type="stmt"/>
+            <line num="240" count="45542" type="stmt"/>
+            <line num="241" count="69535" type="stmt"/>
+            <line num="242" falsecount="45542" type="cond" truecount="23993"/>
+            <line num="244" count="45542" type="stmt"/>
+         </file>
+         <file name="BPTreeMain.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\utilities\BPTreeMain.java">
+            <metrics classes="2" methods="4" conditionals="0" ncloc="69" coveredstatements="0" coveredmethods="0" complexity="4" coveredconditionals="0" statements="51" loc="88" coveredelements="0" elements="55"/>
+            <class name="BPTreeMain">
+               <metrics methods="3" conditionals="0" coveredstatements="0" coveredmethods="0" complexity="3" coveredconditionals="0" statements="50" coveredelements="0" elements="53"/>
+            </class>
+            <class name="Node">
+               <metrics methods="1" conditionals="0" coveredstatements="0" coveredmethods="0" complexity="1" coveredconditionals="0" statements="1" coveredelements="0" elements="2"/>
+            </class>
+            <line num="9" count="0" visibility="private" complexity="1" type="method" signature="test1() : Node&lt;Integer&gt;"/>
+            <line num="10" count="0" type="stmt"/>
+            <line num="11" count="0" type="stmt"/>
+            <line num="12" count="0" type="stmt"/>
+            <line num="13" count="0" type="stmt"/>
+            <line num="14" count="0" type="stmt"/>
+            <line num="15" count="0" type="stmt"/>
+            <line num="16" count="0" type="stmt"/>
+            <line num="17" count="0" type="stmt"/>
+            <line num="18" count="0" type="stmt"/>
+            <line num="19" count="0" type="stmt"/>
+            <line num="20" count="0" type="stmt"/>
+            <line num="21" count="0" type="stmt"/>
+            <line num="22" count="0" type="stmt"/>
+            <line num="23" count="0" type="stmt"/>
+            <line num="24" count="0" type="stmt"/>
+            <line num="26" count="0" type="stmt"/>
+            <line num="27" count="0" type="stmt"/>
+            <line num="29" count="0" type="stmt"/>
+            <line num="30" count="0" type="stmt"/>
+            <line num="31" count="0" type="stmt"/>
+            <line num="32" count="0" type="stmt"/>
+            <line num="34" count="0" type="stmt"/>
+            <line num="35" count="0" type="stmt"/>
+            <line num="36" count="0" type="stmt"/>
+            <line num="37" count="0" type="stmt"/>
+            <line num="38" count="0" type="stmt"/>
+            <line num="39" count="0" type="stmt"/>
+            <line num="40" count="0" type="stmt"/>
+            <line num="41" count="0" type="stmt"/>
+            <line num="43" count="0" type="stmt"/>
+            <line num="46" count="0" visibility="private" complexity="1" type="method" signature="test2() : Node&lt;Integer&gt;"/>
+            <line num="47" count="0" type="stmt"/>
+            <line num="48" count="0" type="stmt"/>
+            <line num="49" count="0" type="stmt"/>
+            <line num="50" count="0" type="stmt"/>
+            <line num="51" count="0" type="stmt"/>
+            <line num="52" count="0" type="stmt"/>
+            <line num="53" count="0" type="stmt"/>
+            <line num="54" count="0" type="stmt"/>
+            <line num="55" count="0" type="stmt"/>
+            <line num="57" count="0" type="stmt"/>
+            <line num="58" count="0" type="stmt"/>
+            <line num="60" count="0" type="stmt"/>
+            <line num="61" count="0" type="stmt"/>
+            <line num="63" count="0" type="stmt"/>
+            <line num="64" count="0" type="stmt"/>
+            <line num="65" count="0" type="stmt"/>
+            <line num="67" count="0" type="stmt"/>
+            <line num="69" count="0" type="stmt"/>
+            <line num="72" count="0" visibility="public" complexity="1" type="method" signature="main(String[]) : void"/>
+            <line num="74" count="0" type="stmt"/>
+            <line num="75" count="0" type="stmt"/>
+            <line num="84" count="0" visibility="public" complexity="1" type="method" signature="Node(T)"/>
+            <line num="85" count="0" type="stmt"/>
+         </file>
+      </package>
+      <package name="data">
+         <metrics conditionals="166" methods="94" classes="7" files="7" coveredstatements="389" complexity="190" loc="1169" ncloc="887" coveredmethods="82" coveredconditionals="116" statements="457" coveredelements="587" elements="717"/>
+         <file name="Tree.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\data\Tree.java">
+            <metrics classes="1" methods="20" conditionals="52" ncloc="183" coveredstatements="76" coveredmethods="18" complexity="52" coveredconditionals="33" statements="96" loc="227" coveredelements="127" elements="168"/>
+            <class name="Tree">
+               <metrics methods="20" conditionals="52" coveredstatements="76" coveredmethods="18" complexity="52" coveredconditionals="33" statements="96" coveredelements="127" elements="168"/>
+            </class>
+            <line num="11" count="932023" visibility="public" complexity="1" type="method" signature="Tree(Node)"/>
+            <line num="12" count="932023" type="stmt"/>
+            <line num="15" count="1377331" visibility="public" complexity="1" type="method" signature="getRoot() : Node"/>
+            <line num="16" count="1377331" type="stmt"/>
+            <line num="19" count="945133" visibility="public" complexity="1" type="method" signature="setRoot(Node) : void"/>
+            <line num="20" count="945133" type="stmt"/>
+            <line num="21" count="945133" type="stmt"/>
+            <line num="24" count="0" visibility="public" complexity="1" type="method" signature="isEmpty() : boolean"/>
+            <line num="25" count="0" type="stmt"/>
+            <line num="28" count="1203600" visibility="public" complexity="1" type="method" signature="depth() : int"/>
+            <line num="29" count="1203600" type="stmt"/>
+            <line num="32" count="1203600" visibility="private" complexity="2" type="method" signature="depth(Node) : int"/>
+            <line num="33" count="1203600" type="stmt"/>
+            <line num="33" falsecount="1203600" type="cond" truecount="0"/>
+            <line num="34" count="0" type="stmt"/>
+            <line num="36" count="1203600" type="stmt"/>
+            <line num="39" count="102" visibility="public" complexity="2" type="method" signature="postOrderPrint() : String"/>
+            <line num="40" count="102" type="stmt"/>
+            <line num="41" count="102" type="stmt"/>
+            <line num="41" falsecount="0" type="cond" truecount="102"/>
+            <line num="42" count="102" type="stmt"/>
+            <line num="43" count="102" type="stmt"/>
+            <line num="45" count="0" type="stmt"/>
+            <line num="47" count="102" type="stmt"/>
+            <line num="50" count="4715" visibility="public" complexity="2" type="method" signature="inOrderPrint() : void"/>
+            <line num="51" count="4715" type="stmt"/>
+            <line num="51" falsecount="0" type="cond" truecount="4715"/>
+            <line num="52" count="4715" type="stmt"/>
+            <line num="53" count="4715" type="stmt"/>
+            <line num="55" count="0" type="stmt"/>
+            <line num="59" count="12643" visibility="public" complexity="2" type="method" signature="getExpression() : String"/>
+            <line num="60" count="12643" type="stmt"/>
+            <line num="60" falsecount="0" type="cond" truecount="12643"/>
+            <line num="61" count="12643" type="stmt"/>
+            <line num="62" count="12643" type="stmt"/>
+            <line num="64" count="0" type="stmt"/>
+            <line num="68" count="9060909" visibility="public" complexity="1" type="method" signature="evaluate(double) : double"/>
+            <line num="69" count="9060909" type="stmt"/>
+            <line num="72" count="283975" visibility="public" complexity="1" type="method" signature="getAllNodes() : ArrayList&lt;Node&gt;"/>
+            <line num="73" count="283975" type="stmt"/>
+            <line num="75" count="283975" type="stmt"/>
+            <line num="77" count="283975" type="stmt"/>
+            <line num="80" count="84461" visibility="public" complexity="1" type="method" signature="getOperandNodes() : ArrayList&lt;Node&gt;"/>
+            <line num="81" count="84461" type="stmt"/>
+            <line num="83" count="84461" type="stmt"/>
+            <line num="85" count="84461" type="stmt"/>
+            <line num="88" count="77326" visibility="public" complexity="1" type="method" signature="getOperatorNodes() : ArrayList&lt;Node&gt;"/>
+            <line num="89" count="77326" type="stmt"/>
+            <line num="91" count="77326" type="stmt"/>
+            <line num="93" count="77326" type="stmt"/>
+            <line num="96" count="733" visibility="public" complexity="4" type="method" signature="exists(Node) : boolean"/>
+            <line num="97" count="733" type="stmt"/>
+            <line num="99" count="733" type="stmt"/>
+            <line num="99" falsecount="733" type="cond" truecount="0"/>
+            <line num="100" count="0" type="stmt"/>
+            <line num="101" count="0" type="stmt"/>
+            <line num="102" count="0" type="stmt"/>
+            <line num="104" count="0" type="stmt"/>
+            <line num="107" count="733" type="stmt"/>
+            <line num="108" count="1686" type="stmt"/>
+            <line num="108" falsecount="986" type="cond" truecount="700"/>
+            <line num="109" count="700" type="stmt"/>
+            <line num="109" falsecount="700" type="cond" truecount="0"/>
+            <line num="110" count="0" type="stmt"/>
+            <line num="112" count="700" type="stmt"/>
+            <line num="116" count="33" type="stmt"/>
+            <line num="119" count="0" visibility="public" complexity="8" type="method" signature="replace(Node,Node) : void"/>
+            <line num="120" count="0" type="stmt"/>
+            <line num="120" falsecount="0" type="cond" truecount="0"/>
+            <line num="121" count="0" type="stmt"/>
+            <line num="121" falsecount="0" type="cond" truecount="0"/>
+            <line num="122" count="0" type="stmt"/>
+            <line num="124" count="0" type="stmt"/>
+            <line num="125" count="0" type="stmt"/>
+            <line num="125" falsecount="0" type="cond" truecount="0"/>
+            <line num="126" count="0" type="stmt"/>
+            <line num="126" falsecount="0" type="cond" truecount="0"/>
+            <line num="127" count="0" type="stmt"/>
+            <line num="128" count="0" type="stmt"/>
+            <line num="128" falsecount="0" type="cond" truecount="0"/>
+            <line num="129" count="0" type="stmt"/>
+            <line num="136" count="141571" visibility="public" complexity="11" type="method" signature="swap(Tree,Node,Tree,Node) : void"/>
+            <line num="137" count="141571" type="stmt"/>
+            <line num="138" count="141571" type="stmt"/>
+            <line num="140" count="141571" type="stmt"/>
+            <line num="140" falsecount="6646" type="cond" truecount="134925"/>
+            <line num="141" count="134925" type="stmt"/>
+            <line num="141" falsecount="67356" type="cond" truecount="67569"/>
+            <line num="142" count="67569" type="stmt"/>
+            <line num="144" count="67356" type="stmt"/>
+            <line num="144" falsecount="0" type="cond" truecount="67356"/>
+            <line num="145" count="67356" type="stmt"/>
+            <line num="148" count="6646" type="stmt"/>
+            <line num="151" count="141571" type="stmt"/>
+            <line num="151" falsecount="6464" type="cond" truecount="135107"/>
+            <line num="152" count="135107" type="stmt"/>
+            <line num="152" falsecount="67762" type="cond" truecount="67345"/>
+            <line num="153" count="67345" type="stmt"/>
+            <line num="155" count="67762" type="stmt"/>
+            <line num="155" falsecount="0" type="cond" truecount="67762"/>
+            <line num="156" count="67762" type="stmt"/>
+            <line num="160" count="6464" type="stmt"/>
+            <line num="164" count="1859" visibility="public" complexity="2" type="method" signature="generateTree(int) : Tree"/>
+            <line num="165" count="1859" type="stmt"/>
+            <line num="167" count="1859" type="stmt"/>
+            <line num="169" count="1859" type="stmt"/>
+            <line num="169" falsecount="928" type="cond" truecount="931"/>
+            <line num="170" count="931" type="stmt"/>
+            <line num="172" count="928" type="stmt"/>
+            <line num="175" count="1859" type="stmt"/>
+            <line num="178" count="464302" visibility="public" complexity="2" type="method" signature="copy(Tree) : Tree"/>
+            <line num="179" count="464302" type="stmt"/>
+            <line num="181" count="464302" type="stmt"/>
+            <line num="181" falsecount="464302" type="cond" truecount="0"/>
+            <line num="182" count="0" type="stmt"/>
+            <line num="184" count="464302" type="stmt"/>
+            <line num="188" count="3777" visibility="private" complexity="4" type="method" signature="generateFull(int) : Node"/>
+            <line num="189" count="3777" type="stmt"/>
+            <line num="191" count="3777" type="stmt"/>
+            <line num="191" falsecount="974" type="cond" truecount="2803"/>
+            <line num="192" count="2803" type="stmt"/>
+            <line num="194" count="974" type="stmt"/>
+            <line num="197" count="3777" type="stmt"/>
+            <line num="197" falsecount="3777" type="cond" truecount="2846"/>
+            <line num="198" count="2846" type="stmt"/>
+            <line num="198" falsecount="1423" type="cond" truecount="1423"/>
+            <line num="199" count="1423" type="stmt"/>
+            <line num="201" count="1423" type="stmt"/>
+            <line num="205" count="3777" type="stmt"/>
+            <line num="208" count="13912" visibility="private" complexity="4" type="method" signature="generateGrow(int) : Node"/>
+            <line num="209" count="13912" type="stmt"/>
+            <line num="211" count="13912" type="stmt"/>
+            <line num="211" falsecount="7420" type="cond" truecount="6492"/>
+            <line num="212" count="6492" type="stmt"/>
+            <line num="214" count="7420" type="stmt"/>
+            <line num="217" count="13912" type="stmt"/>
+            <line num="217" falsecount="13912" type="cond" truecount="12984"/>
+            <line num="218" count="12984" type="stmt"/>
+            <line num="218" falsecount="6492" type="cond" truecount="6492"/>
+            <line num="219" count="6492" type="stmt"/>
+            <line num="221" count="6492" type="stmt"/>
+            <line num="225" count="13912" type="stmt"/>
+         </file>
+         <file name="TrainingData.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\data\TrainingData.java">
+            <metrics classes="1" methods="8" conditionals="10" ncloc="87" coveredstatements="48" coveredmethods="6" complexity="13" coveredconditionals="8" statements="50" loc="133" coveredelements="62" elements="68"/>
+            <class name="TrainingData">
+               <metrics methods="8" conditionals="10" coveredstatements="48" coveredmethods="6" complexity="13" coveredconditionals="8" statements="50" coveredelements="62" elements="68"/>
+            </class>
+            <line num="21" count="105" visibility="public" complexity="1" type="method" signature="TrainingData(double,double)"/>
+            <line num="22" count="105" type="stmt"/>
+            <line num="23" count="105" type="stmt"/>
+            <line num="26" count="0" visibility="public" complexity="1" type="method" signature="inputData() : double"/>
+            <line num="27" count="0" type="stmt"/>
+            <line num="30" count="0" visibility="public" complexity="1" type="method" signature="outputData() : double"/>
+            <line num="31" count="0" type="stmt"/>
+            <line num="34" count="1" visibility="public" complexity="2" type="method" signature="generateInitialTrainingData(double,int) : void"/>
+            <line num="36" count="1" type="stmt"/>
+            <line num="38" count="1" type="stmt"/>
+            <line num="40" count="1" type="stmt"/>
+            <line num="42" count="1" type="stmt"/>
+            <line num="42" falsecount="1" type="cond" truecount="21"/>
+            <line num="43" count="21" type="stmt"/>
+            <line num="45" count="21" type="stmt"/>
+            <line num="47" count="21" type="stmt"/>
+            <line num="49" count="21" type="stmt"/>
+            <line num="52" count="1" type="stmt"/>
+            <line num="53" count="1" type="stmt"/>
+            <line num="56" count="1" visibility="public" complexity="2" type="method" signature="generateInitialTrainingDataOriginal(double,int) : void"/>
+            <line num="58" count="1" type="stmt"/>
+            <line num="60" count="1" type="stmt"/>
+            <line num="62" count="1" type="stmt"/>
+            <line num="64" count="1" type="stmt"/>
+            <line num="64" falsecount="1" type="cond" truecount="21"/>
+            <line num="65" count="21" type="stmt"/>
+            <line num="66" count="21" type="stmt"/>
+            <line num="68" count="21" type="stmt"/>
+            <line num="70" count="21" type="stmt"/>
+            <line num="73" count="1" type="stmt"/>
+            <line num="74" count="1" type="stmt"/>
+            <line num="77" count="1" visibility="public" complexity="2" type="method" signature="generateInitialTrainingDataOptional(double,int) : void"/>
+            <line num="79" count="1" type="stmt"/>
+            <line num="81" count="1" type="stmt"/>
+            <line num="83" count="1" type="stmt"/>
+            <line num="85" count="1" type="stmt"/>
+            <line num="85" falsecount="1" type="cond" truecount="5"/>
+            <line num="86" count="5" type="stmt"/>
+            <line num="87" count="5" type="stmt"/>
+            <line num="89" count="5" type="stmt"/>
+            <line num="91" count="5" type="stmt"/>
+            <line num="94" count="1" type="stmt"/>
+            <line num="95" count="1" type="stmt"/>
+            <line num="98" count="430793" visibility="public" complexity="2" type="method" signature="getTrainingData() : ArrayList&lt;TrainingData&gt;"/>
+            <line num="99" count="430793" type="stmt"/>
+            <line num="99" falsecount="430788" type="cond" truecount="5"/>
+            <line num="100" count="5" type="stmt"/>
+            <line num="103" count="430793" type="stmt"/>
+            <line num="106" count="5" visibility="private" complexity="2" type="method" signature="readTrainingData(String) : ArrayList&lt;TrainingData&gt;"/>
+            <line num="107" count="5" type="stmt"/>
+            <line num="109" count="5" type="stmt"/>
+            <line num="111" count="5" type="stmt"/>
+            <line num="113" count="5" type="stmt"/>
+            <line num="115" count="5" type="stmt"/>
+            <line num="117" count="5" type="stmt"/>
+            <line num="117" falsecount="0" type="cond" truecount="0"/>
+            <line num="118" count="105" type="stmt"/>
+            <line num="120" count="105" type="stmt"/>
+            <line num="122" count="105" type="stmt"/>
+            <line num="124" count="105" type="stmt"/>
+            <line num="126" count="105" type="stmt"/>
+            <line num="129" count="5" type="stmt"/>
+            <line num="131" count="5" type="stmt"/>
+         </file>
+         <file name="OutputData.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\data\OutputData.java">
+            <metrics classes="1" methods="20" conditionals="4" ncloc="234" coveredstatements="113" coveredmethods="19" complexity="22" coveredconditionals="2" statements="117" loc="294" coveredelements="134" elements="141"/>
+            <class name="OutputData">
+               <metrics methods="20" conditionals="4" coveredstatements="113" coveredmethods="19" complexity="22" coveredconditionals="2" statements="117" coveredelements="134" elements="141"/>
+            </class>
+            <line num="41" count="2" visibility="public" complexity="1" type="method" signature="setStartTime(long) : void"/>
+            <line num="42" count="2" type="stmt"/>
+            <line num="45" count="4215" visibility="public" complexity="1" type="method" signature="setCurrentTime(long) : void"/>
+            <line num="46" count="4215" type="stmt"/>
+            <line num="49" count="4215" visibility="public" complexity="1" type="method" signature="incrementGenerationCount() : void"/>
+            <line num="50" count="4215" type="stmt"/>
+            <line num="53" count="0" visibility="public" complexity="1" type="method" signature="resetData() : void"/>
+            <line num="54" count="0" type="stmt"/>
+            <line num="55" count="0" type="stmt"/>
+            <line num="56" count="0" type="stmt"/>
+            <line num="59" count="8426" visibility="public" complexity="1" type="method" signature="getGenerationCount() : int"/>
+            <line num="60" count="8426" type="stmt"/>
+            <line num="63" count="4215" visibility="public" complexity="1" type="method" signature="addPopulationSizeInGeneration(int) : void"/>
+            <line num="64" count="4215" type="stmt"/>
+            <line num="67" count="4215" visibility="public" complexity="1" type="method" signature="addFittestTreeInGeneration(GeneticProgrammingTree) : void"/>
+            <line num="68" count="4215" type="stmt"/>
+            <line num="71" count="4213" visibility="public" complexity="1" type="method" signature="displayResults() : void"/>
+            <line num="72" count="4213" type="stmt"/>
+            <line num="73" count="4213" type="stmt"/>
+            <line num="74" count="4213" type="stmt"/>
+            <line num="75" count="4213" type="stmt"/>
+            <line num="78" count="2" visibility="public" complexity="1" type="method" signature="displayPopulation(ArrayList&lt;GeneticProgrammingTree&gt;) : void"/>
+            <line num="79" count="2" type="stmt"/>
+            <line num="80" count="2" type="stmt"/>
+            <line num="81" count="200" type="stmt"/>
+            <line num="82" count="200" type="stmt"/>
+            <line num="83" count="200" type="stmt"/>
+            <line num="84" count="200" type="stmt"/>
+            <line num="88" count="8432" visibility="private" complexity="1" type="method" signature="printSeperatorLine() : void"/>
+            <line num="89" count="8432" type="stmt"/>
+            <line num="92" count="2" visibility="public" complexity="2" type="method" signature="displayFinalResults() : void"/>
+            <line num="93" count="2" type="stmt"/>
+            <line num="94" count="2" type="stmt"/>
+            <line num="95" count="2" type="stmt"/>
+            <line num="96" count="2" type="stmt"/>
+            <line num="97" count="2" type="stmt"/>
+            <line num="98" count="2" type="stmt"/>
+            <line num="98" falsecount="0" type="cond" truecount="2"/>
+            <line num="99" count="2" type="stmt"/>
+            <line num="101" count="2" type="stmt"/>
+            <line num="102" count="2" type="stmt"/>
+            <line num="103" count="2" type="stmt"/>
+            <line num="106" count="2" visibility="private" complexity="1" type="method" signature="generateBestFitnessGenerationChart() : void"/>
+            <line num="107" count="2" type="stmt"/>
+            <line num="109" count="2" type="stmt"/>
+            <line num="110" count="2" type="stmt"/>
+            <line num="111" count="4215" type="stmt"/>
+            <line num="112" count="4215" type="stmt"/>
+            <line num="115" count="2" type="stmt"/>
+            <line num="116" count="2" type="stmt"/>
+            <line num="118" count="2" type="stmt"/>
+            <line num="129" count="2" type="stmt"/>
+            <line num="132" count="2" visibility="public" complexity="1" type="method" signature="recordInitialPopulationFitness(ArrayList&lt;GeneticProgrammingTree&gt;) : void"/>
+            <line num="133" count="2" type="stmt"/>
+            <line num="134" count="2" type="stmt"/>
+            <line num="137" count="2" visibility="public" complexity="1" type="method" signature="recordFinalPopulationFitness(ArrayList&lt;GeneticProgrammingTree&gt;) : void"/>
+            <line num="138" count="2" type="stmt"/>
+            <line num="139" count="2" type="stmt"/>
+            <line num="142" count="4" visibility="private" complexity="1" type="method" signature="recordFitnessOfPopulation(ArrayList&lt;GeneticProgrammingTree&gt;,String,String) : void"/>
+            <line num="143" count="4" type="stmt"/>
+            <line num="145" count="4" type="stmt"/>
+            <line num="146" count="4" type="stmt"/>
+            <line num="147" count="400" type="stmt"/>
+            <line num="148" count="400" type="stmt"/>
+            <line num="151" count="4" type="stmt"/>
+            <line num="152" count="4" type="stmt"/>
+            <line num="154" count="4" type="stmt"/>
+            <line num="165" count="4" type="stmt"/>
+            <line num="168" count="2" visibility="public" complexity="1" type="method" signature="recordXYGraph() : void"/>
+            <line num="169" count="2" type="stmt"/>
+            <line num="171" count="2" type="stmt"/>
+            <line num="172" count="42" type="stmt"/>
+            <line num="175" count="2" type="stmt"/>
+            <line num="176" count="2" type="stmt"/>
+            <line num="178" count="2" type="stmt"/>
+            <line num="189" count="2" type="stmt"/>
+            <line num="192" count="2" visibility="public" complexity="1" type="method" signature="createDashboard() : void"/>
+            <line num="193" count="2" type="stmt"/>
+            <line num="195" count="2" type="stmt"/>
+            <line num="196" count="42" type="stmt"/>
+            <line num="199" count="2" type="stmt"/>
+            <line num="202" count="2" visibility="private" complexity="1" type="method" signature="createAndShowDashboard() : void"/>
+            <line num="203" count="2" type="stmt"/>
+            <line num="204" count="2" type="stmt"/>
+            <line num="206" count="2" type="stmt"/>
+            <line num="207" count="2" type="stmt"/>
+            <line num="209" count="2" type="stmt"/>
+            <line num="210" count="2" type="stmt"/>
+            <line num="211" count="2" type="stmt"/>
+            <line num="213" count="2" type="stmt"/>
+            <line num="215" count="2" type="stmt"/>
+            <line num="216" count="2" type="stmt"/>
+            <line num="217" count="2" type="stmt"/>
+            <line num="218" count="2" type="stmt"/>
+            <line num="220" count="2" type="stmt"/>
+            <line num="221" count="2" type="stmt"/>
+            <line num="222" count="2" type="stmt"/>
+            <line num="224" count="2" type="stmt"/>
+            <line num="235" count="2" type="stmt"/>
+            <line num="236" count="2" type="stmt"/>
+            <line num="237" count="2" type="stmt"/>
+            <line num="239" count="2" type="stmt"/>
+            <line num="242" count="8428" visibility="public" complexity="2" type="method" signature="updateDashboard() : void"/>
+            <line num="243" count="8428" type="stmt"/>
+            <line num="243" falsecount="8428" type="cond" truecount="0"/>
+            <line num="244" count="0" type="stmt"/>
+            <line num="247" count="8428" type="stmt"/>
+            <line num="248" count="176988" type="stmt"/>
+            <line num="251" count="8428" type="stmt"/>
+            <line num="252" count="8428" type="stmt"/>
+            <line num="255" count="8428" type="stmt"/>
+            <line num="257" count="8428" type="stmt"/>
+            <line num="258" count="8428" type="stmt"/>
+            <line num="260" count="8428" type="stmt"/>
+            <line num="261" count="8428" type="stmt"/>
+            <line num="262" count="8428" type="stmt"/>
+            <line num="263" count="8428" type="stmt"/>
+            <line num="265" count="8428" type="stmt"/>
+            <line num="266" count="8428" type="stmt"/>
+            <line num="268" count="8428" type="stmt"/>
+            <line num="269" count="8428" type="stmt"/>
+            <line num="270" count="8428" type="stmt"/>
+            <line num="271" count="8428" type="stmt"/>
+            <line num="274" count="4215" visibility="private" complexity="1" type="method" signature="printResults() : void"/>
+            <line num="275" count="4215" type="stmt"/>
+            <line num="276" count="4215" type="stmt"/>
+            <line num="279" count="4215" type="stmt"/>
+            <line num="281" count="4215" type="stmt"/>
+            <line num="282" count="4215" type="stmt"/>
+            <line num="283" count="4215" type="stmt"/>
+            <line num="284" count="4215" type="stmt"/>
+            <line num="285" count="4215" type="stmt"/>
+            <line num="286" count="4215" type="stmt"/>
+            <line num="287" count="4215" type="stmt"/>
+            <line num="288" count="4215" type="stmt"/>
+            <line num="289" count="4215" type="stmt"/>
+            <line num="290" count="4215" type="stmt"/>
+            <line num="291" count="4215" type="stmt"/>
+            <line num="292" count="4215" type="stmt"/>
+         </file>
+         <file name="OperatorNode.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\data\OperatorNode.java">
+            <metrics classes="1" methods="8" conditionals="14" ncloc="62" coveredstatements="24" coveredmethods="7" complexity="15" coveredconditionals="11" statements="31" loc="83" coveredelements="42" elements="53"/>
+            <class name="OperatorNode">
+               <metrics methods="8" conditionals="14" coveredstatements="24" coveredmethods="7" complexity="15" coveredconditionals="11" statements="31" coveredelements="42" elements="53"/>
+            </class>
+            <line num="14" count="6156826" visibility="public" complexity="2" type="method" signature="OperatorNode(String)"/>
+            <line num="16" count="6156826" type="stmt"/>
+            <line num="18" count="6156826" type="stmt"/>
+            <line num="20" count="6156826" type="stmt"/>
+            <line num="20" falsecount="6156826" type="cond" truecount="0"/>
+            <line num="21" count="0" type="stmt"/>
+            <line num="25" count="417809" visibility="public" complexity="1" type="method" signature="getDataItem() : String"/>
+            <line num="26" count="417809" type="stmt"/>
+            <line num="29" count="0" visibility="public" complexity="1" type="method" signature="getClone() : Node"/>
+            <line num="30" count="0" type="stmt"/>
+            <line num="32" count="0" type="stmt"/>
+            <line num="33" count="0" type="stmt"/>
+            <line num="35" count="0" type="stmt"/>
+            <line num="38" count="6096957" visibility="public" complexity="1" type="method" signature="copy() : Node"/>
+            <line num="39" count="6096957" type="stmt"/>
+            <line num="41" count="6096957" type="stmt"/>
+            <line num="42" count="6096957" type="stmt"/>
+            <line num="44" count="6096957" type="stmt"/>
+            <line num="47" count="38819" visibility="public" complexity="1" type="method" signature="setDataItem(String) : void"/>
+            <line num="48" count="38819" type="stmt"/>
+            <line num="51" count="1136" visibility="public" complexity="1" type="method" signature="toString() : String"/>
+            <line num="52" count="1136" type="stmt"/>
+            <line num="55" count="111749707" visibility="public" complexity="2" type="method" signature="evaluate(double) : double"/>
+            <line num="56" count="111749707" type="stmt"/>
+            <line num="57" count="111749707" type="stmt"/>
+            <line num="59" count="111749707" type="stmt"/>
+            <line num="59" falsecount="111749707" type="cond" truecount="0"/>
+            <line num="60" count="0" type="stmt"/>
+            <line num="62" count="111749707" type="stmt"/>
+            <line num="65" count="111749707" visibility="private" complexity="6" type="method" signature="calculate(double,double,String) : double"/>
+            <line num="66" count="111749707" type="stmt"/>
+            <line num="66" falsecount="88689529" type="cond" truecount="23060178"/>
+            <line num="67" count="23060178" type="stmt"/>
+            <line num="68" count="88689529" type="stmt"/>
+            <line num="68" falsecount="53685114" type="cond" truecount="35004415"/>
+            <line num="69" count="35004415" type="stmt"/>
+            <line num="70" count="53685114" type="stmt"/>
+            <line num="70" falsecount="23983249" type="cond" truecount="29701865"/>
+            <line num="71" count="29701865" type="stmt"/>
+            <line num="72" count="23983249" type="stmt"/>
+            <line num="72" falsecount="0" type="cond" truecount="23983249"/>
+            <line num="74" count="23983249" type="stmt"/>
+            <line num="74" falsecount="22192104" type="cond" truecount="1791145"/>
+            <line num="75" count="1791145" type="stmt"/>
+            <line num="77" count="22192104" type="stmt"/>
+            <line num="81" count="0" type="stmt"/>
+         </file>
+         <file name="OperandNode.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\data\OperandNode.java">
+            <metrics classes="1" methods="8" conditionals="4" ncloc="45" coveredstatements="12" coveredmethods="6" complexity="10" coveredconditionals="3" statements="18" loc="62" coveredelements="21" elements="30"/>
+            <class name="OperandNode">
+               <metrics methods="8" conditionals="4" coveredstatements="12" coveredmethods="6" complexity="10" coveredconditionals="3" statements="18" coveredelements="21" elements="30"/>
+            </class>
+            <line num="13" count="6641310" visibility="public" complexity="2" type="method" signature="OperandNode(String)"/>
+            <line num="14" count="6641310" type="stmt"/>
+            <line num="16" count="6641310" type="stmt"/>
+            <line num="16" falsecount="6641310" type="cond" truecount="0"/>
+            <line num="17" count="0" type="stmt"/>
+            <line num="21" count="0" visibility="public" complexity="1" type="method" signature="getOperand() : String"/>
+            <line num="22" count="0" type="stmt"/>
+            <line num="25" count="481293" visibility="public" complexity="1" type="method" signature="getDataItem() : String"/>
+            <line num="26" count="481293" type="stmt"/>
+            <line num="29" count="0" visibility="public" complexity="1" type="method" signature="getClone() : Node"/>
+            <line num="30" count="0" type="stmt"/>
+            <line num="32" count="0" type="stmt"/>
+            <line num="33" count="0" type="stmt"/>
+            <line num="35" count="0" type="stmt"/>
+            <line num="38" count="6561259" visibility="public" complexity="1" type="method" signature="copy() : Node"/>
+            <line num="39" count="6561259" type="stmt"/>
+            <line num="41" count="6561259" type="stmt"/>
+            <line num="42" count="6561259" type="stmt"/>
+            <line num="44" count="6561259" type="stmt"/>
+            <line num="47" count="45542" visibility="public" complexity="1" type="method" signature="setDataItem(String) : void"/>
+            <line num="48" count="45542" type="stmt"/>
+            <line num="51" count="1336" visibility="public" complexity="1" type="method" signature="toString() : String"/>
+            <line num="52" count="1336" type="stmt"/>
+            <line num="55" count="120810616" visibility="public" complexity="2" type="method" signature="evaluate(double) : double"/>
+            <line num="56" count="120810616" type="stmt"/>
+            <line num="56" falsecount="54761287" type="cond" truecount="66049329"/>
+            <line num="57" count="66049329" type="stmt"/>
+            <line num="59" count="54761287" type="stmt"/>
+         </file>
+         <file name="Node.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\data\Node.java">
+            <metrics classes="1" methods="19" conditionals="54" ncloc="170" coveredstatements="66" coveredmethods="16" complexity="51" coveredconditionals="39" statements="87" loc="229" coveredelements="121" elements="160"/>
+            <class name="Node">
+               <metrics methods="19" conditionals="54" coveredstatements="66" coveredmethods="16" complexity="51" coveredconditionals="39" statements="87" coveredelements="121" elements="160"/>
+            </class>
+            <line num="16" count="13424913" visibility="public" complexity="1" type="method" signature="setParent(Node) : void"/>
+            <line num="17" count="13424913" type="stmt"/>
+            <line num="20" count="432045" visibility="public" complexity="1" type="method" signature="getParent() : Node"/>
+            <line num="21" count="432045" type="stmt"/>
+            <line num="24" count="12801047" visibility="public" complexity="2" type="method" signature="setLeftChild(Node) : void"/>
+            <line num="25" count="12801047" type="stmt"/>
+            <line num="25" falsecount="6561259" type="cond" truecount="6239788"/>
+            <line num="26" count="6239788" type="stmt"/>
+            <line num="28" count="12801047" type="stmt"/>
+            <line num="31" count="12801251" visibility="public" complexity="2" type="method" signature="setRightChild(Node) : void"/>
+            <line num="32" count="12801251" type="stmt"/>
+            <line num="32" falsecount="6561259" type="cond" truecount="6239992"/>
+            <line num="33" count="6239992" type="stmt"/>
+            <line num="35" count="12801251" type="stmt"/>
+            <line num="38" count="6156826" visibility="package" complexity="1" type="method" signature="setNumChildNodes(int) : void"/>
+            <line num="39" count="6156826" type="stmt"/>
+            <line num="42" count="167940437" visibility="public" complexity="1" type="method" signature="getLeftChild() : Node"/>
+            <line num="43" count="167940437" type="stmt"/>
+            <line num="46" count="167670609" visibility="public" complexity="1" type="method" signature="getRightChild() : Node"/>
+            <line num="47" count="167670609" type="stmt"/>
+            <line num="50" count="33519" visibility="public" complexity="1" type="method" signature="numChildNodes() : int"/>
+            <line num="51" count="33519" type="stmt"/>
+            <line num="60" count="54" visibility="public" complexity="2" type="method" signature="postOrderItems(Node) : ArrayList&lt;String&gt;"/>
+            <line num="63" count="54" type="stmt"/>
+            <line num="63" falsecount="28" type="cond" truecount="26"/>
+            <line num="64" count="26" type="stmt"/>
+            <line num="65" count="26" type="stmt"/>
+            <line num="66" count="26" type="stmt"/>
+            <line num="67" count="26" type="stmt"/>
+            <line num="69" count="54" type="stmt"/>
+            <line num="72" count="998" visibility="public" complexity="3" type="method" signature="postOrderPrint() : String"/>
+            <line num="73" count="998" type="stmt"/>
+            <line num="73" falsecount="550" type="cond" truecount="448"/>
+            <line num="74" count="448" type="stmt"/>
+            <line num="77" count="998" type="stmt"/>
+            <line num="77" falsecount="550" type="cond" truecount="448"/>
+            <line num="78" count="448" type="stmt"/>
+            <line num="80" count="998" type="stmt"/>
+            <line num="81" count="998" type="stmt"/>
+            <line num="84" count="144777" visibility="public" complexity="3" type="method" signature="inOrderPrint() : void"/>
+            <line num="85" count="144777" type="stmt"/>
+            <line num="85" falsecount="74746" type="cond" truecount="70031"/>
+            <line num="86" count="70031" type="stmt"/>
+            <line num="87" count="70031" type="stmt"/>
+            <line num="90" count="144777" type="stmt"/>
+            <line num="92" count="144777" type="stmt"/>
+            <line num="92" falsecount="74746" type="cond" truecount="70031"/>
+            <line num="93" count="70031" type="stmt"/>
+            <line num="94" count="70031" type="stmt"/>
+            <line num="98" count="407469" visibility="public" complexity="3" type="method" signature="getExpression() : String"/>
+            <line num="99" count="407469" type="stmt"/>
+            <line num="100" count="407469" type="stmt"/>
+            <line num="100" falsecount="210056" type="cond" truecount="197413"/>
+            <line num="101" count="197413" type="stmt"/>
+            <line num="102" count="197413" type="stmt"/>
+            <line num="105" count="407469" type="stmt"/>
+            <line num="107" count="407469" type="stmt"/>
+            <line num="107" falsecount="210056" type="cond" truecount="197413"/>
+            <line num="108" count="197413" type="stmt"/>
+            <line num="109" count="197413" type="stmt"/>
+            <line num="112" count="407469" type="stmt"/>
+            <line num="115" count="7928397" visibility="public" complexity="3" type="method" signature="getNodeList(ArrayList&lt;Node&gt;) : ArrayList&lt;Node&gt;"/>
+            <line num="116" count="7928397" type="stmt"/>
+            <line num="116" falsecount="4106186" type="cond" truecount="3822211"/>
+            <line num="117" count="3822211" type="stmt"/>
+            <line num="120" count="7928397" type="stmt"/>
+            <line num="120" falsecount="4106186" type="cond" truecount="3822211"/>
+            <line num="121" count="3822211" type="stmt"/>
+            <line num="124" count="7928397" type="stmt"/>
+            <line num="126" count="7928397" type="stmt"/>
+            <line num="129" count="2154784" visibility="public" complexity="5" type="method" signature="getOperatorNodeList(ArrayList&lt;Node&gt;) : ArrayList&lt;Node&gt;"/>
+            <line num="130" count="2154784" type="stmt"/>
+            <line num="130" falsecount="1116055" type="cond" truecount="1038729"/>
+            <line num="131" count="1038729" type="stmt"/>
+            <line num="134" count="2154784" type="stmt"/>
+            <line num="134" falsecount="1116055" type="cond" truecount="1038729"/>
+            <line num="135" count="1038729" type="stmt"/>
+            <line num="138" count="2154784" type="stmt"/>
+            <line num="138" falsecount="1116055" type="cond" truecount="1038729"/>
+            <line num="139" count="1038729" type="stmt"/>
+            <line num="139" falsecount="1038729" type="cond" truecount="0"/>
+            <line num="140" count="0" type="stmt"/>
+            <line num="142" count="1038729" type="stmt"/>
+            <line num="145" count="2154784" type="stmt"/>
+            <line num="154" count="31742817" visibility="public" complexity="4" type="method" signature="depth() : int"/>
+            <line num="155" count="31742817" type="stmt"/>
+            <line num="155" falsecount="16473262" type="cond" truecount="15269555"/>
+            <line num="156" count="15269555" type="stmt"/>
+            <line num="156" falsecount="0" type="cond" truecount="15269555"/>
+            <line num="157" count="15269555" type="stmt"/>
+            <line num="159" count="0" type="stmt"/>
+            <line num="162" count="16473262" type="stmt"/>
+            <line num="166" count="2161919" visibility="public" complexity="5" type="method" signature="getOperandNodeList(ArrayList&lt;Node&gt;) : ArrayList&lt;Node&gt;"/>
+            <line num="167" count="2161919" type="stmt"/>
+            <line num="167" falsecount="1123190" type="cond" truecount="1038729"/>
+            <line num="168" count="1038729" type="stmt"/>
+            <line num="171" count="2161919" type="stmt"/>
+            <line num="171" falsecount="1123190" type="cond" truecount="1038729"/>
+            <line num="172" count="1038729" type="stmt"/>
+            <line num="175" count="2161919" type="stmt"/>
+            <line num="175" falsecount="1038729" type="cond" truecount="1123190"/>
+            <line num="176" count="1123190" type="stmt"/>
+            <line num="176" falsecount="1123190" type="cond" truecount="0"/>
+            <line num="177" count="0" type="stmt"/>
+            <line num="179" count="1123190" type="stmt"/>
+            <line num="182" count="2161919" type="stmt"/>
+            <line num="185" count="0" visibility="public" complexity="11" type="method" signature="swap(Node,Node) : void"/>
+            <line num="186" count="0" type="stmt"/>
+            <line num="187" count="0" type="stmt"/>
+            <line num="189" count="0" type="stmt"/>
+            <line num="189" falsecount="0" type="cond" truecount="0"/>
+            <line num="190" count="0" type="stmt"/>
+            <line num="190" falsecount="0" type="cond" truecount="0"/>
+            <line num="191" count="0" type="stmt"/>
+            <line num="193" count="0" type="stmt"/>
+            <line num="193" falsecount="0" type="cond" truecount="0"/>
+            <line num="194" count="0" type="stmt"/>
+            <line num="198" count="0" type="stmt"/>
+            <line num="198" falsecount="0" type="cond" truecount="0"/>
+            <line num="199" count="0" type="stmt"/>
+            <line num="199" falsecount="0" type="cond" truecount="0"/>
+            <line num="200" count="0" type="stmt"/>
+            <line num="202" count="0" type="stmt"/>
+            <line num="202" falsecount="0" type="cond" truecount="0"/>
+            <line num="203" count="0" type="stmt"/>
+            <line num="208" count="0" visibility="public" complexity="1" type="method" signature="update(Node,Node) : void"/>
+            <line num="209" count="0" type="stmt"/>
+            <line num="210" count="0" type="stmt"/>
+            <line num="211" count="0" type="stmt"/>
+            <line num="214" count="0" visibility="public" complexity="1" type="method" signature="replace(Node,Node) : void"/>
+            <line num="215" count="0" type="stmt"/>
+            <line num="216" count="0" type="stmt"/>
+            <line num="217" count="0" type="stmt"/>
+         </file>
+         <file name="GeneticProgrammingTree.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\data\GeneticProgrammingTree.java">
+            <metrics classes="1" methods="11" conditionals="28" ncloc="106" coveredstatements="50" coveredmethods="10" complexity="27" coveredconditionals="20" statements="58" loc="141" coveredelements="80" elements="97"/>
+            <class name="GeneticProgrammingTree">
+               <metrics methods="11" conditionals="28" coveredstatements="50" coveredmethods="10" complexity="27" coveredconditionals="20" statements="58" coveredelements="80" elements="97"/>
+            </class>
+            <line num="13" count="465860" visibility="private" complexity="1" type="method" signature="GeneticProgrammingTree(Node,double)"/>
+            <line num="14" count="465860" type="stmt"/>
+            <line num="15" count="465860" type="stmt"/>
+            <line num="18" count="2642512" visibility="public" complexity="1" type="method" signature="getFitness() : double"/>
+            <line num="19" count="2642512" type="stmt"/>
+            <line num="22" count="887160" visibility="public" complexity="1" type="method" signature="setFitness(double) : void"/>
+            <line num="23" count="887160" type="stmt"/>
+            <line num="26" count="7" visibility="public" complexity="8" type="method" signature="getGeneticTreePopulation(int) : ArrayList&lt;GeneticProgrammingTree&gt;"/>
+            <line num="27" count="7" type="stmt"/>
+            <line num="28" count="7" type="stmt"/>
+            <line num="29" count="7" type="stmt"/>
+            <line num="30" count="7" type="stmt"/>
+            <line num="30" falsecount="7" type="cond" truecount="957"/>
+            <line num="31" count="957" type="stmt"/>
+            <line num="33" count="957" type="stmt"/>
+            <line num="33" falsecount="713" type="cond" truecount="244"/>
+            <line num="34" count="244" type="stmt"/>
+            <line num="34" falsecount="20" type="cond" truecount="224"/>
+            <line num="35" count="224" type="stmt"/>
+            <line num="37" count="20" type="stmt"/>
+            <line num="37" falsecount="13" type="cond" truecount="7"/>
+            <line num="38" count="7" type="stmt"/>
+            <line num="39" count="7" type="stmt"/>
+            <line num="41" count="7" type="stmt"/>
+            <line num="43" count="7" type="stmt"/>
+            <line num="43" falsecount="7" type="cond" truecount="0"/>
+            <line num="44" count="0" type="stmt"/>
+            <line num="49" count="713" type="stmt"/>
+            <line num="49" falsecount="20" type="cond" truecount="693"/>
+            <line num="50" count="693" type="stmt"/>
+            <line num="51" count="693" type="stmt"/>
+            <line num="53" count="693" type="stmt"/>
+            <line num="53" falsecount="693" type="cond" truecount="0"/>
+            <line num="54" count="0" type="stmt"/>
+            <line num="57" count="20" type="stmt"/>
+            <line num="62" count="7" type="stmt"/>
+            <line num="65" count="1558" visibility="public" complexity="1" type="method" signature="createGeneticProgrammingTree(ArrayList&lt;TrainingData&gt;) : GeneticProgrammingTree"/>
+            <line num="66" count="1558" type="stmt"/>
+            <line num="68" count="1558" type="stmt"/>
+            <line num="70" count="1558" type="stmt"/>
+            <line num="72" count="1558" type="stmt"/>
+            <line num="75" count="1558" visibility="public" complexity="1" type="method" signature="createGeneticProgrammingTree(ArrayList&lt;TrainingData&gt;,int) : GeneticProgrammingTree"/>
+            <line num="76" count="1558" type="stmt"/>
+            <line num="78" count="1558" type="stmt"/>
+            <line num="80" count="1558" type="stmt"/>
+            <line num="83" count="464302" visibility="public" complexity="1" type="method" signature="copy(GeneticProgrammingTree) : GeneticProgrammingTree"/>
+            <line num="84" count="464302" type="stmt"/>
+            <line num="86" count="464302" type="stmt"/>
+            <line num="89" count="422858" visibility="public" complexity="3" type="method" signature="evaluateFitness(ArrayList&lt;TrainingData&gt;,Tree) : double"/>
+            <line num="90" count="422858" type="stmt"/>
+            <line num="92" count="422858" type="stmt"/>
+            <line num="93" count="8880018" type="stmt"/>
+            <line num="95" count="8880018" type="stmt"/>
+            <line num="95" falsecount="8880018" type="cond" truecount="0"/>
+            <line num="96" count="0" type="stmt"/>
+            <line num="99" count="8880018" type="stmt"/>
+            <line num="101" count="8880018" type="stmt"/>
+            <line num="101" falsecount="8880018" type="cond" truecount="0"/>
+            <line num="102" count="0" type="stmt"/>
+            <line num="105" count="422858" type="stmt"/>
+            <line num="108" count="0" visibility="public" complexity="3" type="method" signature="updateFitness(GeneticProgrammingTree,ArrayList&lt;TrainingData&gt;) : void"/>
+            <line num="110" count="0" type="stmt"/>
+            <line num="110" falsecount="0" type="cond" truecount="0"/>
+            <line num="111" count="0" type="stmt"/>
+            <line num="113" count="0" type="stmt"/>
+            <line num="117" count="1758" visibility="public" complexity="4" type="method" signature="generateInitialTree(int) : Tree"/>
+            <line num="118" count="1758" type="stmt"/>
+            <line num="119" count="1758" type="stmt"/>
+            <line num="120" count="1758" type="stmt"/>
+            <line num="121" falsecount="1758" type="cond" truecount="0"/>
+            <line num="123" count="1758" type="stmt"/>
+            <line num="123" falsecount="1758" type="cond" truecount="0"/>
+            <line num="124" count="0" type="stmt"/>
+            <line num="127" count="1758" type="stmt"/>
+            <line num="130" count="2156236" visibility="public" complexity="3" type="method" signature="compareTo(GeneticProgrammingTree) : int"/>
+            <line num="131" count="2156236" type="stmt"/>
+            <line num="133" count="2156236" type="stmt"/>
+            <line num="133" falsecount="1326687" type="cond" truecount="829549"/>
+            <line num="134" count="829549" type="stmt"/>
+            <line num="135" count="1326687" type="stmt"/>
+            <line num="135" falsecount="1086147" type="cond" truecount="240540"/>
+            <line num="136" count="240540" type="stmt"/>
+            <line num="138" count="1086147" type="stmt"/>
+         </file>
+      </package>
+      <package name="default-pkg">
+         <metrics conditionals="30" methods="10" classes="1" files="1" coveredstatements="76" complexity="30" loc="212" ncloc="154" coveredmethods="10" coveredconditionals="19" statements="99" coveredelements="105" elements="139"/>
+         <file name="GeneticProgrammingMain.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\GeneticProgrammingMain.java">
+            <metrics classes="1" methods="10" conditionals="30" ncloc="154" coveredstatements="76" coveredmethods="10" complexity="30" coveredconditionals="19" statements="99" loc="212" coveredelements="105" elements="139"/>
+            <class name="GeneticProgrammingMain">
+               <metrics methods="10" conditionals="30" coveredstatements="76" coveredmethods="10" complexity="30" coveredconditionals="19" statements="99" coveredelements="105" elements="139"/>
+            </class>
+            <line num="24" count="2" visibility="public" complexity="2" type="method" signature="main(String[]) : void"/>
+            <line num="25" count="2" type="stmt"/>
+            <line num="27" count="2" type="stmt"/>
+            <line num="28" count="2" type="stmt"/>
+            <line num="30" count="0" type="stmt"/>
+            <line num="31" count="0" type="stmt"/>
+            <line num="35" count="2" visibility="public" complexity="6" type="method" signature="process() : void"/>
+            <line num="37" count="2" type="stmt"/>
+            <line num="38" count="2" type="stmt"/>
+            <line num="40" count="2" type="stmt"/>
+            <line num="43" count="2" type="stmt"/>
+            <line num="46" count="2" type="stmt"/>
+            <line num="47" count="2" type="stmt"/>
+            <line num="49" count="2" type="stmt"/>
+            <line num="50" count="2" type="stmt"/>
+            <line num="51" count="2" type="stmt"/>
+            <line num="54" count="2" type="stmt"/>
+            <line num="55" count="2" type="stmt"/>
+            <line num="55" falsecount="2" type="cond" truecount="4213"/>
+            <line num="56" count="4213" type="stmt"/>
+            <line num="56" falsecount="4210" type="cond" truecount="3"/>
+            <line num="57" count="3" type="stmt"/>
+            <line num="58" count="3" type="stmt"/>
+            <line num="61" count="4213" type="stmt"/>
+            <line num="62" count="4213" type="stmt"/>
+            <line num="63" count="4213" type="stmt"/>
+            <line num="65" count="4213" type="stmt"/>
+            <line num="65" falsecount="4213" type="cond" truecount="0"/>
+            <line num="66" count="0" type="stmt"/>
+            <line num="69" count="4213" type="stmt"/>
+            <line num="71" count="4213" type="stmt"/>
+            <line num="71" falsecount="4213" type="cond" truecount="0"/>
+            <line num="72" count="0" type="stmt"/>
+            <line num="73" count="0" type="stmt"/>
+            <line num="76" count="4213" type="stmt"/>
+            <line num="78" count="4213" type="stmt"/>
+            <line num="80" count="4213" type="stmt"/>
+            <line num="82" count="4213" type="stmt"/>
+            <line num="83" count="4213" type="stmt"/>
+            <line num="85" count="4213" type="stmt"/>
+            <line num="87" count="4213" type="stmt"/>
+            <line num="89" count="4213" type="stmt"/>
+            <line num="90" count="4213" type="stmt"/>
+            <line num="92" count="4213" type="stmt"/>
+            <line num="95" count="2" type="stmt"/>
+            <line num="96" count="2" type="stmt"/>
+            <line num="97" count="2" type="stmt"/>
+            <line num="98" count="2" type="stmt"/>
+            <line num="99" count="2" type="stmt"/>
+            <line num="102" count="2" visibility="public" complexity="1" type="method" signature="initializeOutputData(OutputData,ArrayList&lt;GeneticProgrammingTree&gt;,GeneticProgrammingTree) : void"/>
+            <line num="103" count="2" type="stmt"/>
+            <line num="104" count="2" type="stmt"/>
+            <line num="105" count="2" type="stmt"/>
+            <line num="106" count="2" type="stmt"/>
+            <line num="109" count="4213" visibility="private" complexity="1" type="method" signature="performFitnesEvaluation(ArrayList&lt;GeneticProgrammingTree&gt;) : void"/>
+            <line num="110" count="4213" type="stmt"/>
+            <line num="111" count="421300" type="stmt"/>
+            <line num="112" count="421300" type="stmt"/>
+            <line num="116" count="4215" visibility="private" complexity="1" type="method" signature="getCurrentMaxFitnessTree(ArrayList&lt;GeneticProgrammingTree&gt;) : GeneticProgrammingTree"/>
+            <line num="117" count="4215" type="stmt"/>
+            <line num="118" count="4215" type="stmt"/>
+            <line num="121" count="4215" visibility="private" complexity="5" type="method" signature="done(long,GeneticProgrammingTree) : boolean"/>
+            <line num="122" count="4215" type="stmt"/>
+            <line num="122" falsecount="4213" type="cond" truecount="2"/>
+            <line num="123" count="2" type="stmt"/>
+            <line num="123" falsecount="2" type="cond" truecount="0"/>
+            <line num="124" count="0" type="stmt"/>
+            <line num="126" count="2" type="stmt"/>
+            <line num="128" count="4213" type="stmt"/>
+            <line num="128" falsecount="4213" type="cond" truecount="0"/>
+            <line num="129" count="0" type="stmt"/>
+            <line num="131" count="4213" type="stmt"/>
+            <line num="135" count="4215" visibility="private" complexity="4" type="method" signature="bestSolutionFound(GeneticProgrammingTree) : boolean"/>
+            <line num="136" count="4215" type="stmt"/>
+            <line num="137" count="4215" type="stmt"/>
+            <line num="137" falsecount="4213" type="cond" truecount="2"/>
+            <line num="138" count="2" type="stmt"/>
+            <line num="140" count="2" type="stmt"/>
+            <line num="140" falsecount="2" type="cond" truecount="0"/>
+            <line num="141" count="0" type="stmt"/>
+            <line num="145" count="4215" type="stmt"/>
+            <line num="145" falsecount="4215" type="cond" truecount="0"/>
+            <line num="146" count="0" type="stmt"/>
+            <line num="147" count="0" type="stmt"/>
+            <line num="150" count="4215" type="stmt"/>
+            <line num="153" count="4213" visibility="private" complexity="5" type="method" signature="executionTimeExceeded(long) : boolean"/>
+            <line num="154" count="4213" type="stmt"/>
+            <line num="155" count="4213" type="stmt"/>
+            <line num="157" count="4213" type="stmt"/>
+            <line num="157" falsecount="4213" type="cond" truecount="0"/>
+            <line num="158" count="0" type="stmt"/>
+            <line num="159" count="0" type="stmt"/>
+            <line num="160" count="0" type="stmt"/>
+            <line num="161" count="0" type="stmt"/>
+            <line num="164" count="4213" type="stmt"/>
+            <line num="164" falsecount="4213" type="cond" truecount="0"/>
+            <line num="165" count="0" type="stmt"/>
+            <line num="165" falsecount="0" type="cond" truecount="0"/>
+            <line num="166" count="0" type="stmt"/>
+            <line num="167" count="0" type="stmt"/>
+            <line num="168" count="0" type="stmt"/>
+            <line num="171" count="0" type="stmt"/>
+            <line num="173" count="4213" type="stmt"/>
+            <line num="173" falsecount="4213" type="cond" truecount="0"/>
+            <line num="174" count="0" type="stmt"/>
+            <line num="175" count="0" type="stmt"/>
+            <line num="178" count="4213" type="stmt"/>
+            <line num="182" count="4217" visibility="private" complexity="1" type="method" signature="getCurrentTime() : long"/>
+            <line num="183" count="4217" type="stmt"/>
+            <line num="186" count="5" visibility="private" complexity="4" type="method" signature="getInitialPopulation(ArrayList&lt;TrainingData&gt;) : ArrayList&lt;GeneticProgrammingTree&gt;"/>
+            <line num="187" count="5" type="stmt"/>
+            <line num="189" count="5" type="stmt"/>
+            <line num="190" count="5" type="stmt"/>
+            <line num="192" count="5" type="stmt"/>
+            <line num="194" count="5" type="stmt"/>
+            <line num="196" count="0" type="stmt"/>
+            <line num="199" count="5" type="stmt"/>
+            <line num="200" count="5" type="stmt"/>
+            <line num="201" count="5" type="stmt"/>
+            <line num="201" falsecount="5" type="cond" truecount="500"/>
+            <line num="202" count="500" type="stmt"/>
+            <line num="204" count="500" type="stmt"/>
+            <line num="207" count="0" type="stmt"/>
+            <line num="209" count="5" type="stmt"/>
+         </file>
+      </package>
+   </project>
+   <testproject timestamp="1386024675923" name="gps Coverage Report">
+      <metrics conditionals="18" methods="19" classes="4" files="4" packages="1" coveredstatements="230" complexity="53" loc="605" ncloc="444" coveredmethods="19" coveredconditionals="17" statements="279" coveredelements="266" elements="316"/>
+      <package name="test">
+         <metrics conditionals="18" methods="19" classes="4" files="4" coveredstatements="230" complexity="53" loc="605" ncloc="444" coveredmethods="19" coveredconditionals="17" statements="279" coveredelements="266" elements="316"/>
+         <file name="TreeTest.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\test\TreeTest.java">
+            <metrics classes="1" methods="13" conditionals="14" ncloc="304" coveredstatements="163" coveredmethods="13" complexity="39" coveredconditionals="13" statements="200" loc="418" coveredelements="189" elements="227"/>
+            <class name="TreeTest">
+               <metrics conditionals="14" methods="13" coveredstatements="163" complexity="39" testpasses="13" testruns="13" coveredmethods="13" coveredconditionals="13" statements="200" testfailures="0" coveredelements="189" elements="227" testduration="1.305"/>
+            </class>
+            <line num="19" testsuccess="true" count="1" visibility="public" complexity="2" type="method" testduration="0.006" signature="testGenerateTree() : void"/>
+            <line num="21" count="1" type="stmt"/>
+            <line num="22" count="1" type="stmt"/>
+            <line num="24" count="1" type="stmt"/>
+            <line num="25" count="1" type="stmt"/>
+            <line num="26" count="1" type="stmt"/>
+            <line num="28" count="1" type="stmt"/>
+            <line num="30" count="1" type="stmt"/>
+            <line num="32" count="1" type="stmt"/>
+            <line num="34" count="1" type="stmt"/>
+            <line num="35" count="1" type="stmt"/>
+            <line num="37" count="0" type="stmt"/>
+            <line num="38" count="0" type="stmt"/>
+            <line num="45" testsuccess="true" count="1" visibility="public" complexity="1" type="method" testduration="0.0" signature="testTreeDepth() : void"/>
+            <line num="47" count="1" type="stmt"/>
+            <line num="48" count="1" type="stmt"/>
+            <line num="49" count="1" type="stmt"/>
+            <line num="51" count="1" type="stmt"/>
+            <line num="52" count="1" type="stmt"/>
+            <line num="53" count="1" type="stmt"/>
+            <line num="55" count="1" type="stmt"/>
+            <line num="61" testsuccess="true" count="1" visibility="public" complexity="1" type="method" testduration="0.0" signature="testTreeFitness() : void"/>
+            <line num="63" count="1" type="stmt"/>
+            <line num="64" count="1" type="stmt"/>
+            <line num="66" count="1" type="stmt"/>
+            <line num="67" count="1" type="stmt"/>
+            <line num="68" count="1" type="stmt"/>
+            <line num="69" count="1" type="stmt"/>
+            <line num="71" count="1" type="stmt"/>
+            <line num="72" count="1" type="stmt"/>
+            <line num="78" testsuccess="true" count="1" visibility="public" complexity="3" type="method" testduration="0.0" signature="testGPTreeMaxDepth() : void"/>
+            <line num="80" count="1" type="stmt"/>
+            <line num="82" count="1" type="stmt"/>
+            <line num="84" count="1" type="stmt"/>
+            <line num="84" falsecount="1" type="cond" truecount="5"/>
+            <line num="85" count="5" type="stmt"/>
+            <line num="87" count="5" type="stmt"/>
+            <line num="87" falsecount="5" type="cond" truecount="0"/>
+            <line num="88" count="0" type="stmt"/>
+            <line num="97" testsuccess="true" count="1" visibility="public" complexity="3" type="method" testduration="0.021" signature="testOperatorFirst() : void"/>
+            <line num="100" count="1" type="stmt"/>
+            <line num="102" count="1" type="stmt"/>
+            <line num="102" falsecount="1" type="cond" truecount="100"/>
+            <line num="103" count="100" type="stmt"/>
+            <line num="105" count="100" type="stmt"/>
+            <line num="105" falsecount="31" type="cond" truecount="69"/>
+            <line num="106" count="69" type="stmt"/>
+            <line num="108" count="31" type="stmt"/>
+            <line num="112" testsuccess="true" count="1" visibility="public" complexity="2" type="method" testduration="0.08" signature="testCreateGeneticProgammingTree() : void"/>
+            <line num="114" count="1" type="stmt"/>
+            <line num="116" count="1" type="stmt"/>
+            <line num="117" count="1" type="stmt"/>
+            <line num="119" count="1" type="stmt"/>
+            <line num="121" count="1" type="stmt"/>
+            <line num="122" count="1" type="stmt"/>
+            <line num="124" count="1" type="stmt"/>
+            <line num="125" count="1" type="stmt"/>
+            <line num="127" count="1" type="stmt"/>
+            <line num="129" count="0" type="stmt"/>
+            <line num="130" count="0" type="stmt"/>
+            <line num="134" testsuccess="true" count="1" visibility="public" complexity="4" type="method" testduration="0.11" signature="testSortGeneticProgammingPopulation() : void"/>
+            <line num="136" count="1" type="stmt"/>
+            <line num="138" count="1" type="stmt"/>
+            <line num="140" count="1" type="stmt"/>
+            <line num="141" count="1" type="stmt"/>
+            <line num="143" count="1" type="stmt"/>
+            <line num="145" count="1" type="stmt"/>
+            <line num="147" count="0" type="stmt"/>
+            <line num="148" count="0" type="stmt"/>
+            <line num="151" count="1" type="stmt"/>
+            <line num="152" count="1" type="stmt"/>
+            <line num="153" count="1" type="stmt"/>
+            <line num="153" falsecount="1" type="cond" truecount="100"/>
+            <line num="154" count="100" type="stmt"/>
+            <line num="156" count="100" type="stmt"/>
+            <line num="158" count="100" type="stmt"/>
+            <line num="159" count="100" type="stmt"/>
+            <line num="162" count="0" type="stmt"/>
+            <line num="163" count="0" type="stmt"/>
+            <line num="166" count="1" type="stmt"/>
+            <line num="167" count="1" type="stmt"/>
+            <line num="168" count="100" type="stmt"/>
+            <line num="171" count="1" type="stmt"/>
+            <line num="173" count="1" type="stmt"/>
+            <line num="174" count="1" type="stmt"/>
+            <line num="175" count="100" type="stmt"/>
+            <line num="179" testsuccess="true" count="1" visibility="public" complexity="4" type="method" testduration="0.094" signature="testGenerateInitialTree() : void"/>
+            <line num="181" count="1" type="stmt"/>
+            <line num="183" count="1" type="stmt"/>
+            <line num="184" count="1" type="stmt"/>
+            <line num="186" count="1" type="stmt"/>
+            <line num="187" count="1" type="stmt"/>
+            <line num="189" count="1" type="stmt"/>
+            <line num="191" count="1" type="stmt"/>
+            <line num="193" count="1" type="stmt"/>
+            <line num="195" count="1" type="stmt"/>
+            <line num="197" count="0" type="stmt"/>
+            <line num="198" count="0" type="stmt"/>
+            <line num="201" count="1" type="stmt"/>
+            <line num="202" count="1" type="stmt"/>
+            <line num="202" falsecount="1" type="cond" truecount="100"/>
+            <line num="203" count="100" type="stmt"/>
+            <line num="205" count="100" type="stmt"/>
+            <line num="207" count="100" type="stmt"/>
+            <line num="209" count="100" type="stmt"/>
+            <line num="210" count="100" type="stmt"/>
+            <line num="212" count="100" type="stmt"/>
+            <line num="213" count="100" type="stmt"/>
+            <line num="215" count="100" type="stmt"/>
+            <line num="216" count="100" type="stmt"/>
+            <line num="219" count="0" type="stmt"/>
+            <line num="223" testsuccess="true" count="1" visibility="public" complexity="4" type="method" testduration="0.074" signature="testPrintTree() : void"/>
+            <line num="225" count="1" type="stmt"/>
+            <line num="227" count="1" type="stmt"/>
+            <line num="228" count="1" type="stmt"/>
+            <line num="230" count="1" type="stmt"/>
+            <line num="231" count="1" type="stmt"/>
+            <line num="233" count="1" type="stmt"/>
+            <line num="235" count="1" type="stmt"/>
+            <line num="237" count="1" type="stmt"/>
+            <line num="239" count="1" type="stmt"/>
+            <line num="241" count="0" type="stmt"/>
+            <line num="242" count="0" type="stmt"/>
+            <line num="245" count="1" type="stmt"/>
+            <line num="246" count="1" type="stmt"/>
+            <line num="246" falsecount="1" type="cond" truecount="100"/>
+            <line num="247" count="100" type="stmt"/>
+            <line num="249" count="100" type="stmt"/>
+            <line num="251" count="100" type="stmt"/>
+            <line num="253" count="100" type="stmt"/>
+            <line num="256" count="0" type="stmt"/>
+            <line num="260" testsuccess="true" count="1" visibility="public" complexity="3" type="method" testduration="0.119" signature="testGetSortedPopulation() : void"/>
+            <line num="262" count="1" type="stmt"/>
+            <line num="264" count="1" type="stmt"/>
+            <line num="266" count="1" type="stmt"/>
+            <line num="267" count="1" type="stmt"/>
+            <line num="269" count="1" type="stmt"/>
+            <line num="271" count="1" type="stmt"/>
+            <line num="273" count="0" type="stmt"/>
+            <line num="274" count="0" type="stmt"/>
+            <line num="277" count="1" type="stmt"/>
+            <line num="278" count="1" type="stmt"/>
+            <line num="279" count="1" type="stmt"/>
+            <line num="281" count="0" type="stmt"/>
+            <line num="282" count="0" type="stmt"/>
+            <line num="285" count="1" type="stmt"/>
+            <line num="287" count="1" type="stmt"/>
+            <line num="288" count="1" type="stmt"/>
+            <line num="289" count="100" type="stmt"/>
+            <line num="290" count="100" type="stmt"/>
+            <line num="294" testsuccess="true" count="1" visibility="public" complexity="3" type="method" testduration="0.407" signature="testGetInitialGeneticTreePopulation() : void"/>
+            <line num="296" count="1" type="stmt"/>
+            <line num="298" count="1" type="stmt"/>
+            <line num="300" count="1" type="stmt"/>
+            <line num="301" count="1" type="stmt"/>
+            <line num="303" count="1" type="stmt"/>
+            <line num="305" count="1" type="stmt"/>
+            <line num="307" count="0" type="stmt"/>
+            <line num="308" count="0" type="stmt"/>
+            <line num="311" count="1" type="stmt"/>
+            <line num="312" count="1" type="stmt"/>
+            <line num="313" count="1" type="stmt"/>
+            <line num="315" count="0" type="stmt"/>
+            <line num="316" count="0" type="stmt"/>
+            <line num="319" count="1" type="stmt"/>
+            <line num="320" count="100" type="stmt"/>
+            <line num="324" testsuccess="true" count="1" visibility="public" complexity="4" type="method" testduration="0.104" signature="testListTreeNodes() : void"/>
+            <line num="326" count="1" type="stmt"/>
+            <line num="328" count="1" type="stmt"/>
+            <line num="330" count="1" type="stmt"/>
+            <line num="331" count="1" type="stmt"/>
+            <line num="333" count="1" type="stmt"/>
+            <line num="335" count="1" type="stmt"/>
+            <line num="337" count="0" type="stmt"/>
+            <line num="338" count="0" type="stmt"/>
+            <line num="341" count="1" type="stmt"/>
+            <line num="342" count="1" type="stmt"/>
+            <line num="343" count="1" type="stmt"/>
+            <line num="345" count="0" type="stmt"/>
+            <line num="346" count="0" type="stmt"/>
+            <line num="349" count="1" type="stmt"/>
+            <line num="350" count="100" type="stmt"/>
+            <line num="352" count="100" type="stmt"/>
+            <line num="353" count="100" type="stmt"/>
+            <line num="354" count="100" type="stmt"/>
+            <line num="355" count="100" type="stmt"/>
+            <line num="357" count="0" type="stmt"/>
+            <line num="358" count="0" type="stmt"/>
+            <line num="364" testsuccess="true" count="1" visibility="public" complexity="5" type="method" testduration="0.29" signature="testTreeCopy() : void"/>
+            <line num="366" count="1" type="stmt"/>
+            <line num="368" count="1" type="stmt"/>
+            <line num="370" count="1" type="stmt"/>
+            <line num="371" count="1" type="stmt"/>
+            <line num="373" count="1" type="stmt"/>
+            <line num="375" count="1" type="stmt"/>
+            <line num="377" count="0" type="stmt"/>
+            <line num="378" count="0" type="stmt"/>
+            <line num="381" count="1" type="stmt"/>
+            <line num="382" count="1" type="stmt"/>
+            <line num="383" count="1" type="stmt"/>
+            <line num="385" count="0" type="stmt"/>
+            <line num="386" count="0" type="stmt"/>
+            <line num="389" count="1" type="stmt"/>
+            <line num="390" count="100" type="stmt"/>
+            <line num="391" count="100" type="stmt"/>
+            <line num="392" count="100" type="stmt"/>
+            <line num="394" count="0" type="stmt"/>
+            <line num="395" count="0" type="stmt"/>
+            <line num="398" count="100" type="stmt"/>
+            <line num="399" count="100" type="stmt"/>
+            <line num="401" count="100" type="stmt"/>
+            <line num="402" count="100" type="stmt"/>
+            <line num="404" count="100" type="stmt"/>
+            <line num="405" count="100" type="stmt"/>
+            <line num="407" count="0" type="stmt"/>
+            <line num="408" count="0" type="stmt"/>
+            <line num="411" count="100" type="stmt"/>
+            <line num="412" count="100" type="stmt"/>
+            <line num="414" count="100" type="stmt"/>
+            <line num="415" count="100" type="stmt"/>
+         </file>
+         <file name="TrainingDataTest.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\test\TrainingDataTest.java">
+            <metrics classes="1" methods="1" conditionals="0" ncloc="17" coveredstatements="7" coveredmethods="1" complexity="1" coveredconditionals="0" statements="7" loc="24" coveredelements="8" elements="8"/>
+            <class name="TrainingDataTest">
+               <metrics conditionals="0" methods="1" coveredstatements="7" complexity="1" testpasses="1" testruns="1" coveredmethods="1" coveredconditionals="0" statements="7" testfailures="0" coveredelements="8" elements="8" testduration="0.02"/>
+            </class>
+            <line num="12" testsuccess="true" count="1" visibility="public" complexity="1" type="method" testduration="0.02" signature="testLoadTrainingData() : void"/>
+            <line num="14" count="1" type="stmt"/>
+            <line num="16" count="1" type="stmt"/>
+            <line num="17" count="1" type="stmt"/>
+            <line num="18" count="1" type="stmt"/>
+            <line num="19" count="1" type="stmt"/>
+            <line num="20" count="1" type="stmt"/>
+            <line num="22" count="1" type="stmt"/>
+         </file>
+         <file name="SettingsTest.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\test\SettingsTest.java">
+            <metrics classes="1" methods="2" conditionals="2" ncloc="37" coveredstatements="13" coveredmethods="2" complexity="5" coveredconditionals="2" statements="17" loc="47" coveredelements="17" elements="21"/>
+            <class name="SettingsTest">
+               <metrics conditionals="2" methods="2" coveredstatements="13" complexity="5" testpasses="2" testruns="2" coveredmethods="2" coveredconditionals="2" statements="17" testfailures="0" coveredelements="17" elements="21" testduration="0.013"/>
+            </class>
+            <line num="14" testsuccess="true" count="1" visibility="public" complexity="2" type="method" testduration="0.012" signature="testPrintMaxNodesSetting() : void"/>
+            <line num="16" count="1" type="stmt"/>
+            <line num="18" count="1" type="stmt"/>
+            <line num="19" count="1" type="stmt"/>
+            <line num="20" count="1" type="stmt"/>
+            <line num="21" count="1" type="stmt"/>
+            <line num="22" count="1" type="stmt"/>
+            <line num="24" count="0" type="stmt"/>
+            <line num="25" count="0" type="stmt"/>
+            <line num="29" testsuccess="true" count="1" visibility="public" complexity="3" type="method" testduration="0.001" signature="testPrintAllSettings() : void"/>
+            <line num="31" count="1" type="stmt"/>
+            <line num="33" count="1" type="stmt"/>
+            <line num="34" count="1" type="stmt"/>
+            <line num="36" count="1" type="stmt"/>
+            <line num="38" count="1" type="stmt"/>
+            <line num="38" falsecount="1" type="cond" truecount="12"/>
+            <line num="39" count="12" type="stmt"/>
+            <line num="40" count="12" type="stmt"/>
+            <line num="43" count="0" type="stmt"/>
+            <line num="44" count="0" type="stmt"/>
+         </file>
+         <file name="GeneticOperatorsTest.java" path="C:\docs\class\seis610\project\GitHub\genetic-programming\src\test\GeneticOperatorsTest.java">
+            <metrics classes="1" methods="3" conditionals="2" ncloc="86" coveredstatements="47" coveredmethods="3" complexity="8" coveredconditionals="2" statements="55" loc="116" coveredelements="52" elements="60"/>
+            <class name="GeneticOperatorsTest">
+               <metrics conditionals="2" methods="3" coveredstatements="47" complexity="8" testpasses="3" testruns="3" coveredmethods="3" coveredconditionals="2" statements="55" testfailures="0" coveredelements="52" elements="60" testduration="0.81999993"/>
+            </class>
+            <line num="18" testsuccess="true" count="1" visibility="public" complexity="5" type="method" testduration="0.585" signature="testCrossover() : void"/>
+            <line num="20" count="1" type="stmt"/>
+            <line num="22" count="1" type="stmt"/>
+            <line num="24" count="1" type="stmt"/>
+            <line num="25" count="1" type="stmt"/>
+            <line num="27" count="1" type="stmt"/>
+            <line num="29" count="1" type="stmt"/>
+            <line num="31" count="0" type="stmt"/>
+            <line num="32" count="0" type="stmt"/>
+            <line num="35" count="1" type="stmt"/>
+            <line num="36" count="1" type="stmt"/>
+            <line num="37" count="1" type="stmt"/>
+            <line num="39" count="0" type="stmt"/>
+            <line num="40" count="0" type="stmt"/>
+            <line num="43" count="1" type="stmt"/>
+            <line num="43" falsecount="1" type="cond" truecount="50"/>
+            <line num="44" count="50" type="stmt"/>
+            <line num="45" count="50" type="stmt"/>
+            <line num="46" count="50" type="stmt"/>
+            <line num="47" count="50" type="stmt"/>
+            <line num="48" count="50" type="stmt"/>
+            <line num="50" count="50" type="stmt"/>
+            <line num="52" count="50" type="stmt"/>
+            <line num="53" count="50" type="stmt"/>
+            <line num="54" count="50" type="stmt"/>
+            <line num="56" count="0" type="stmt"/>
+            <line num="57" count="0" type="stmt"/>
+            <line num="62" testsuccess="true" count="1" visibility="public" complexity="1" type="method" testduration="0.169" signature="testSelection() : void"/>
+            <line num="64" count="1" type="stmt"/>
+            <line num="66" count="1" type="stmt"/>
+            <line num="67" count="1" type="stmt"/>
+            <line num="68" count="1" type="stmt"/>
+            <line num="70" count="1" type="stmt"/>
+            <line num="71" count="1" type="stmt"/>
+            <line num="72" count="1" type="stmt"/>
+            <line num="77" count="1" type="stmt"/>
+            <line num="78" count="1" type="stmt"/>
+            <line num="80" count="1" type="stmt"/>
+            <line num="83" count="1" type="stmt"/>
+            <line num="84" count="1" type="stmt"/>
+            <line num="88" testsuccess="true" count="1" visibility="public" complexity="2" type="method" testduration="0.066" signature="testMutate() : void"/>
+            <line num="90" count="1" type="stmt"/>
+            <line num="91" count="1" type="stmt"/>
+            <line num="92" count="1" type="stmt"/>
+            <line num="93" count="1" type="stmt"/>
+            <line num="94" count="1" type="stmt"/>
+            <line num="95" count="1" type="stmt"/>
+            <line num="96" count="1" type="stmt"/>
+            <line num="98" count="0" type="stmt"/>
+            <line num="99" count="0" type="stmt"/>
+            <line num="103" count="1" type="stmt"/>
+            <line num="104" count="1" type="stmt"/>
+            <line num="105" count="1" type="stmt"/>
+            <line num="106" count="1" type="stmt"/>
+            <line num="108" count="1" type="stmt"/>
+            <line num="110" count="1" type="stmt"/>
+            <line num="111" count="1" type="stmt"/>
+            <line num="113" count="1" type="stmt"/>
+            <line num="114" count="1" type="stmt"/>
+         </file>
+      </package>
+   </testproject>
+</coverage>
