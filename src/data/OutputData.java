@@ -10,6 +10,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 import utilities.Utilities;
 
+import java.awt.GridLayout;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class OutputData {
     private ArrayList<GeneticProgrammingTree> fittestTreeInEachGeneration = new ArrayList<GeneticProgrammingTree>();
@@ -25,9 +29,13 @@ public class OutputData {
     private long currentTime = 0;
     private int generationCount = 0;
     
-    JFreeChart chart = null;
-    ChartPanel cp = null;
-    JFrame frame = null;
+    private JFreeChart chart = null;
+    private JFrame topFrame = null;
+    private JPanel mainPanel = null;
+    private ChartPanel cp = null;   
+    private JPanel results = null;
+    private JTextArea textArea = null;
+    
     XYSeries series = null;
     
     public void setStartTime(long time) {
@@ -63,6 +71,7 @@ public class OutputData {
     public void displayResults() throws Exception {
         printSeperatorLine();
         printResults();
+        updateDashboard();
         printSeperatorLine();
     }
     
@@ -84,6 +93,7 @@ public class OutputData {
         printSeperatorLine();
         System.out.println("----------------------------------------------------------------*** Final Results ***-----------------------------------------------------------------------------");
         printResults();
+        updateDashboard();
         System.out.println("");
         if (fittestTreeInEachGeneration.get(generationCount - 1).getRoot().depth() < 9) {
             Utilities.printTreeNode(fittestTreeInEachGeneration.get(generationCount - 1).getRoot());
@@ -179,24 +189,40 @@ public class OutputData {
         ChartUtilities.saveChartAsJPEG(new File("xy_graph.jpg"), chart, 1500, 900);       
     }
     
-    public void createXYGraphDisplay() throws Exception{
-        series = new XYSeries("x/f(x)");
+    public void createDashboard() throws Exception{
+        series = new XYSeries("f(x)");
             
         for (TrainingData trainingData : TrainingData.getTrainingData()) {
             series.add(trainingData.inputData, fittestTreeInEachGeneration.get(generationCount - 1).evaluate(trainingData.inputData));
         }
         
+        createAndShowDashboard(); 
+    }
+
+    private void createAndShowDashboard() {
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(series);
         
-        frame = new JFrame("XYChart");
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        topFrame = new JFrame("\t\t\tGenetic Programming System");
+
+        mainPanel = new JPanel();
+        GridLayout layout = new GridLayout(0,1);
+        mainPanel.setLayout(layout);
         
-        frame.setSize(1200, 800);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        results = new JPanel();
+        
+        textArea = new JTextArea(9, 80);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        textArea.setEditable(false);
+        results.add(scrollPane);
+        
+        topFrame.setSize(1200, 800);
+        topFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        topFrame.setVisible(true);
 
          chart = ChartFactory.createXYLineChart(
-            "x/f(x)",                    
+            "f(x)",                    
             "x",                    
             "y",
             dataset,
@@ -207,16 +233,44 @@ public class OutputData {
         );
         
         cp = new ChartPanel(chart);
+        mainPanel.add(cp);
+        mainPanel.add(results);
     
-        frame.getContentPane().add(cp); 
+        topFrame.getContentPane().add(mainPanel);
     }
     
-    public void updateXYGraphDisplay() throws Exception {
+    public void updateDashboard() throws Exception {
+        if (topFrame == null) {
+            createDashboard();
+        }
+        
         for (TrainingData trainingData : TrainingData.getTrainingData()) {
             series.update(trainingData.inputData, fittestTreeInEachGeneration.get(generationCount - 1).evaluate(trainingData.inputData));
         }
-    }
+        
+        Date start = new Date(startTime); 
+        Date end = new Date(currentTime);
 
+         // This is to format the your current date to the desired format
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        
+        String startString = sdf.format(start);
+        String endString = sdf.format(end);
+        
+        StringBuffer sb = new StringBuffer();
+        sb.append("Start Time\t\t\t: " + startString + "\n");
+        sb.append("Current Time\t\t\t: " + endString + "\n");
+        sb.append("Elapsed seconds\t\t: " + (currentTime - startTime) + " milliseconds" + "\n");
+        
+        sb.append("Current generation count\t\t: " + generationCount + "\n");
+        sb.append("Current generation population size\t: " + populationSizeInEachGeneration.get(generationCount - 1) + "\n");  
+        
+        sb.append("Fittest Solution\t\t\t: " + fittestTreeInEachGeneration.get(generationCount - 1).getExpression() + "\n");
+        sb.append("Fittest Soluton depth\t\t: " + fittestTreeInEachGeneration.get(generationCount - 1).depth() + "\n");
+        sb.append("Fitness\t\t\t: " + fittestTreeInEachGeneration.get(generationCount - 1).getFitness() + "\n");
+        textArea.setText(sb.toString());
+    }
+    
     private void printResults() throws Exception {
         Date start = new Date(startTime); 
         Date end = new Date(currentTime);
@@ -235,6 +289,6 @@ public class OutputData {
         fittestTreeInEachGeneration.get(generationCount - 1).inOrderPrint();
         System.out.println("Fittest Solution (trimmed)          : " + fittestTreeInEachGeneration.get(generationCount - 1).getExpression());
         System.out.println("Fittest Soluton depth               : " + fittestTreeInEachGeneration.get(generationCount - 1).depth());
-        System.out.println("Fitness                             : " + fittestTreeInEachGeneration.get(generationCount - 1).getFitness());
-    }
+        System.out.println("Fitness                             : " + fittestTreeInEachGeneration.get(generationCount - 1).getFitness());        
+    }        
 }

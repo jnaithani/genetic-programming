@@ -102,7 +102,10 @@ public class TreeTest {
         for(int i = 0; i < 100; i++){
             Tree gpTree = GeneticProgrammingTree.generateTree(maxDepth);
 
-            assertThat(gpTree.getRoot(), instanceOf(OperatorNode.class));
+            if (gpTree.getRoot().depth() > 1)
+                assertThat(gpTree.getRoot(), instanceOf(OperatorNode.class));
+            else
+                assertThat(gpTree.getRoot(), instanceOf(OperandNode.class));
         }
 
     }

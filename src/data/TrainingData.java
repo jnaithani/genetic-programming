@@ -53,6 +53,48 @@ public class TrainingData {
         bw.close();
     }
     
+    public static void generateInitialTrainingDataOriginal(double minValue, int dataSetSize) throws Exception {
+        
+        FileOutputStream outputStream = new FileOutputStream("trainingdata_orig.txt");
+        
+        DataOutputStream out = new DataOutputStream(outputStream);
+        
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(out));
+        
+        for (int i = 0; i < dataSetSize; i++) {
+            double x = minValue; 
+            double y = ((x * x) - 1)/2;
+            
+            bw.write("" + x + "," + y + "\n");
+            
+            minValue++;
+        }
+        
+        bw.flush();
+        bw.close();
+    }
+    
+    public static void generateInitialTrainingDataOptional(double minValue, int dataSetSize) throws Exception {
+        
+        FileOutputStream outputStream = new FileOutputStream("trainingdata_opt.txt");
+        
+        DataOutputStream out = new DataOutputStream(outputStream);
+        
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(out));
+        
+        for (int i = 0; i < dataSetSize; i++) {
+            double x = minValue; 
+            double y = ((-3 * (x * x * x)) + 7)/2;
+            
+            bw.write("" + x + "," + y + "\n");
+            
+            minValue++;
+        }
+        
+        bw.flush();
+        bw.close();
+    }
+    
     public static ArrayList<TrainingData> getTrainingData() throws Exception {
         if (trainingDataList == null) {
             trainingDataList = readTrainingData(TRAINING_FILE_NAME);

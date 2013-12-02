@@ -48,7 +48,7 @@ public class GeneticProgrammingMain {
         
         GeneticProgrammingTree currentMaxFitnessTree = getCurrentMaxFitnessTree(initialPopulation);
         initializeOutputData(output, initialPopulation, currentMaxFitnessTree);
-        output.createXYGraphDisplay();
+        output.createDashboard();
        
         // Generate the best fit solution
         ArrayList<GeneticProgrammingTree> population = initialPopulation;
@@ -60,7 +60,7 @@ public class GeneticProgrammingMain {
             
             output.setCurrentTime(getCurrentTime());
             output.displayResults();
-            output.updateXYGraphDisplay();
+            output.updateDashboard();
             
             if (Settings.trace()) {
                 output.displayPopulation(population);
@@ -95,7 +95,6 @@ public class GeneticProgrammingMain {
         output.setCurrentTime(getCurrentTime());
         output.displayPopulation(population);
         output.displayFinalResults();
-        output.updateXYGraphDisplay();
         output.recordXYGraph();
         output.recordFinalPopulationFitness(population);
 	}
