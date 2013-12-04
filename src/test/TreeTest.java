@@ -2,7 +2,6 @@ package test;
 
 import data.*;
 import org.junit.Test;
-import utilities.GeneticOperators;
 import utilities.NodeFactory;
 import utilities.Settings;
 import utilities.Utilities;
@@ -10,8 +9,8 @@ import utilities.Utilities;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
-import static org.hamcrest.CoreMatchers.instanceOf;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.*;
 
 public class TreeTest {
@@ -92,14 +91,15 @@ public class TreeTest {
 
     /**
      * Test the tree generation to make sure root is always an operator
+     *
      * @throws Exception
      */
     @Test
-    public void testOperatorFirst() throws Exception{
+    public void testOperatorFirst() throws Exception {
 
         int maxDepth = 4;
 
-        for(int i = 0; i < 100; i++){
+        for (int i = 0; i < 100; i++) {
             Tree gpTree = GeneticProgrammingTree.generateTree(maxDepth);
 
             if (gpTree.getRoot().depth() > 1)
@@ -109,6 +109,7 @@ public class TreeTest {
         }
 
     }
+
     @Test
     public void testCreateGeneticProgammingTree() {
         System.out.println("***testCreateGeneticProgammingTree***");
@@ -362,57 +363,26 @@ public class TreeTest {
     }
 
     @Test
-    public void testTreeCopy() {
+    public void testTreeCopy() throws Exception {
         System.out.println("***testTreeCopy***");
 
-        int size = 0;
 
-        try {
-            Properties settings = Settings.getSettings();
+        Properties settings = Settings.getSettings();
+        String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
+        int size = Integer.parseInt(prop);
 
-            String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
-
-            size = Integer.parseInt(prop);
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
-        }
-
-        ArrayList<GeneticProgrammingTree> population = null;
-        try {
-            population = GeneticProgrammingTree.getGeneticTreePopulation(size);
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail("Could not generate GeneticProgramming tree");
-        }
+        ArrayList<GeneticProgrammingTree> population = population = GeneticProgrammingTree.getGeneticTreePopulation(size);
 
         for (GeneticProgrammingTree gpTree : population) {
-            GeneticProgrammingTree gpcopyTree = null;
+            GeneticProgrammingTree gpCopyTree = null;
+
             try {
-                gpcopyTree = GeneticProgrammingTree.copy(gpTree);
+                gpCopyTree = GeneticProgrammingTree.copy(gpTree);
             } catch (Exception e) {
                 e.printStackTrace();
                 fail("Could not copy tree");
             }
-
-            System.out.println("Original - before mutation:");
-            Utilities.printTreeNode(gpTree.getRoot());
-
-            System.out.println("Copy - before mutation:");
-            Utilities.printTreeNode(gpcopyTree.getRoot());
-
-            try {
-                GeneticOperators.mutate(gpcopyTree);
-            } catch (Exception e) {
-                e.printStackTrace();
-                fail("Could not mutate tree");
-            }
-
-            System.out.println("Original - after mutation:");
-            Utilities.printTreeNode(gpTree.getRoot());
-
-            System.out.println("Copy - after mutation:");
-            Utilities.printTreeNode(gpcopyTree.getRoot());
+            assertNotNull(gpCopyTree);
         }
     }
 }
