@@ -205,7 +205,8 @@ public class TreeTest {
 
                 System.out.println("Evaluate: " + gpTree.evaluate(0));
 
-                assertTrue("Could not generate a good initial tree", ((Double.isNaN(gpTree.evaluate(0)) || Double.isInfinite(gpTree.evaluate(0))) == false));
+                assertTrue("Could not generate a good initial tree",
+                        ((Double.isNaN(gpTree.evaluate(0)) || Double.isInfinite(gpTree.evaluate(0))) == false));
 
                 System.out.println("Post Order Print");
                 gpTree.postOrderPrint();
@@ -319,46 +320,6 @@ public class TreeTest {
 
         for (GeneticProgrammingTree gpTree : population) {
             Utilities.printTreeNode(gpTree.getRoot());
-        }
-    }
-
-    @Test
-    public void testListTreeNodes() {
-        System.out.println("***testListTreeNodes***");
-
-        int size = 0;
-
-        try {
-            Properties settings = Settings.getSettings();
-
-            String prop = settings.getProperty(Settings.PROP_POPULATION_SIZE);
-
-            size = Integer.parseInt(prop);
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail("Could not load property '" + Settings.PROP_POPULATION_SIZE + "'");
-        }
-
-        ArrayList<GeneticProgrammingTree> population = null;
-        try {
-            population = GeneticProgrammingTree.getGeneticTreePopulation(size);
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail("Could not generate GeneticProgramming tree");
-        }
-
-        for (GeneticProgrammingTree gpTree : population) {
-            Utilities.printTreeNode(gpTree.getRoot());
-
-            try {
-                System.out.println("All Nodes: " + gpTree.getAllNodes());
-                System.out.println("Operand Nodes: " + gpTree.getOperandNodes());
-                System.out.println("Operator Nodes: " + gpTree.getOperatorNodes());
-            } catch (Exception e) {
-                e.printStackTrace();
-                fail("Could not print tree nodes");
-            }
-
         }
     }
 
