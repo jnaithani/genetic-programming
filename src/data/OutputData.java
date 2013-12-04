@@ -10,6 +10,8 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 import utilities.Utilities;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.io.File;
 import java.text.DateFormat;
@@ -36,7 +38,7 @@ public class OutputData {
     private JPanel results = null;
     private JTextArea textArea = null;
     
-    XYSeries series = null;
+    private volatile XYSeries series = new XYSeries("f(x)");
     
     public void setStartTime(long time) {
         startTime = time;
@@ -94,6 +96,7 @@ public class OutputData {
         System.out.println("----------------------------------------------------------------*** Final Results ***-----------------------------------------------------------------------------");
         printResults();
         updateDashboard();
+        textArea.setBackground(new Color(204,255,204));
         System.out.println("");
         if (fittestTreeInEachGeneration.get(generationCount - 1).getRoot().depth() < 9) {
             Utilities.printTreeNode(fittestTreeInEachGeneration.get(generationCount - 1).getRoot());
@@ -189,39 +192,41 @@ public class OutputData {
         ChartUtilities.saveChartAsJPEG(new File("xy_graph.jpg"), chart, 1500, 900);       
     }
     
-    public void createDashboard() throws Exception{
-        series = new XYSeries("f(x)");
-            
+    public void loadDashboard() throws Exception{       
         for (TrainingData trainingData : TrainingData.getTrainingData()) {
             series.add(trainingData.inputData, fittestTreeInEachGeneration.get(generationCount - 1).evaluate(trainingData.inputData));
         }
         
-        createAndShowDashboard(); 
+        displayResults();
     }
 
-    private void createAndShowDashboard() {
+    public void createAndShowDashboard() {
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(series);
         
         JFrame.setDefaultLookAndFeelDecorated(true);
-        topFrame = new JFrame("\t\t\tGenetic Programming System");
+        topFrame = new JFrame("Genetic Programming System");
 
         mainPanel = new JPanel();
         GridLayout layout = new GridLayout(0,1);
+        
+        layout.setVgap(20);
         mainPanel.setLayout(layout);
         
         results = new JPanel();
         
-        textArea = new JTextArea(9, 80);
+        textArea = new JTextArea(9, 85);
         JScrollPane scrollPane = new JScrollPane(textArea);
         textArea.setEditable(false);
+        textArea.setFont(new Font("Serif",Font.PLAIN,22));
         results.add(scrollPane);
         
-        topFrame.setSize(1200, 800);
+        topFrame.setSize(1440, 900);
         topFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        topFrame.setResizable(true);
         topFrame.setVisible(true);
 
-         chart = ChartFactory.createXYLineChart(
+        chart = ChartFactory.createXYLineChart(
             "f(x)",                    
             "x",                    
             "y",
@@ -241,13 +246,17 @@ public class OutputData {
     
     public void updateDashboard() throws Exception {
         if (topFrame == null) {
-            createDashboard();
+            loadDashboard();
         }
         
         for (TrainingData trainingData : TrainingData.getTrainingData()) {
             series.update(trainingData.inputData, fittestTreeInEachGeneration.get(generationCount - 1).evaluate(trainingData.inputData));
         }
         
+        showResults();
+    }
+
+    public void showResults() throws Exception {
         Date start = new Date(startTime); 
         Date end = new Date(currentTime);
 
@@ -260,14 +269,15 @@ public class OutputData {
         StringBuffer sb = new StringBuffer();
         sb.append("Start Time\t\t\t: " + startString + "\n");
         sb.append("Current Time\t\t\t: " + endString + "\n");
-        sb.append("Elapsed seconds\t\t: " + (currentTime - startTime) + " milliseconds" + "\n");
+        sb.append("Elapsed Time\t\t\t: " + (currentTime - startTime) + " milliseconds" + "\n");
         
-        sb.append("Current generation count\t\t: " + generationCount + "\n");
-        sb.append("Current generation population size\t: " + populationSizeInEachGeneration.get(generationCount - 1) + "\n");  
+        sb.append("Current Generation count\t\t: " + generationCount + "\n");
+        sb.append("Current Generation Population size\t: " + populationSizeInEachGeneration.get(generationCount - 1) + "\n");  
         
-        sb.append("Fittest Solution\t\t\t: " + fittestTreeInEachGeneration.get(generationCount - 1).getExpression() + "\n");
-        sb.append("Fittest Soluton depth\t\t: " + fittestTreeInEachGeneration.get(generationCount - 1).depth() + "\n");
+        sb.append("Fittest Solution\t\t: " + fittestTreeInEachGeneration.get(generationCount - 1).getExpression() + "\n");
+        sb.append("Fittest Solution depth\t\t: " + fittestTreeInEachGeneration.get(generationCount - 1).depth() + "\n");
         sb.append("Fitness\t\t\t: " + fittestTreeInEachGeneration.get(generationCount - 1).getFitness() + "\n");
+        
         textArea.setText(sb.toString());
     }
     

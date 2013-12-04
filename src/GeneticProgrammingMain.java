@@ -3,6 +3,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Properties;
 
+import javax.swing.SwingUtilities;
+
 import utilities.GeneticOperators;
 import utilities.Settings;
 import data.GeneticProgrammingTree;
@@ -21,9 +23,11 @@ public class GeneticProgrammingMain {
 	 * Main Run() 
 	 * @param args
 	 */
+    
+    public final static OutputData output = new OutputData();
+    
 	public static void main(String[] args) {
 		GeneticProgrammingMain gpMain = new GeneticProgrammingMain();
-		
 		try {
             gpMain.process();
         } catch (Exception e) {
@@ -35,8 +39,11 @@ public class GeneticProgrammingMain {
 	public void process() throws Exception {
 	    // Initialize 
 	    ArrayList<TrainingData> trainingData = TrainingData.getTrainingData();
-	    OutputData output = new OutputData();
+
+        showGUI();
 	    
+        OutputData output = GeneticProgrammingMain.output;
+        
         ArrayList<GeneticProgrammingTree> initialPopulation = getInitialPopulation(trainingData);
         
         // Sort population according to fitness, in descending order
@@ -48,7 +55,7 @@ public class GeneticProgrammingMain {
         
         GeneticProgrammingTree currentMaxFitnessTree = getCurrentMaxFitnessTree(initialPopulation);
         initializeOutputData(output, initialPopulation, currentMaxFitnessTree);
-        output.createDashboard();
+        output.loadDashboard();
        
         // Generate the best fit solution
         ArrayList<GeneticProgrammingTree> population = initialPopulation;
@@ -98,6 +105,14 @@ public class GeneticProgrammingMain {
         output.recordXYGraph();
         output.recordFinalPopulationFitness(population);
 	}
+
+    private void showGUI() {
+        SwingUtilities.invokeLater(new Runnable(){
+            public void run(){
+                GeneticProgrammingMain.output.createAndShowDashboard();
+            }
+        });
+    }
 
     public void initializeOutputData(OutputData output, ArrayList<GeneticProgrammingTree> initialPopulation, GeneticProgrammingTree currentMaxFitnessTree) throws Exception {
         output.incrementGenerationCount();
