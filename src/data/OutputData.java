@@ -210,18 +210,18 @@ public class OutputData {
         mainPanel = new JPanel();
         GridLayout layout = new GridLayout(0,1);
         
-        layout.setVgap(20);
+        layout.setVgap(14);
         mainPanel.setLayout(layout);
         
         results = new JPanel();
         
-        textArea = new JTextArea(9, 85);
+        textArea = new JTextArea(9, 80);
         JScrollPane scrollPane = new JScrollPane(textArea);
         textArea.setEditable(false);
-        textArea.setFont(new Font("Serif",Font.PLAIN,22));
+        textArea.setFont(new Font("Serif",Font.PLAIN,16));
         results.add(scrollPane);
         
-        topFrame.setSize(1440, 900);
+        topFrame.setSize(1000, 900);
         topFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         topFrame.setResizable(true);
         topFrame.setVisible(true);
