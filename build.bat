@@ -11,7 +11,7 @@ jar cvfm gps.jar src\Manifest.txt -C classes .
 rem PACKAGE
 echo Packing gps.zip ...
 if not exist .\deliv mkdir deliv
-jar cvfM deliv\gps.zip gps.jar settings.properties trainingdata.txt run.bat lib/* 
+jar cvfM deliv\gps.zip gps.jar settings.properties trainingdata.txt run.bat lib/*  deliv/readme.txt
 
 rem END
 echo Done.

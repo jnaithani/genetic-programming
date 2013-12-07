@@ -43,3 +43,4 @@ Execution details and X-Y charts are generated:
 	- initial_population_fitness.jpg
 	- final_population_fitness.jpg
 	- bestfitness_generation.jpg
+        - xy_graph.jpg
